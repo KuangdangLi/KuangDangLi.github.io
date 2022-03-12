@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My New Hugo Site</title>
+    <link>http://gitKuangDangLi.github.io/post/</link>
+    <description>Recent content in Posts on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Mar 2022 18:21:23 +0800</lastBuildDate><atom:link href="http://gitKuangDangLi.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HtmlFirstNote</title>
+      <link>http://gitKuangDangLi.github.io/post/htmlfirstnote/</link>
+      <pubDate>Sat, 12 Mar 2022 18:21:23 +0800</pubDate>
+      
+      <guid>http://gitKuangDangLi.github.io/post/htmlfirstnote/</guid>
+      <description>HTML入门笔记1  HTML是谁发明的？
+HTML的发明者是蒂莫西・约翰・伯纳斯 - 李爵士(Sir Timothy John Berners-Lee)。 HTML 起手应该写什么？ 使用!加tab生成起手式 常用的表章节标签有哪些，分别是什么意思?   标题 h1~h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  全局属性有哪些？   类选择器 class 元素是否可编辑 contenteditable 是否隐藏 hidden id选择器 id 样式声明 style 元素是否被聚焦 tabindex 额外信息 title  常用的内容标签有哪些，分别是什么意思?   无序列表 ol+li 有序列表 ul+li 描述列表 dl+dt+dd 保留原来的格式 pre 分割线 hr 换行 br 超链接 a 语气强调，斜体显示 em 内容强调，默认加粗字体 strong 表示代码 code 行内引用 quote 换行引用 blockquote  </description>
+    </item>
+    
+  </channel>
+</rss>
