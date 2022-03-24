@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="generator" content="Hugo 0.94.1" />
+		<title>CSS Sumary - My New Hugo Site</title>
+
+		<meta name="description" content="CSS知识总结 CSS简介  CSS，全称Cascading Style Sheets，中文名层叠样式表，是一种用来为结构化文档（如 HTML 文档或 XML 应用）添加样式（字体、间距和颜色等）的 计算机语言，由 W3C 定义和维护。由哈肯・维姆・莱首先提出，初始版本于1996年12月17日发行。  基本概念  块   CSS通过display属性可以将元素设置为块级元素、内联元素、内联块元素。一个块级元素的内容宽度是其父元素的100%，其高度与其内容高度一致。内联元素的 height width 与内容一致。无法设置内联元素的 height width。inline-block 混合了 inline 和 block 的特性。  盒模型   CSS盒由content、padding、border、margin组成。 CSS盒模型分为content-box和border-box两种。content-box内容盒中内容的宽度和边界就是盒子的宽度和边界。border-box的边界是border，其宽度为content&#43;padding&#43;border。  文档流   元素布局默认为从左到右、从上到下。内联元素和内联块元素占满一行再换行，不同的是内联元素在换行时会折叠内容到下一行，内联块元素不会，容不下的元素会直接另起一行。块级元素独占一行，从上到下布局。  外边距合并   两个外边距相接的父子元素、兄弟元素，这些外边距将合并为一个外边距，即最大的单个外边距的大小。 父子元素外边距合并可以通过设置padding/border、overflow:hidden、display:flex挡住。兄弟元素外边距合并可以通过设置inline-block消除。  CSS布局   CSS布局有float布局、flex布局、grid布局三种主流形式。 CSS布局有两种思路。可以先定下大局，然后再完善每个部分的小布局。也可以从小到大，先完成小布局，然后组成大布局。  层叠上下文   层叠上下文是对二维平面中的HTML元素的三维构想，通过在一条虚构的Z轴中的顺序来决定渲染优先级。 在单个的层叠上下文中，各元素属性的顺序有上到下分别是z-index值为非负数的定位元素、内联子元素、浮动元素、块级子元素、border、background、z-index值为负数的定位元素。 创建层叠上下文的元素详见MDN层叠上下文。 层叠上下文可以包含在其他层叠上下文中，并且一起创建一个层叠上下文的层级。每个层叠上下文都完全独立于它的兄弟元素：当处理层叠时只考虑子元素。每个层叠上下文都是自包含的：当一个元素的内容发生层叠后，该元素将被作为整体在父级层叠上下文中按顺序进行层叠。  浏览器渲染原理   浏览器渲染步骤：根据HTML构建HTML树，根据CSS构建CSS树，将两棵树合并成渲染树，再进行布局绘制以及合成，最终渲染出用户看到的画面。  CSS动画   通过transform和transition两个属性来写动画。transform负责图形的位置移动、大小形状变化，transition负责插入中间帧补充移动、形变过程使动画变得流畅。 通过animation和@keyframes来写动画。@keyframes可以定义动画移动、形变的具体值以及定义其所在的关键帧。animation属性负责动画进行的时长、过渡方式、延迟等，完善动画表现。  ">
+
+
+		
+	
+		
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+		
+
+		<script defer src="/js/dark-mode.js"></script>
+		<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+		<link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Lato|Raleway">
+
+		
+	</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li></ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>CSS Sumary</h1>
+	<h5>
+		
+		<time datetime="2022-03-24 14:33:51 &#43;0800 CST">Mar 24, 2022</time>
+		<span class="no-print">
+			<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<h1 id="css知识总结">CSS知识总结</h1>
+<h2 id="css简介">CSS简介</h2>
+<ul>
+<li>CSS，全称Cascading Style Sheets，中文名层叠样式表，是一种用来为结构化文档（如 HTML 文档或 XML 应用）添加样式（字体、间距和颜色等）的 计算机语言，由 W3C 定义和维护。由哈肯・维姆・莱首先提出，初始版本于1996年12月17日发行。</li>
+</ul>
+<h2 id="基本概念">基本概念</h2>
+<ol>
+<li>块</li>
+</ol>
+<ul>
+<li>CSS通过display属性可以将元素设置为块级元素、内联元素、内联块元素。一个块级元素的内容宽度是其父元素的100%，其高度与其内容高度一致。内联元素的 height width 与内容一致。无法设置内联元素的 height width。inline-block 混合了 inline 和 block 的特性。</li>
+</ul>
+<ol start="2">
+<li>盒模型</li>
+</ol>
+<ul>
+<li>CSS盒由content、padding、border、margin组成。</li>
+<li>CSS盒模型分为content-box和border-box两种。content-box内容盒中内容的宽度和边界就是盒子的宽度和边界。border-box的边界是border，其宽度为content+padding+border。</li>
+</ul>
+<ol start="3">
+<li>文档流</li>
+</ol>
+<ul>
+<li>元素布局默认为从左到右、从上到下。内联元素和内联块元素占满一行再换行，不同的是内联元素在换行时会折叠内容到下一行，内联块元素不会，容不下的元素会直接另起一行。块级元素独占一行，从上到下布局。</li>
+</ul>
+<ol start="4">
+<li>外边距合并</li>
+</ol>
+<ul>
+<li>两个外边距相接的父子元素、兄弟元素，这些外边距将合并为一个外边距，即最大的单个外边距的大小。</li>
+<li>父子元素外边距合并可以通过设置padding/border、overflow:hidden、display:flex挡住。兄弟元素外边距合并可以通过设置inline-block消除。</li>
+</ul>
+<ol start="5">
+<li>CSS布局</li>
+</ol>
+<ul>
+<li>CSS布局有float布局、flex布局、grid布局三种主流形式。</li>
+<li>CSS布局有两种思路。可以先定下大局，然后再完善每个部分的小布局。也可以从小到大，先完成小布局，然后组成大布局。</li>
+</ul>
+<ol start="6">
+<li>层叠上下文</li>
+</ol>
+<ul>
+<li>层叠上下文是对二维平面中的HTML元素的三维构想，通过在一条虚构的Z轴中的顺序来决定渲染优先级。</li>
+<li>在单个的层叠上下文中，各元素属性的顺序有上到下分别是z-index值为非负数的定位元素、内联子元素、浮动元素、块级子元素、border、background、z-index值为负数的定位元素。</li>
+<li>创建层叠上下文的元素详见<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">MDN层叠上下文</a>。</li>
+<li>层叠上下文可以包含在其他层叠上下文中，并且一起创建一个层叠上下文的层级。每个层叠上下文都完全独立于它的兄弟元素：当处理层叠时只考虑子元素。每个层叠上下文都是自包含的：当一个元素的内容发生层叠后，该元素将被作为整体在父级层叠上下文中按顺序进行层叠。</li>
+</ul>
+<ol start="7">
+<li>浏览器渲染原理</li>
+</ol>
+<ul>
+<li>浏览器渲染步骤：根据HTML构建HTML树，根据CSS构建CSS树，将两棵树合并成渲染树，再进行布局绘制以及合成，最终渲染出用户看到的画面。</li>
+</ul>
+<ol start="8">
+<li>CSS动画</li>
+</ol>
+<ul>
+<li>通过transform和transition两个属性来写动画。transform负责图形的位置移动、大小形状变化，transition负责插入中间帧补充移动、形变过程使动画变得流畅。</li>
+<li>通过animation和@keyframes来写动画。@keyframes可以定义动画移动、形变的具体值以及定义其所在的关键帧。animation属性负责动画进行的时长、过渡方式、延迟等，完善动画表现。</li>
+</ul>
+
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="http://KuangDangLi.github.io/post/commonly-used-tags/">
+		<img class="icon-text" src="/img/prev.svg"/>Commonly Used Tags</a>
+
+
+</nav>
+
+
+
+
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+
+
+<a href="http://KuangDangLi.github.io/index.xml" target="_blank"><img class="icon-social" src="/img/feed.svg" alt="Feed"></a>
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+
