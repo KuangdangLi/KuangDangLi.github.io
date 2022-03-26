@@ -1,63 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="generator" content="Hugo 0.94.1" />
-		<title>Commonly Used Tags - My New Hugo Site</title>
+<html lang="en" dir="auto">
 
-		<meta name="description" content="HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Commonly Used Tags | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。">
+<meta name="author" content="">
+<link rel="canonical" href="http://KuangDangLi.github.io/post/commonly-used-tags/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Commonly Used Tags" />
+<meta property="og:description" content="HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://KuangDangLi.github.io/post/commonly-used-tags/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-15T16:20:29&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-15T16:20:29&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Commonly Used Tags"/>
+<meta name="twitter:description" content="HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。"/>
 
 
-		
-	
-		
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://KuangDangLi.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Commonly Used Tags",
+      "item": "http://KuangDangLi.github.io/post/commonly-used-tags/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Commonly Used Tags",
+  "name": "Commonly Used Tags",
+  "description": "HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。",
+  "keywords": [
+    
+  ],
+  "articleBody": "HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。\n",
+  "wordCount" : "55",
+  "inLanguage": "en",
+  "datePublished": "2022-03-15T16:20:29+08:00",
+  "dateModified": "2022-03-15T16:20:29+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://KuangDangLi.github.io/post/commonly-used-tags/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://KuangDangLi.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
+</script>
 
-
-<link rel="stylesheet" href="/css/ui.css">
-
-	
-		
-
-		<script defer src="/js/dark-mode.js"></script>
-		<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-		<link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Lato|Raleway">
-
-		
-	</head>
-
-<body>
-<header class="container no-print">
-	<div class="u-header">
-		<nav class="bar">
-	<ul><li>
-			<a href="/">
-				<img class="icon-text" src="/img/prev.svg"/>
-			</a>
-		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li></ul>
-</nav>
-
-	</div>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
 </header>
-<main class="container">
+<main class="main">
 
-<article>
-	<header><hgroup id="brand">
-	<h1>Commonly Used Tags</h1>
-	<h5>
-		
-		<time datetime="2022-03-15 16:20:29 &#43;0800 CST">Mar 15, 2022</time>
-		<span class="no-print">
-			<span>
-	</h5>
-	
-</hgroup>
-<hr class="sep" />
-</header>
-	<h1 id="html常用标签">HTML常用标签</h1>
-<h2 id="a标签的用法">a标签的用法</h2>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Commonly Used Tags
+    </h1>
+    <div class="post-meta"><span title='2022-03-15 16:20:29 +0800 CST'>March 15, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="html常用标签">HTML常用标签<a hidden class="anchor" aria-hidden="true" href="#html常用标签">#</a></h1>
+<h2 id="a标签的用法">a标签的用法<a hidden class="anchor" aria-hidden="true" href="#a标签的用法">#</a></h2>
 <ol>
 <li>属性：
 <ul>
@@ -75,7 +193,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="img标签的用法">img标签的用法</h2>
+<h2 id="img标签的用法">img标签的用法<a hidden class="anchor" aria-hidden="true" href="#img标签的用法">#</a></h2>
 <ol>
 <li>作用：
 <ul>
@@ -102,7 +220,7 @@
 </li>
 <li>可替换元素 略。</li>
 </ol>
-<h2 id="table标签的用法">table标签的用法</h2>
+<h2 id="table标签的用法">table标签的用法<a hidden class="anchor" aria-hidden="true" href="#table标签的用法">#</a></h2>
 <ol>
 <li>相关的标签
 <ul>
@@ -123,51 +241,85 @@
 </ul>
 </li>
 </ol>
-<h2 id="感想">感想</h2>
+<h2 id="感想">感想<a hidden class="anchor" aria-hidden="true" href="#感想">#</a></h2>
 <p>这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。</p>
 
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
 </article>
-<nav class="no-print post-nav">
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-	<a class="prev-post" href="http://KuangDangLi.github.io/post/htmlfirstnote/">
-		<img class="icon-text" src="/img/prev.svg"/>HtmlFirstNote</a>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
-	<a class="next-post" href="http://KuangDangLi.github.io/post/css-sumary/">CSS Sumary<img class="icon-text" src="/img/next.svg"/>
-	</a>
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
-</nav>
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
+</script>
+</body>
 
-
-
-
-			<hr class="sep" />
-		</main>
-		<footer class="container no-print">
-			<div class="u-footer">
-				
-
-
-<a href="http://KuangDangLi.github.io/index.xml" target="_blank"><img class="icon-social" src="/img/feed.svg" alt="Feed"></a>
-
-
-				<p>
-					
-					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
-					
-					
-					
-				</p>
-				
-				<a href="#brand">
-					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
-					<span>Back to Up</span>
-				</a>
-				
-			</div>
-		</footer>
-		
-	</body>
 </html>
-

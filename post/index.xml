@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on My New Hugo Site</title>
     <link>http://KuangDangLi.github.io/post/</link>
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Mar 2022 18:16:41 +0800</lastBuildDate><atom:link href="http://KuangDangLi.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Mar 2022 22:18:33 +0800</lastBuildDate><atom:link href="http://KuangDangLi.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript的诞生</title>
+      <link>http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
+      <pubDate>Sat, 26 Mar 2022 22:18:33 +0800</pubDate>
+      
+      <guid>http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</guid>
+      <description>JavaScript的诞生  Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格&amp;mdash;-（简化的）函数式编程 +（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  </description>
+    </item>
+    
     <item>
       <title>Url</title>
       <link>http://KuangDangLi.github.io/post/url/</link>
@@ -32,16 +41,6 @@
       
       <guid>http://KuangDangLi.github.io/post/commonly-used-tags/</guid>
       <description>HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。</description>
-    </item>
-    
-    <item>
-      <title>HtmlFirstNote</title>
-      <link>http://KuangDangLi.github.io/post/htmlfirstnote/</link>
-      <pubDate>Sat, 12 Mar 2022 18:21:23 +0800</pubDate>
-      
-      <guid>http://KuangDangLi.github.io/post/htmlfirstnote/</guid>
-      <description>HTML入门笔记1  HTML是谁发明的？
-HTML的发明者是蒂莫西・约翰・伯纳斯 - 李爵士(Sir Timothy John Berners-Lee)。 HTML 起手应该写什么？ 使用!加tab生成起手式 常用的章节标签有哪些，分别是什么意思?   标题 h1~h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  全局属性有哪些？   类选择器 class 元素是否可编辑 contenteditable 是否隐藏 hidden id选择器 id 样式声明 style 元素是否被聚焦 tabindex 额外信息 title  常用的内容标签有哪些，分别是什么意思?   无序列表 ol+li 有序列表 ul+li 描述列表 dl+dt+dd 保留原来的格式 pre 分割线 hr 换行 br 超链接 a 语气强调，斜体显示 em 内容强调，默认加粗字体 strong 表示代码 code 行内引用 quote 换行引用 blockquote  </description>
     </item>
     
   </channel>

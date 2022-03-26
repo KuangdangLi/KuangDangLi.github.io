@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>JavaScript的诞生 | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="JavaScript的诞生  Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格&mdash;-（简化的）函数式编程 &#43;（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  ">
+<meta name="author" content="">
+<link rel="canonical" href="http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="JavaScript的诞生" />
+<meta property="og:description" content="JavaScript的诞生  Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格&mdash;-（简化的）函数式编程 &#43;（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-26T22:18:33&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-26T22:18:33&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavaScript的诞生"/>
+<meta name="twitter:description" content="JavaScript的诞生  Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格&mdash;-（简化的）函数式编程 &#43;（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  "/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://KuangDangLi.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "JavaScript的诞生",
+      "item": "http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JavaScript的诞生",
+  "name": "JavaScript的诞生",
+  "description": "JavaScript的诞生  Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格\u0026mdash;-（简化的）函数式编程 +（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  ",
+  "keywords": [
+    
+  ],
+  "articleBody": "JavaScript的诞生  Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格—-（简化的）函数式编程 +（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  ",
+  "wordCount" : "7",
+  "inLanguage": "en",
+  "datePublished": "2022-03-26T22:18:33+08:00",
+  "dateModified": "2022-03-26T22:18:33+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://KuangDangLi.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      JavaScript的诞生
+    </h1>
+    <div class="post-meta"><span title='2022-03-26 22:18:33 +0800 CST'>March 26, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="javascript的诞生">JavaScript的诞生<a hidden class="anchor" aria-hidden="true" href="#javascript的诞生">#</a></h1>
+<ul>
+<li>Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。</li>
+<li>1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格&mdash;-（简化的）函数式编程 +（简化的）面向对象编程。</li>
+<li>在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

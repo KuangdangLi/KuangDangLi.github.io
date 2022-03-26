@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</loc>
+    <lastmod>2022-03-26T22:18:33+08:00</lastmod>
+  </url><url>
     <loc>http://KuangDangLi.github.io/</loc>
-    <lastmod>2022-03-24T18:16:41+08:00</lastmod>
+    <lastmod>2022-03-26T22:18:33+08:00</lastmod>
   </url><url>
     <loc>http://KuangDangLi.github.io/post/</loc>
-    <lastmod>2022-03-24T18:16:41+08:00</lastmod>
+    <lastmod>2022-03-26T22:18:33+08:00</lastmod>
   </url><url>
     <loc>http://KuangDangLi.github.io/post/url/</loc>
     <lastmod>2022-03-24T18:16:41+08:00</lastmod>
@@ -16,9 +19,6 @@
   </url><url>
     <loc>http://KuangDangLi.github.io/post/commonly-used-tags/</loc>
     <lastmod>2022-03-15T16:20:29+08:00</lastmod>
-  </url><url>
-    <loc>http://KuangDangLi.github.io/post/htmlfirstnote/</loc>
-    <lastmod>2022-03-12T18:21:23+08:00</lastmod>
   </url><url>
     <loc>http://KuangDangLi.github.io/categories/</loc>
   </url><url>

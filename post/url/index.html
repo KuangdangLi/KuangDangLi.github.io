@@ -1,62 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="generator" content="Hugo 0.94.1" />
-		<title>Url - My New Hugo Site</title>
+<html lang="en" dir="auto">
 
-		<meta name="description" content="浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello&amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello&amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  ">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Url | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello&amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello&amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  ">
+<meta name="author" content="">
+<link rel="canonical" href="http://KuangDangLi.github.io/post/url/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Url" />
+<meta property="og:description" content="浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello&amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello&amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://KuangDangLi.github.io/post/url/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-24T18:16:41&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-24T18:16:41&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Url"/>
+<meta name="twitter:description" content="浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello&amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello&amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  "/>
 
 
-		
-	
-		
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://KuangDangLi.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Url",
+      "item": "http://KuangDangLi.github.io/post/url/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Url",
+  "name": "Url",
+  "description": "浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello\u0026amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello\u0026amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  ",
+  "keywords": [
+    
+  ],
+  "articleBody": "浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello\u0026rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello\u0026rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  ",
+  "wordCount" : "26",
+  "inLanguage": "en",
+  "datePublished": "2022-03-24T18:16:41+08:00",
+  "dateModified": "2022-03-24T18:16:41+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://KuangDangLi.github.io/post/url/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://KuangDangLi.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
+</script>
 
-
-<link rel="stylesheet" href="/css/ui.css">
-
-	
-		
-
-		<script defer src="/js/dark-mode.js"></script>
-		<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-		<link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Lato|Raleway">
-
-		
-	</head>
-
-<body>
-<header class="container no-print">
-	<div class="u-header">
-		<nav class="bar">
-	<ul><li>
-			<a href="/">
-				<img class="icon-text" src="/img/prev.svg"/>
-			</a>
-		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li></ul>
-</nav>
-
-	</div>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
 </header>
-<main class="container">
+<main class="main">
 
-<article>
-	<header><hgroup id="brand">
-	<h1>Url</h1>
-	<h5>
-		
-		<time datetime="2022-03-24 18:16:41 &#43;0800 CST">Mar 24, 2022</time>
-		<span class="no-print">
-			<span>
-	</h5>
-	
-</hgroup>
-<hr class="sep" />
-</header>
-	<h1 id="浅析url">浅析URL</h1>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Url
+    </h1>
+    <div class="post-meta"><span title='2022-03-24 18:16:41 +0800 CST'>March 24, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="浅析url">浅析URL<a hidden class="anchor" aria-hidden="true" href="#浅析url">#</a></h1>
 <ol>
 <li>URL 包含哪几部分，每部分分别有什么作用？</li>
 </ol>
@@ -85,45 +203,82 @@
 <li>域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。</li>
 </ul>
 
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
 </article>
-<nav class="no-print post-nav">
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-	<a class="prev-post" href="http://KuangDangLi.github.io/post/css-sumary/">
-		<img class="icon-text" src="/img/prev.svg"/>CSS Sumary</a>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
-</nav>
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
+</script>
+</body>
 
-
-
-			<hr class="sep" />
-		</main>
-		<footer class="container no-print">
-			<div class="u-footer">
-				
-
-
-<a href="http://KuangDangLi.github.io/index.xml" target="_blank"><img class="icon-social" src="/img/feed.svg" alt="Feed"></a>
-
-
-				<p>
-					
-					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
-					
-					
-					
-				</p>
-				
-				<a href="#brand">
-					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
-					<span>Back to Up</span>
-				</a>
-				
-			</div>
-		</footer>
-		
-	</body>
 </html>
-
