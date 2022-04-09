@@ -131,6 +131,27 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Js的基本语法
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
+语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
+var a = 1 &#43; 3; 1 &#43; 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。
+一般来说，语句会改变环境（声明、赋值）。
+注意：js书写大小写敏感以及大部分空格与回车没有实际意义（除了return后的回车）。
+标识符 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名以及函数名。
+标识符命名规则如下：
+ 第一个字符，可以是任意unicode字母（包括英文字母和其他语言的字母）以及美元符号和下划线。 第二个字符以及后面的字符，除了unicode字母、美元符号和下换线，还可以用数字0-9。 中文是合法的标识符，可以用作变量名。  if else语句 if (n === 2) {  console.log(&#39;hello world&#39;) } else {  console.log(&#39;fuck world&#39;) } 上述语句指的是如果变量n的值为2，输出hello world，否则输出fuck world。
+if (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if…else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。
+for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-04-09 15:49:20 +0800 CST'>April 9, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to Js的基本语法" href="http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>JavaScript的诞生
     </h2>
   </header>
@@ -175,6 +196,19 @@
   </section>
   <footer class="entry-footer"><span title='2022-03-15 16:20:29 +0800 CST'>March 15, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Commonly Used Tags" href="http://KuangDangLi.github.io/post/commonly-used-tags/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>HtmlFirstNote<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>HTML入门笔记1  HTML是谁发明的？
+HTML的发明者是蒂莫西・约翰・伯纳斯 - 李爵士(Sir Timothy John Berners-Lee)。 HTML 起手应该写什么？ 使用!加tab生成起手式 常用的章节标签有哪些，分别是什么意思?   标题 h1~h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  全局属性有哪些？   类选择器 class 元素是否可编辑 contenteditable 是否隐藏 hidden id选择器 id 样式声明 style 元素是否被聚焦 tabindex 额外信息 title  常用的内容标签有哪些，分别是什么意思?   无序列表 ol&#43;li 有序列表 ul&#43;li 描述列表 dl&#43;dt&#43;dd 保留原来的格式 pre 分割线 hr 换行 br 超链接 a 语气强调，斜体显示 em 内容强调，默认加粗字体 strong 表示代码 code 行内引用 quote 换行引用 blockquote  </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-03-12 18:21:23 +0800 CST'>March 12, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to HtmlFirstNote" href="http://KuangDangLi.github.io/post/htmlfirstnote/"></a>
 </article>
     </main>
     

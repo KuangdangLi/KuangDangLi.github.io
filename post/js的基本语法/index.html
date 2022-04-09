@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Js的基本语法 | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
+语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
+var a = 1 &#43; 3; 1 &#43; 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。
+一般来说，语句会改变环境（声明、赋值）。
+注意：js书写大小写敏感以及大部分空格与回车没有实际意义（除了return后的回车）。
+标识符 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名以及函数名。
+标识符命名规则如下：
+ 第一个字符，可以是任意unicode字母（包括英文字母和其他语言的字母）以及美元符号和下划线。 第二个字符以及后面的字符，除了unicode字母、美元符号和下换线，还可以用数字0-9。 中文是合法的标识符，可以用作变量名。  if else语句 if (n === 2) {  console.log(&#39;hello world&#39;) } else {  console.log(&#39;fuck world&#39;) } 上述语句指的是如果变量n的值为2，输出hello world，否则输出fuck world。
+if (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if&hellip;else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。
+for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。">
+<meta name="author" content="">
+<link rel="canonical" href="http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Js的基本语法" />
+<meta property="og:description" content="语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
+语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
+var a = 1 &#43; 3; 1 &#43; 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。
+一般来说，语句会改变环境（声明、赋值）。
+注意：js书写大小写敏感以及大部分空格与回车没有实际意义（除了return后的回车）。
+标识符 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名以及函数名。
+标识符命名规则如下：
+ 第一个字符，可以是任意unicode字母（包括英文字母和其他语言的字母）以及美元符号和下划线。 第二个字符以及后面的字符，除了unicode字母、美元符号和下换线，还可以用数字0-9。 中文是合法的标识符，可以用作变量名。  if else语句 if (n === 2) {  console.log(&#39;hello world&#39;) } else {  console.log(&#39;fuck world&#39;) } 上述语句指的是如果变量n的值为2，输出hello world，否则输出fuck world。
+if (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if&hellip;else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。
+for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-09T15:49:20&#43;08:00" />
+<meta property="article:modified_time" content="2022-04-09T15:49:20&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Js的基本语法"/>
+<meta name="twitter:description" content="语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
+语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
+var a = 1 &#43; 3; 1 &#43; 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。
+一般来说，语句会改变环境（声明、赋值）。
+注意：js书写大小写敏感以及大部分空格与回车没有实际意义（除了return后的回车）。
+标识符 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名以及函数名。
+标识符命名规则如下：
+ 第一个字符，可以是任意unicode字母（包括英文字母和其他语言的字母）以及美元符号和下划线。 第二个字符以及后面的字符，除了unicode字母、美元符号和下换线，还可以用数字0-9。 中文是合法的标识符，可以用作变量名。  if else语句 if (n === 2) {  console.log(&#39;hello world&#39;) } else {  console.log(&#39;fuck world&#39;) } 上述语句指的是如果变量n的值为2，输出hello world，否则输出fuck world。
+if (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if&hellip;else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。
+for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://KuangDangLi.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Js的基本语法",
+      "item": "http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Js的基本语法",
+  "name": "Js的基本语法",
+  "description": "语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。\n语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。\nvar a = 1 + 3; 1 + 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。\n一般来说，语句会改变环境（声明、赋值）。\n注意：js书写大小写敏感以及大部分空格与回车没有实际意义（除了return后的回车）。\n标识符 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名以及函数名。\n标识符命名规则如下：\n 第一个字符，可以是任意unicode字母（包括英文字母和其他语言的字母）以及美元符号和下划线。 第二个字符以及后面的字符，除了unicode字母、美元符号和下换线，还可以用数字0-9。 中文是合法的标识符，可以用作变量名。  if else语句 if (n === 2) {  console.log(\u0026#39;hello world\u0026#39;) } else {  console.log(\u0026#39;fuck world\u0026#39;) } 上述语句指的是如果变量n的值为2，输出hello world，否则输出fuck world。\nif (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if\u0026hellip;else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。\nfor循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。",
+  "keywords": [
+    
+  ],
+  "articleBody": "语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。\n语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。\nvar a = 1 + 3; 1 + 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。\n一般来说，语句会改变环境（声明、赋值）。\n注意：js书写大小写敏感以及大部分空格与回车没有实际意义（除了return后的回车）。\n标识符 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名以及函数名。\n标识符命名规则如下：\n 第一个字符，可以是任意unicode字母（包括英文字母和其他语言的字母）以及美元符号和下划线。 第二个字符以及后面的字符，除了unicode字母、美元符号和下换线，还可以用数字0-9。 中文是合法的标识符，可以用作变量名。  if else语句 if (n === 2) {  console.log('hello world') } else {  console.log('fuck world') } 上述语句指的是如果变量n的值为2，输出hello world，否则输出fuck world。\nif (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if…else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。\nfor循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。\nlabel:  语句 标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。\n",
+  "wordCount" : "87",
+  "inLanguage": "en",
+  "datePublished": "2022-04-09T15:49:20+08:00",
+  "dateModified": "2022-04-09T15:49:20+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://KuangDangLi.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Js的基本语法
+    </h1>
+    <div class="post-meta"><span title='2022-04-09 15:49:20 +0800 CST'>April 9, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="语句和表达式">语句和表达式<a hidden class="anchor" aria-hidden="true" href="#语句和表达式">#</a></h1>
+<p>JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。<br>
+语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span>;
+</span></span></code></pre></div><p>1 + 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。<br>
+一般来说，语句会改变环境（声明、赋值）。<br>
+注意：js书写大小写敏感以及大部分空格与回车没有实际意义（除了return后的回车）。</p>
+<h1 id="标识符">标识符<a hidden class="anchor" aria-hidden="true" href="#标识符">#</a></h1>
+<p>标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名以及函数名。<br>
+标识符命名规则如下：</p>
+<ul>
+<li>第一个字符，可以是任意unicode字母（包括英文字母和其他语言的字母）以及美元符号和下划线。</li>
+<li>第二个字符以及后面的字符，除了unicode字母、美元符号和下换线，还可以用数字0-9。</li>
+<li>中文是合法的标识符，可以用作变量名。</li>
+</ul>
+<h1 id="if-else语句">if else语句<a hidden class="anchor" aria-hidden="true" href="#if-else语句">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">2</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;hello world&#39;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;fuck world&#39;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>上述语句指的是如果变量n的值为2，输出hello world，否则输出fuck world。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">判断体</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">执行体1</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">执行体2</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。</li>
+<li>对同一个变量进行多次判断时，多个 if&hellip;else 语句可以连写在一起。</li>
+<li>else总是和最近的if进行配对。</li>
+<li>单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。</li>
+</ul>
+<h1 id="while语句">while语句<a hidden class="anchor" aria-hidden="true" href="#while语句">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">表达式</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">语句</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。</p>
+<h1 id="for循环">for循环<a hidden class="anchor" aria-hidden="true" href="#for循环">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">初始化表达式</span>; <span style="color:#a6e22e">条件</span>; <span style="color:#a6e22e">递增表达式</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">语句</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。</li>
+<li>条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。</li>
+<li>递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。</li>
+</ul>
+<h1 id="break-语句和-continue-语句">break 语句和 continue 语句<a hidden class="anchor" aria-hidden="true" href="#break-语句和-continue-语句">#</a></h1>
+<ul>
+<li>break 语句用于跳出代码块或循环。</li>
+<li>continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。</li>
+<li>如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。</li>
+</ul>
+<h1 id="标签label">标签label<a hidden class="anchor" aria-hidden="true" href="#标签label">#</a></h1>
+<p>label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">label</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">语句</span>
+</span></span></code></pre></div><p>标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
