@@ -9,16 +9,16 @@
 <meta name="keywords" content="" />
 <meta name="description" content="Posts - My New Hugo Site">
 <meta name="author" content="">
-<link rel="canonical" href="http://KuangDangLi.github.io/post/" />
+<link rel="canonical" href="http://kuangdangli.github.io/post/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://KuangDangLi.github.io/post/index.xml">
+<link rel="alternate" type="application/rss+xml" href="http://kuangdangli.github.io/post/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +58,7 @@
 </noscript><meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://KuangDangLi.github.io/post/" />
+<meta property="og:url" content="http://kuangdangli.github.io/post/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -74,7 +74,7 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://KuangDangLi.github.io/post/"
+      "item": "http://kuangdangli.github.io/post/"
     }
   ]
 }
@@ -96,7 +96,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -131,6 +131,40 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>JS对象基本语法
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。
+var obj = {  jjj : &#39;hello&#39;,  kkk : &#39;world&#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；&#39;hello&#39;和&#39;world&#39;叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。
+声明对象的两种语法 let obj = {  &#39;name&#39;: &#39;frank&#39;,  &#39;age&#39;: 18 } let obj = new Object ({  &#39;name&#39; : &#39;frank&#39;,  &#39;age&#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式
+如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。
+let obj = {  &#39;p&#39; : 1 } 注意:
+ 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性
+Object.keys(obj) 查看自身所有属性值
+Object.values(obj) 同时查看自身属性和属性值
+Object.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。
+如何修改或增加对象的属性  通过写对象赋值  let obj = {  &#39;foo&#39; : 123 } 通过点运算符和方括号运算符来赋值和修改  obj....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-04-21 20:40:47 +0800 CST'>April 21, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to JS对象基本语法" href="http://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Js数据类型 1<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>数据类型是指js语言中值的类型。截至es6版本，js共有七种数据类型。分别是:
+ 原始类型（primitive type），最基本的数据类型。   数值（number）：整数和小数（比如1和3.14）。 字符串（string）：文本（比如 Hello World）。 布尔值（boolean）：表示真伪的两个特殊值，即true和false。  合成类型（complex type）   对象（object）：各种值组成的集合，可以看作是一个存放各种值的容器。对象是最复杂的数据类型，有三个子类型包括狭义的对象（object）、数组（array）、函数（function，处理数据的方法）。  特殊值   undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值。 unll：表示空值，即此处的值为空。  es6新加类型   symbol：暂不涉及。  </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-04-15 15:38:37 +0800 CST'>April 15, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to Js数据类型 1" href="http://kuangdangli.github.io/post/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Js的基本语法
     </h2>
   </header>
@@ -147,7 +181,7 @@ if (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常�
 for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。...</p>
   </section>
   <footer class="entry-footer"><span title='2022-04-09 15:49:20 +0800 CST'>April 9, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Js的基本语法" href="http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
+  <a class="entry-link" aria-label="post link to Js的基本语法" href="http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -159,7 +193,7 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
     <p> Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格—-（简化的）函数式编程 &#43;（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  </p>
   </section>
   <footer class="entry-footer"><span title='2022-03-26 22:18:33 +0800 CST'>March 26, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to JavaScript的诞生" href="http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/"></a>
+  <a class="entry-link" aria-label="post link to JavaScript的诞生" href="http://kuangdangli.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -171,7 +205,7 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
     <p>浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello&amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello&amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  </p>
   </section>
   <footer class="entry-footer"><span title='2022-03-24 18:16:41 +0800 CST'>March 24, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Url" href="http://KuangDangLi.github.io/post/url/"></a>
+  <a class="entry-link" aria-label="post link to Url" href="http://kuangdangli.github.io/post/url/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -183,7 +217,7 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
     <p>CSS知识总结 CSS简介  CSS，全称Cascading Style Sheets，中文名层叠样式表，是一种用来为结构化文档（如 HTML 文档或 XML 应用）添加样式（字体、间距和颜色等）的 计算机语言，由 W3C 定义和维护。由哈肯・维姆・莱首先提出，初始版本于1996年12月17日发行。  基本概念  块   CSS通过display属性可以将元素设置为块级元素、内联元素、内联块元素。一个块级元素的内容宽度是其父元素的100%，其高度与其内容高度一致。内联元素的 height width 与内容一致。无法设置内联元素的 height width。inline-block 混合了 inline 和 block 的特性。  盒模型   CSS盒由content、padding、border、margin组成。 CSS盒模型分为content-box和border-box两种。content-box内容盒中内容的宽度和边界就是盒子的宽度和边界。border-box的边界是border，其宽度为content&#43;padding&#43;border。  文档流   元素布局默认为从左到右、从上到下。内联元素和内联块元素占满一行再换行，不同的是内联元素在换行时会折叠内容到下一行，内联块元素不会，容不下的元素会直接另起一行。块级元素独占一行，从上到下布局。  外边距合并   两个外边距相接的父子元素、兄弟元素，这些外边距将合并为一个外边距，即最大的单个外边距的大小。 父子元素外边距合并可以通过设置padding/border、overflow:hidden、display:flex挡住。兄弟元素外边距合并可以通过设置inline-block消除。  CSS布局   CSS布局有float布局、flex布局、grid布局三种主流形式。 CSS布局有两种思路。可以先定下大局，然后再完善每个部分的小布局。也可以从小到大，先完成小布局，然后组成大布局。  层叠上下文   层叠上下文是对二维平面中的HTML元素的三维构想，通过在一条虚构的Z轴中的顺序来决定渲染优先级。 在单个的层叠上下文中，各元素属性的顺序有上到下分别是z-index值为非负数的定位元素、内联子元素、浮动元素、块级子元素、border、background、z-index值为负数的定位元素。 创建层叠上下文的元素详见MDN层叠上下文。 层叠上下文可以包含在其他层叠上下文中，并且一起创建一个层叠上下文的层级。每个层叠上下文都完全独立于它的兄弟元素：当处理层叠时只考虑子元素。每个层叠上下文都是自包含的：当一个元素的内容发生层叠后，该元素将被作为整体在父级层叠上下文中按顺序进行层叠。  浏览器渲染原理   浏览器渲染步骤：根据HTML构建HTML树，根据CSS构建CSS树，将两棵树合并成渲染树，再进行布局绘制以及合成，最终渲染出用户看到的画面。  CSS动画   通过transform和transition两个属性来写动画。transform负责图形的位置移动、大小形状变化，transition负责插入中间帧补充移动、形变过程使动画变得流畅。 通过animation和@keyframes来写动画。@keyframes可以定义动画移动、形变的具体值以及定义其所在的关键帧。animation属性负责动画进行的时长、过渡方式、延迟等，完善动画表现。  </p>
   </section>
   <footer class="entry-footer"><span title='2022-03-24 14:33:51 +0800 CST'>March 24, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to CSS Sumary" href="http://KuangDangLi.github.io/post/css-sumary/"></a>
+  <a class="entry-link" aria-label="post link to CSS Sumary" href="http://kuangdangli.github.io/post/css-sumary/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -195,7 +229,7 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
     <p>HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。</p>
   </section>
   <footer class="entry-footer"><span title='2022-03-15 16:20:29 +0800 CST'>March 15, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Commonly Used Tags" href="http://KuangDangLi.github.io/post/commonly-used-tags/"></a>
+  <a class="entry-link" aria-label="post link to Commonly Used Tags" href="http://kuangdangli.github.io/post/commonly-used-tags/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -208,12 +242,12 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
 HTML的发明者是蒂莫西・约翰・伯纳斯 - 李爵士(Sir Timothy John Berners-Lee)。 HTML 起手应该写什么？ 使用!加tab生成起手式 常用的章节标签有哪些，分别是什么意思?   标题 h1~h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  全局属性有哪些？   类选择器 class 元素是否可编辑 contenteditable 是否隐藏 hidden id选择器 id 样式声明 style 元素是否被聚焦 tabindex 额外信息 title  常用的内容标签有哪些，分别是什么意思?   无序列表 ol&#43;li 有序列表 ul&#43;li 描述列表 dl&#43;dt&#43;dd 保留原来的格式 pre 分割线 hr 换行 br 超链接 a 语气强调，斜体显示 em 内容强调，默认加粗字体 strong 表示代码 code 行内引用 quote 换行引用 blockquote  </p>
   </section>
   <footer class="entry-footer"><span title='2022-03-12 18:21:23 +0800 CST'>March 12, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to HtmlFirstNote" href="http://KuangDangLi.github.io/post/htmlfirstnote/"></a>
+  <a class="entry-link" aria-label="post link to HtmlFirstNote" href="http://kuangdangli.github.io/post/htmlfirstnote/"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
+    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

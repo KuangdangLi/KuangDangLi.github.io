@@ -18,15 +18,15 @@ var a = 1 &#43; 3; 1 &#43; 3 叫做表达式（expression），指一个为了�
 if (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if&hellip;else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。
 for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。">
 <meta name="author" content="">
-<link rel="canonical" href="http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+<link rel="canonical" href="http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
     onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -77,7 +77,7 @@ var a = 1 &#43; 3; 1 &#43; 3 叫做表达式（expression），指一个为了�
 if (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if&hellip;else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。
 for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-04-09T15:49:20&#43;08:00" />
 <meta property="article:modified_time" content="2022-04-09T15:49:20&#43;08:00" />
 
@@ -104,13 +104,13 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://KuangDangLi.github.io/post/"
+      "item": "http://kuangdangli.github.io/post/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Js的基本语法",
-      "item": "http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"
+      "item": "http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"
     }
   ]
 }
@@ -132,14 +132,14 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
   "dateModified": "2022-04-09T15:49:20+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"
+    "@id": "http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "My New Hugo Site",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://KuangDangLi.github.io/favicon.ico"
+      "url": "http://kuangdangli.github.io/favicon.ico"
     }
   }
 }
@@ -161,7 +161,7 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -269,7 +269,7 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
+    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

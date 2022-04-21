@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>JS对象基本语法 | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。
+var obj = {  jjj : &#39;hello&#39;,  kkk : &#39;world&#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；&#39;hello&#39;和&#39;world&#39;叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。
+声明对象的两种语法 let obj = {  &#39;name&#39;: &#39;frank&#39;,  &#39;age&#39;: 18 } let obj = new Object ({  &#39;name&#39; : &#39;frank&#39;,  &#39;age&#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式
+如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。
+let obj = {  &#39;p&#39; : 1 } 注意:
+ 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性
+Object.keys(obj) 查看自身所有属性值
+Object.values(obj) 同时查看自身属性和属性值
+Object.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。
+如何修改或增加对象的属性  通过写对象赋值  let obj = {  &#39;foo&#39; : 123 } 通过点运算符和方括号运算符来赋值和修改  obj.">
+<meta name="author" content="">
+<link rel="canonical" href="http://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="JS对象基本语法" />
+<meta property="og:description" content="什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。
+var obj = {  jjj : &#39;hello&#39;,  kkk : &#39;world&#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；&#39;hello&#39;和&#39;world&#39;叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。
+声明对象的两种语法 let obj = {  &#39;name&#39;: &#39;frank&#39;,  &#39;age&#39;: 18 } let obj = new Object ({  &#39;name&#39; : &#39;frank&#39;,  &#39;age&#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式
+如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。
+let obj = {  &#39;p&#39; : 1 } 注意:
+ 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性
+Object.keys(obj) 查看自身所有属性值
+Object.values(obj) 同时查看自身属性和属性值
+Object.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。
+如何修改或增加对象的属性  通过写对象赋值  let obj = {  &#39;foo&#39; : 123 } 通过点运算符和方括号运算符来赋值和修改  obj." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-21T20:40:47&#43;08:00" />
+<meta property="article:modified_time" content="2022-04-21T20:40:47&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS对象基本语法"/>
+<meta name="twitter:description" content="什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。
+var obj = {  jjj : &#39;hello&#39;,  kkk : &#39;world&#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；&#39;hello&#39;和&#39;world&#39;叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。
+声明对象的两种语法 let obj = {  &#39;name&#39;: &#39;frank&#39;,  &#39;age&#39;: 18 } let obj = new Object ({  &#39;name&#39; : &#39;frank&#39;,  &#39;age&#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式
+如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。
+let obj = {  &#39;p&#39; : 1 } 注意:
+ 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性
+Object.keys(obj) 查看自身所有属性值
+Object.values(obj) 同时查看自身属性和属性值
+Object.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。
+如何修改或增加对象的属性  通过写对象赋值  let obj = {  &#39;foo&#39; : 123 } 通过点运算符和方括号运算符来赋值和修改  obj."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://kuangdangli.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "JS对象基本语法",
+      "item": "http://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JS对象基本语法",
+  "name": "JS对象基本语法",
+  "description": "什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。\nvar obj = {  jjj : \u0026#39;hello\u0026#39;,  kkk : \u0026#39;world\u0026#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；'hello'和'world'叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。\n声明对象的两种语法 let obj = {  \u0026#39;name\u0026#39;: \u0026#39;frank\u0026#39;,  \u0026#39;age\u0026#39;: 18 } let obj = new Object ({  \u0026#39;name\u0026#39; : \u0026#39;frank\u0026#39;,  \u0026#39;age\u0026#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式\n如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。\nlet obj = {  \u0026#39;p\u0026#39; : 1 } 注意:\n 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性\nObject.keys(obj) 查看自身所有属性值\nObject.values(obj) 同时查看自身属性和属性值\nObject.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。\n如何修改或增加对象的属性  通过写对象赋值  let obj = {  \u0026#39;foo\u0026#39; : 123 } 通过点运算符和方括号运算符来赋值和修改  obj.",
+  "keywords": [
+    
+  ],
+  "articleBody": "什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。\nvar obj = {  jjj : 'hello',  kkk : 'world' }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；'hello'和'world'叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。\n声明对象的两种语法 let obj = {  'name': 'frank',  'age': 18 } let obj = new Object ({  'name' : 'frank',  'age' : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式\n如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。\nlet obj = {  'p' : 1 } 注意:\n 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性\nObject.keys(obj) 查看自身所有属性值\nObject.values(obj) 同时查看自身属性和属性值\nObject.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。\n如何修改或增加对象的属性  通过写对象赋值  let obj = {  'foo' : 123 } 通过点运算符和方括号运算符来赋值和修改  obj.foo = 456 ; obj['foo'] = 789; 注意方括号中要写字符串，不然就是在用变量。 3. 批量赋值\nObject.assign(obj,{age: 18 ,gender : 'man'}) 一般不推荐修改原型上的属性\n'name' in obj 和 obj.hasOwnProperty ('name') 的区别 'name' in obj，在obj对象的自身属性和共有属性中查找name，有返回true，无则返回false；obj.hasOwnProperty ('name') ,在obj对象的自身属性中查找name，有返回true，无则返回false。\n",
+  "wordCount" : "99",
+  "inLanguage": "en",
+  "datePublished": "2022-04-21T20:40:47+08:00",
+  "dateModified": "2022-04-21T20:40:47+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kuangdangli.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      JS对象基本语法
+    </h1>
+    <div class="post-meta"><span title='2022-04-21 20:40:47 +0800 CST'>April 21, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="什么是对象">什么是对象？<a hidden class="anchor" aria-hidden="true" href="#什么是对象">#</a></h1>
+<p>对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">jjj</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hello&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">kkk</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;world&#39;</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>上述代码中，大括号就定义了一个对象，它被赋值给变量<code>obj</code>，所以变量obj就指向一个对象。其内部包含两个键值对，其中<code>jjj</code>和<code>kkk</code>叫做键名是字符串；<code>'hello'</code>和<code>'world'</code>叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。</p>
+<h1 id="声明对象的两种语法">声明对象的两种语法<a hidden class="anchor" aria-hidden="true" href="#声明对象的两种语法">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span>  <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;name&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;frank&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;age&#39;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object ({
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;name&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;frank&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;age&#39;</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>第二种写法是正规写法，不过一般采用第一种简写方式</p>
+<h1 id="如何删除对象的属性">如何删除对象的属性<a hidden class="anchor" aria-hidden="true" href="#如何删除对象的属性">#</a></h1>
+<p>删除对象属性使用<code>delete</code>命令，删除成功后返回<code>true</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;p&#39;</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>注意:</p>
+<ol>
+<li>删除一个不存在的属性，<code>delete</code>不报错，而且返回<code>true</code>，因此不能根据<code>delete</code>命令的结果来判断属性是否存在；</li>
+<li>只有一种情况<code>delete</code>命令会返回<code>false</code>，那就是该属性存在，且不得删除;</li>
+<li><code>delete</code>命令只能删除对象的属性，无法删除继承的属性。</li>
+</ol>
+<h1 id="如何查看对象的属性">如何查看对象的属性<a hidden class="anchor" aria-hidden="true" href="#如何查看对象的属性">#</a></h1>
+<p>查看自身所有属性</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">obj</span>)
+</span></span></code></pre></div><p>查看自身所有属性值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Object.<span style="color:#a6e22e">values</span>(<span style="color:#a6e22e">obj</span>)
+</span></span></code></pre></div><p>同时查看自身属性和属性值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Object.<span style="color:#a6e22e">entires</span>(<span style="color:#a6e22e">obj</span>)
+</span></span></code></pre></div><p><code>in</code>命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则<code>in</code>返回<code>true</code>；不含则返回<code>false</code>；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用<code>hasOwmProperty</code>命令来判断。</p>
+<h1 id="如何修改或增加对象的属性">如何修改或增加对象的属性<a hidden class="anchor" aria-hidden="true" href="#如何修改或增加对象的属性">#</a></h1>
+<ol>
+<li>通过写对象赋值</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;foo&#39;</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">123</span> 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="2">
+<li>通过点运算符和方括号运算符来赋值和修改</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">456</span> ;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>[<span style="color:#e6db74">&#39;foo&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">789</span>; 
+</span></span></code></pre></div><p>注意方括号中要写字符串，不然就是在用变量。
+3. 批量赋值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">obj</span>,{<span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span> ,<span style="color:#a6e22e">gender</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;man&#39;</span>})
+</span></span></code></pre></div><p>一般不推荐修改原型上的属性</p>
+<h1 id="name-in-obj-和-objhasownproperty-name-的区别"><code>'name' in obj</code> 和 <code>obj.hasOwnProperty ('name') </code>的区别<a hidden class="anchor" aria-hidden="true" href="#name-in-obj-和-objhasownproperty-name-的区别">#</a></h1>
+<p><code>'name' in obj</code>，在<code>obj</code>对象的自身属性和共有属性中查找<code>name</code>，有返回<code>true</code>，无则返回<code>false</code>；<code>obj.hasOwnProperty ('name') </code>,在<code>obj</code>对象的自身属性中查找<code>name</code>，有返回<code>true</code>，无则返回<code>false</code>。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
