@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>JS对象基本语法 | My New Hugo Site</title>
 <meta name="keywords" content="" />
-<meta name="description" content="什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。
+<meta name="description" content="什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无序的复合数据集合。
 var obj = {  jjj : &#39;hello&#39;,  kkk : &#39;world&#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；&#39;hello&#39;和&#39;world&#39;叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。
 声明对象的两种语法 let obj = {  &#39;name&#39;: &#39;frank&#39;,  &#39;age&#39;: 18 } let obj = new Object ({  &#39;name&#39; : &#39;frank&#39;,  &#39;age&#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式
 如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。
@@ -66,7 +66,7 @@ Object.entires(obj) in命令有时会用来查看对象中是否含有指定属�
 
     </style>
 </noscript><meta property="og:title" content="JS对象基本语法" />
-<meta property="og:description" content="什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。
+<meta property="og:description" content="什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无序的复合数据集合。
 var obj = {  jjj : &#39;hello&#39;,  kkk : &#39;world&#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；&#39;hello&#39;和&#39;world&#39;叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。
 声明对象的两种语法 let obj = {  &#39;name&#39;: &#39;frank&#39;,  &#39;age&#39;: 18 } let obj = new Object ({  &#39;name&#39; : &#39;frank&#39;,  &#39;age&#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式
 如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。
@@ -83,7 +83,7 @@ Object.entires(obj) in命令有时会用来查看对象中是否含有指定属�
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JS对象基本语法"/>
-<meta name="twitter:description" content="什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。
+<meta name="twitter:description" content="什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无序的复合数据集合。
 var obj = {  jjj : &#39;hello&#39;,  kkk : &#39;world&#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；&#39;hello&#39;和&#39;world&#39;叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。
 声明对象的两种语法 let obj = {  &#39;name&#39;: &#39;frank&#39;,  &#39;age&#39;: 18 } let obj = new Object ({  &#39;name&#39; : &#39;frank&#39;,  &#39;age&#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式
 如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。
@@ -121,11 +121,11 @@ Object.entires(obj) in命令有时会用来查看对象中是否含有指定属�
   "@type": "BlogPosting",
   "headline": "JS对象基本语法",
   "name": "JS对象基本语法",
-  "description": "什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。\nvar obj = {  jjj : \u0026#39;hello\u0026#39;,  kkk : \u0026#39;world\u0026#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；'hello'和'world'叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。\n声明对象的两种语法 let obj = {  \u0026#39;name\u0026#39;: \u0026#39;frank\u0026#39;,  \u0026#39;age\u0026#39;: 18 } let obj = new Object ({  \u0026#39;name\u0026#39; : \u0026#39;frank\u0026#39;,  \u0026#39;age\u0026#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式\n如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。\nlet obj = {  \u0026#39;p\u0026#39; : 1 } 注意:\n 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性\nObject.keys(obj) 查看自身所有属性值\nObject.values(obj) 同时查看自身属性和属性值\nObject.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。\n如何修改或增加对象的属性  通过写对象赋值  let obj = {  \u0026#39;foo\u0026#39; : 123 } 通过点运算符和方括号运算符来赋值和修改  obj.",
+  "description": "什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无序的复合数据集合。\nvar obj = {  jjj : \u0026#39;hello\u0026#39;,  kkk : \u0026#39;world\u0026#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；'hello'和'world'叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。\n声明对象的两种语法 let obj = {  \u0026#39;name\u0026#39;: \u0026#39;frank\u0026#39;,  \u0026#39;age\u0026#39;: 18 } let obj = new Object ({  \u0026#39;name\u0026#39; : \u0026#39;frank\u0026#39;,  \u0026#39;age\u0026#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式\n如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。\nlet obj = {  \u0026#39;p\u0026#39; : 1 } 注意:\n 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性\nObject.keys(obj) 查看自身所有属性值\nObject.values(obj) 同时查看自身属性和属性值\nObject.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。\n如何修改或增加对象的属性  通过写对象赋值  let obj = {  \u0026#39;foo\u0026#39; : 123 } 通过点运算符和方括号运算符来赋值和修改  obj.",
   "keywords": [
     
   ],
-  "articleBody": "什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。\nvar obj = {  jjj : 'hello',  kkk : 'world' }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；'hello'和'world'叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。\n声明对象的两种语法 let obj = {  'name': 'frank',  'age': 18 } let obj = new Object ({  'name' : 'frank',  'age' : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式\n如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。\nlet obj = {  'p' : 1 } 注意:\n 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性\nObject.keys(obj) 查看自身所有属性值\nObject.values(obj) 同时查看自身属性和属性值\nObject.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。\n如何修改或增加对象的属性  通过写对象赋值  let obj = {  'foo' : 123 } 通过点运算符和方括号运算符来赋值和修改  obj.foo = 456 ; obj['foo'] = 789; 注意方括号中要写字符串，不然就是在用变量。 3. 批量赋值\nObject.assign(obj,{age: 18 ,gender : 'man'}) 一般不推荐修改原型上的属性\n'name' in obj 和 obj.hasOwnProperty ('name') 的区别 'name' in obj，在obj对象的自身属性和共有属性中查找name，有返回true，无则返回false；obj.hasOwnProperty ('name') ,在obj对象的自身属性中查找name，有返回true，无则返回false。\n",
+  "articleBody": "什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无序的复合数据集合。\nvar obj = {  jjj : 'hello',  kkk : 'world' }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；'hello'和'world'叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。\n声明对象的两种语法 let obj = {  'name': 'frank',  'age': 18 } let obj = new Object ({  'name' : 'frank',  'age' : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式\n如何删除对象的属性 删除对象属性使用delete命令，删除成功后返回true。\nlet obj = {  'p' : 1 } 注意:\n 删除一个不存在的属性，delete不报错，而且返回true，因此不能根据delete命令的结果来判断属性是否存在； 只有一种情况delete命令会返回false，那就是该属性存在，且不得删除; delete命令只能删除对象的属性，无法删除继承的属性。  如何查看对象的属性 查看自身所有属性\nObject.keys(obj) 查看自身所有属性值\nObject.values(obj) 同时查看自身属性和属性值\nObject.entires(obj) in命令有时会用来查看对象中是否含有指定属性。如果指定的属性在指定的对象或其原型链中，则in返回true；不含则返回false；此命令不区分自身属性和共有属性，如果需要判断是否为对象自身的属性，可以用hasOwmProperty命令来判断。\n如何修改或增加对象的属性  通过写对象赋值  let obj = {  'foo' : 123 } 通过点运算符和方括号运算符来赋值和修改  obj.foo = 456 ; obj['foo'] = 789; 注意方括号中要写字符串，不然就是在用变量。 3. 批量赋值\nObject.assign(obj,{age: 18 ,gender : 'man'}) 一般不推荐修改原型上的属性\n'name' in obj 和 obj.hasOwnProperty ('name') 的区别 'name' in obj，在obj对象的自身属性和共有属性中查找name，有返回true，无则返回false；obj.hasOwnProperty ('name') ,在obj对象的自身属性中查找name，有返回true，无则返回false。\n",
   "wordCount" : "99",
   "inLanguage": "en",
   "datePublished": "2022-04-21T20:40:47+08:00",
@@ -202,7 +202,7 @@ Object.entires(obj) in命令有时会用来查看对象中是否含有指定属�
 </div>
   </header> 
   <div class="post-content"><h1 id="什么是对象">什么是对象？<a hidden class="anchor" aria-hidden="true" href="#什么是对象">#</a></h1>
-<p>对象是一组“键值对”（key-value）的集合，是一种是无需的复合数据集合。</p>
+<p>对象是一组“键值对”（key-value）的集合，是一种是无序的复合数据集合。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">jjj</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hello&#39;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">kkk</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;world&#39;</span>
