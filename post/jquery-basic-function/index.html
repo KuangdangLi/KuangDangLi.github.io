@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>JQuery Basic Function | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="jQuery如何获取元素？ 将一个选择表达式放进构造函数jQuery()（简写为$），得到一个被选中的元素，并且可以对其进行操作。 选择表达式可以说是CSS选择器：   $(document)//选择整个文档对象  $(&#39;#myID&#39;)//选择ID为myId的元素  $(&#39;div.myClass&#39;)//选择class为myClass 的div元素  $(&#39;input[name=first]&#39;)//选择name属性等于first的input的元素 此外也可以填入jQuery特有的表达式:
+ $(&#39;a:first&#39;) //选择网页中第一个a元素 　$(&#39;tr:odd&#39;) //选择表格的奇数行 　$(&#39;#myForm :input&#39;) // 选择表单中的input元素 　$(&#39;div:visible&#39;) //选择可见的div元素 　$(&#39;div:gt(2)&#39;) // 选择所有的div元素，除了前三个 　$(&#39;div:animated&#39;) // 选择当前处于动画状态的div元素 jQuery()中可以接受第二个作为限定检索范围的参数，一个DOM 元素、文档或 作为上下文（context）的jQuery 对象。
+ jQuery 的链式操作是怎样的？
+jQuery的操作都会返回一个jQuery对象，以便进行下一步操作。一连串的操作连起来以链条的形式呈现出来，我们称其为链式操作。
+  jQuery如何创建元素？
+使用jQuery()来创建元素。如果一个字符串做为一个参数传递个$(), jQuery 检查这个属性是否看上去像HTML (也就是， &lt;tag &hellip; &gt; 之类的元素在这个字符串中)。如果没有, 这个字符串将被解释为选择器， 作为解析上下文。 但是如果该字符串是一个 HTML 代码片断，那么jQuery 就会根据它尝试创建一个新的 DOM 元素。然后jQuery对象创建并返回引用的这些元素。
+  $( &#34;&lt;p id=&#39;test&#39;&gt;My &lt;em&gt;new&lt;/em&gt; text&lt;/p&gt;&#34; ).">
+<meta name="author" content="">
+<link rel="canonical" href="http://KuangDangLi.github.io/post/jquery-basic-function/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="JQuery Basic Function" />
+<meta property="og:description" content="jQuery如何获取元素？ 将一个选择表达式放进构造函数jQuery()（简写为$），得到一个被选中的元素，并且可以对其进行操作。 选择表达式可以说是CSS选择器：   $(document)//选择整个文档对象  $(&#39;#myID&#39;)//选择ID为myId的元素  $(&#39;div.myClass&#39;)//选择class为myClass 的div元素  $(&#39;input[name=first]&#39;)//选择name属性等于first的input的元素 此外也可以填入jQuery特有的表达式:
+ $(&#39;a:first&#39;) //选择网页中第一个a元素 　$(&#39;tr:odd&#39;) //选择表格的奇数行 　$(&#39;#myForm :input&#39;) // 选择表单中的input元素 　$(&#39;div:visible&#39;) //选择可见的div元素 　$(&#39;div:gt(2)&#39;) // 选择所有的div元素，除了前三个 　$(&#39;div:animated&#39;) // 选择当前处于动画状态的div元素 jQuery()中可以接受第二个作为限定检索范围的参数，一个DOM 元素、文档或 作为上下文（context）的jQuery 对象。
+ jQuery 的链式操作是怎样的？
+jQuery的操作都会返回一个jQuery对象，以便进行下一步操作。一连串的操作连起来以链条的形式呈现出来，我们称其为链式操作。
+  jQuery如何创建元素？
+使用jQuery()来创建元素。如果一个字符串做为一个参数传递个$(), jQuery 检查这个属性是否看上去像HTML (也就是， &lt;tag &hellip; &gt; 之类的元素在这个字符串中)。如果没有, 这个字符串将被解释为选择器， 作为解析上下文。 但是如果该字符串是一个 HTML 代码片断，那么jQuery 就会根据它尝试创建一个新的 DOM 元素。然后jQuery对象创建并返回引用的这些元素。
+  $( &#34;&lt;p id=&#39;test&#39;&gt;My &lt;em&gt;new&lt;/em&gt; text&lt;/p&gt;&#34; )." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://KuangDangLi.github.io/post/jquery-basic-function/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-06-14T16:31:12&#43;08:00" />
+<meta property="article:modified_time" content="2022-06-14T16:31:12&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JQuery Basic Function"/>
+<meta name="twitter:description" content="jQuery如何获取元素？ 将一个选择表达式放进构造函数jQuery()（简写为$），得到一个被选中的元素，并且可以对其进行操作。 选择表达式可以说是CSS选择器：   $(document)//选择整个文档对象  $(&#39;#myID&#39;)//选择ID为myId的元素  $(&#39;div.myClass&#39;)//选择class为myClass 的div元素  $(&#39;input[name=first]&#39;)//选择name属性等于first的input的元素 此外也可以填入jQuery特有的表达式:
+ $(&#39;a:first&#39;) //选择网页中第一个a元素 　$(&#39;tr:odd&#39;) //选择表格的奇数行 　$(&#39;#myForm :input&#39;) // 选择表单中的input元素 　$(&#39;div:visible&#39;) //选择可见的div元素 　$(&#39;div:gt(2)&#39;) // 选择所有的div元素，除了前三个 　$(&#39;div:animated&#39;) // 选择当前处于动画状态的div元素 jQuery()中可以接受第二个作为限定检索范围的参数，一个DOM 元素、文档或 作为上下文（context）的jQuery 对象。
+ jQuery 的链式操作是怎样的？
+jQuery的操作都会返回一个jQuery对象，以便进行下一步操作。一连串的操作连起来以链条的形式呈现出来，我们称其为链式操作。
+  jQuery如何创建元素？
+使用jQuery()来创建元素。如果一个字符串做为一个参数传递个$(), jQuery 检查这个属性是否看上去像HTML (也就是， &lt;tag &hellip; &gt; 之类的元素在这个字符串中)。如果没有, 这个字符串将被解释为选择器， 作为解析上下文。 但是如果该字符串是一个 HTML 代码片断，那么jQuery 就会根据它尝试创建一个新的 DOM 元素。然后jQuery对象创建并返回引用的这些元素。
+  $( &#34;&lt;p id=&#39;test&#39;&gt;My &lt;em&gt;new&lt;/em&gt; text&lt;/p&gt;&#34; )."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://KuangDangLi.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "JQuery Basic Function",
+      "item": "http://KuangDangLi.github.io/post/jquery-basic-function/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JQuery Basic Function",
+  "name": "JQuery Basic Function",
+  "description": "jQuery如何获取元素？ 将一个选择表达式放进构造函数jQuery()（简写为$），得到一个被选中的元素，并且可以对其进行操作。 选择表达式可以说是CSS选择器：   $(document)//选择整个文档对象  $(\u0026#39;#myID\u0026#39;)//选择ID为myId的元素  $(\u0026#39;div.myClass\u0026#39;)//选择class为myClass 的div元素  $(\u0026#39;input[name=first]\u0026#39;)//选择name属性等于first的input的元素 此外也可以填入jQuery特有的表达式:\n $(\u0026#39;a:first\u0026#39;) //选择网页中第一个a元素 　$(\u0026#39;tr:odd\u0026#39;) //选择表格的奇数行 　$(\u0026#39;#myForm :input\u0026#39;) // 选择表单中的input元素 　$(\u0026#39;div:visible\u0026#39;) //选择可见的div元素 　$(\u0026#39;div:gt(2)\u0026#39;) // 选择所有的div元素，除了前三个 　$(\u0026#39;div:animated\u0026#39;) // 选择当前处于动画状态的div元素 jQuery()中可以接受第二个作为限定检索范围的参数，一个DOM 元素、文档或 作为上下文（context）的jQuery 对象。\n jQuery 的链式操作是怎样的？\njQuery的操作都会返回一个jQuery对象，以便进行下一步操作。一连串的操作连起来以链条的形式呈现出来，我们称其为链式操作。\n  jQuery如何创建元素？\n使用jQuery()来创建元素。如果一个字符串做为一个参数传递个$(), jQuery 检查这个属性是否看上去像HTML (也就是， \u0026lt;tag \u0026hellip; \u0026gt; 之类的元素在这个字符串中)。如果没有, 这个字符串将被解释为选择器， 作为解析上下文。 但是如果该字符串是一个 HTML 代码片断，那么jQuery 就会根据它尝试创建一个新的 DOM 元素。然后jQuery对象创建并返回引用的这些元素。\n  $( \u0026#34;\u0026lt;p id=\u0026#39;test\u0026#39;\u0026gt;My \u0026lt;em\u0026gt;new\u0026lt;/em\u0026gt; text\u0026lt;/p\u0026gt;\u0026#34; ).",
+  "keywords": [
+    
+  ],
+  "articleBody": " jQuery如何获取元素？ 将一个选择表达式放进构造函数jQuery()（简写为$），得到一个被选中的元素，并且可以对其进行操作。 选择表达式可以说是CSS选择器：   $(document)//选择整个文档对象  $('#myID')//选择ID为myId的元素  $('div.myClass')//选择class为myClass 的div元素  $('input[name=first]')//选择name属性等于first的input的元素 此外也可以填入jQuery特有的表达式:\n $('a:first') //选择网页中第一个a元素 　$('tr:odd') //选择表格的奇数行 　$('#myForm :input') // 选择表单中的input元素 　$('div:visible') //选择可见的div元素 　$('div:gt(2)') // 选择所有的div元素，除了前三个 　$('div:animated') // 选择当前处于动画状态的div元素 jQuery()中可以接受第二个作为限定检索范围的参数，一个DOM 元素、文档或 作为上下文（context）的jQuery 对象。\n jQuery 的链式操作是怎样的？\njQuery的操作都会返回一个jQuery对象，以便进行下一步操作。一连串的操作连起来以链条的形式呈现出来，我们称其为链式操作。\n  jQuery如何创建元素？\n使用jQuery()来创建元素。如果一个字符串做为一个参数传递个$(), jQuery 检查这个属性是否看上去像HTML (也就是， 之类的元素在这个字符串中)。如果没有, 这个字符串将被解释为选择器， 作为解析上下文。 但是如果该字符串是一个 HTML 代码片断，那么jQuery 就会根据它尝试创建一个新的 DOM 元素。然后jQuery对象创建并返回引用的这些元素。\n  $( \"My new text\n\" ).appendTo( \"body\" ); jQuery 如何移动元素？\n在jQuery提供两个API来移动元素。\n假定我们选中了一个div元素，需要把它移动到p元素后面。 第一种方法使用.insertAfter()，把div元素移动到p元素后面：  　$('div').insertAfter($('p')); 此种方法返回操作div元素的对象。 第二种方法是使用.after()，把p元素加到div元素前面：\n　$('p').after($('div')); 此种方法返回操作p元素的对象。\njQuery 如何修改元素的属性？\n在jQuery中提供.attr()来对元素的通用属性进行操作。\n.attr( attributeName )，获取匹配的元素集合中的第一个元素的属性的值。\n.attr( attributeName, value )，设置每一个匹配元素的一个或多个属性。  ",
+  "wordCount" : "77",
+  "inLanguage": "en",
+  "datePublished": "2022-06-14T16:31:12+08:00",
+  "dateModified": "2022-06-14T16:31:12+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://KuangDangLi.github.io/post/jquery-basic-function/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://KuangDangLi.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      JQuery Basic Function
+    </h1>
+    <div class="post-meta"><span title='2022-06-14 16:31:12 +0800 CST'>June 14, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><ol>
+<li>jQuery如何获取元素？ <br>
+将一个选择表达式放进构造函数jQuery()（简写为$），得到一个被选中的元素，并且可以对其进行操作。 <br>
+选择表达式可以说是CSS选择器：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#a6e22e">$</span>(document)<span style="color:#75715e">//选择整个文档对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#myID&#39;</span>)<span style="color:#75715e">//选择ID为myId的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;div.myClass&#39;</span>)<span style="color:#75715e">//选择class为myClass 的div元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;input[name=first]&#39;</span>)<span style="color:#75715e">//选择name属性等于first的input的元素
+</span></span></span></code></pre></div><p>此外也可以填入jQuery特有的表达式:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;a:first&#39;</span>) <span style="color:#75715e">//选择网页中第一个a元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>　　<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;tr:odd&#39;</span>) <span style="color:#75715e">//选择表格的奇数行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>　　<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#myForm :input&#39;</span>) <span style="color:#75715e">// 选择表单中的input元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>　　<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;div:visible&#39;</span>) <span style="color:#75715e">//选择可见的div元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>　　<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;div:gt(2)&#39;</span>) <span style="color:#75715e">// 选择所有的div元素，除了前三个
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>　　<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;div:animated&#39;</span>) <span style="color:#75715e">// 选择当前处于动画状态的div元素
+</span></span></span></code></pre></div><p>jQuery()中可以接受第二个作为限定检索范围的参数，一个DOM 元素、文档或 作为上下文（context）的jQuery 对象。</p>
+<ol start="2">
+<li>
+<p>jQuery 的链式操作是怎样的？<br>
+jQuery的操作都会返回一个jQuery对象，以便进行下一步操作。一连串的操作连起来以链条的形式呈现出来，我们称其为链式操作。</p>
+</li>
+<li>
+<p>jQuery如何创建元素？<br>
+使用jQuery()来创建元素。如果一个字符串做为一个参数传递个$(), jQuery 检查这个属性是否看上去像HTML (也就是， &lt;tag &hellip; &gt; 之类的元素在这个字符串中)。如果没有, 这个字符串将被解释为选择器， 作为解析上下文。 但是如果该字符串是一个 HTML 代码片断，那么jQuery 就会根据它尝试创建一个新的 DOM 元素。然后jQuery对象创建并返回引用的这些元素。</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span>( <span style="color:#e6db74">&#34;&lt;p id=&#39;test&#39;&gt;My &lt;em&gt;new&lt;/em&gt; text&lt;/p&gt;&#34;</span> ).<span style="color:#a6e22e">appendTo</span>( <span style="color:#e6db74">&#34;body&#34;</span> );
+</span></span></code></pre></div><ol start="4">
+<li>jQuery 如何移动元素？<br>
+在jQuery提供两个API来移动元素。<br>
+假定我们选中了一个div元素，需要把它移动到p元素后面。
+第一种方法使用.insertAfter()，把div元素移动到p元素后面：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>　<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;div&#39;</span>).<span style="color:#a6e22e">insertAfter</span>(<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;p&#39;</span>));
+</span></span></code></pre></div><p>此种方法返回操作div元素的对象。
+第二种方法是使用.after()，把p元素加到div元素前面：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>　<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;p&#39;</span>).<span style="color:#a6e22e">after</span>(<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;div&#39;</span>));
+</span></span></code></pre></div><p>此种方法返回操作p元素的对象。</p>
+<ol start="5">
+<li>jQuery 如何修改元素的属性？<br>
+在jQuery中提供.attr()来对元素的通用属性进行操作。<br>
+<code>.attr( attributeName )</code>，获取匹配的元素集合中的第一个元素的属性的值。<br>
+<code>.attr( attributeName, value )</code>，设置每一个匹配元素的一个或多个属性。</li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -9,15 +9,15 @@
 <meta name="keywords" content="" />
 <meta name="description" content="浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello&amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello&amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  ">
 <meta name="author" content="">
-<link rel="canonical" href="http://kuangdangli.github.io/post/url/" />
+<link rel="canonical" href="http://KuangDangLi.github.io/post/url/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
     onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -59,7 +59,7 @@
 </noscript><meta property="og:title" content="Url" />
 <meta property="og:description" content="浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello&amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello&amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://kuangdangli.github.io/post/url/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="http://KuangDangLi.github.io/post/url/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-24T18:16:41&#43;08:00" />
 <meta property="article:modified_time" content="2022-03-24T18:16:41&#43;08:00" />
 
@@ -72,18 +72,18 @@
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "Posts",
-      "item": "http://kuangdangli.github.io/post/"
+      "item": "http://KuangDangLi.github.io/post/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "Url",
-      "item": "http://kuangdangli.github.io/post/url/"
+      "item": "http://KuangDangLi.github.io/post/url/"
     }
   ]
 }
@@ -105,14 +105,14 @@
   "dateModified": "2022-03-24T18:16:41+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://kuangdangli.github.io/post/url/"
+    "@id": "http://KuangDangLi.github.io/post/url/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "My New Hugo Site",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://kuangdangli.github.io/favicon.ico"
+      "url": "http://KuangDangLi.github.io/favicon.ico"
     }
   }
 }
@@ -134,7 +134,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://kuangdangli.github.io" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -212,7 +212,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="http://kuangdangli.github.io">My New Hugo Site</a></span>
+    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
