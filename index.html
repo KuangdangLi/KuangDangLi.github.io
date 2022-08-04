@@ -127,6 +127,24 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2>New Vue Options
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>实例 let vm = new Vue(options) 通过构造函数Vue创建实例，接收options作为参数,一般称之为选项或构造选项；得到实例vm，vm封装了对视图的所有操作，包括数据读写、事件绑定、DOM更新。
+options options有五类属性，包括数据、DOM、生命周期钩子、资源、组合。本篇文章不采取属性分类对其进行介绍，而是按照属性的常用程度进行介绍。
+el,挂载点（DOM属性） 提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标。可以是 CSS 选择器，也可以是一个 HTMLElement 实例。在实例挂载之后，元素可以用 vm.\$el 访问。 如果没有在实例初始化时使用el选择挂载点，可以通过vm.$mount()来选择挂载点。
+data（数据属性） data接受Object和Function，推荐使用Function，因为在组件中只接收Function。
+当一个组件被定义，data 必须声明为返回一个初始数据对象的函数，因为组件可能被用来创建多个实例。如果 data 仍然是一个纯粹的对象，则所有的实例将共享引用同一个数据对象！通过提供 data 函数，每次创建一个新实例后，我们能够调用 data 函数，从而返回初始数据的一个全新副本数据对象。
+Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 getter/setter，从而让 data 的 property 能够响应数据变化。对象必须是纯粹的对象 (含有零个或多个的 key/value 对)：浏览器 API 创建的原生对象，原型上的 property 会被忽略。大概来说，data 应该只能是数据 - 不推荐观察拥有状态行为的对象。
+实例创建之后，可以通过 vm.\$data 访问原始数据对象。Vue 实例也代理了 data 对象上所有的 property，因此访问 vm.a 等价于访问 vm.$data.a。 以 _ 或 $ 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突。你可以使用例如 vm....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-04 15:41:44 +0800 CST'>August 4, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to New Vue Options" href="http://kuangdangli.github.io/post/new-vue-options/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Vue Version
     </h2>
   </header>
@@ -279,18 +297,6 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
   </section>
   <footer class="entry-footer"><span title='2022-04-09 15:49:20 +0800 CST'>April 9, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Js的基本语法" href="http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>JavaScript的诞生
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p> Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格—-（简化的）函数式编程 &#43;（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-03-26 22:18:33 +0800 CST'>March 26, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to JavaScript的诞生" href="http://kuangdangli.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -6,7 +6,22 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Jul 2022 20:16:27 +0800</lastBuildDate><atom:link href="http://kuangdangli.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Aug 2022 15:41:44 +0800</lastBuildDate><atom:link href="http://kuangdangli.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Vue Options</title>
+      <link>http://kuangdangli.github.io/post/new-vue-options/</link>
+      <pubDate>Thu, 04 Aug 2022 15:41:44 +0800</pubDate>
+      
+      <guid>http://kuangdangli.github.io/post/new-vue-options/</guid>
+      <description>实例 let vm = new Vue(options) 通过构造函数Vue创建实例，接收options作为参数,一般称之为选项或构造选项；得到实例vm，vm封装了对视图的所有操作，包括数据读写、事件绑定、DOM更新。
+options options有五类属性，包括数据、DOM、生命周期钩子、资源、组合。本篇文章不采取属性分类对其进行介绍，而是按照属性的常用程度进行介绍。
+el,挂载点（DOM属性） 提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标。可以是 CSS 选择器，也可以是一个 HTMLElement 实例。在实例挂载之后，元素可以用 vm.\$el 访问。 如果没有在实例初始化时使用el选择挂载点，可以通过vm.$mount()来选择挂载点。
+data（数据属性） data接受Object和Function，推荐使用Function，因为在组件中只接收Function。
+当一个组件被定义，data 必须声明为返回一个初始数据对象的函数，因为组件可能被用来创建多个实例。如果 data 仍然是一个纯粹的对象，则所有的实例将共享引用同一个数据对象！通过提供 data 函数，每次创建一个新实例后，我们能够调用 data 函数，从而返回初始数据的一个全新副本数据对象。
+Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 getter/setter，从而让 data 的 property 能够响应数据变化。对象必须是纯粹的对象 (含有零个或多个的 key/value 对)：浏览器 API 创建的原生对象，原型上的 property 会被忽略。大概来说，data 应该只能是数据 - 不推荐观察拥有状态行为的对象。
+实例创建之后，可以通过 vm.\$data 访问原始数据对象。Vue 实例也代理了 data 对象上所有的 property，因此访问 vm.a 等价于访问 vm.$data.a。 以 _ 或 $ 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突。你可以使用例如 vm.</description>
+    </item>
+    
     <item>
       <title>Vue Version</title>
       <link>http://kuangdangli.github.io/post/vue-version/</link>
