@@ -131,6 +131,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>SyncModifier<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>sync修饰符 子组件尝试改变一个prop属性值并将其同步到父组件时，开发者可以使用sync修饰符。 代码实例
+Vue.component(&#34;Child&#34;,{  template: ` &lt;div class=&#34;child&#34;&gt; {{money}} &lt;button @click=&#34;$emit(&#39;update:money&#39;, money-100)&#34;&gt; &lt;span&gt;花钱&lt;/span&gt; &lt;/button&gt; &lt;/div&gt; `,  props: [&#34;money&#34;] }) new Vue({  components: { Child: Child },  template:` &lt;div class=&#34;app&#34;&gt; App.vue 我现在有 {{total}} &lt;hr&gt; &lt;Child :money.sync=&#34;total&#34;/&gt; &lt;/div&gt; `,  data() {  return { total: 10000 };  } }) 子组件注册一个点击事件update:money，传出参数money-100，父组件使用.sync修饰符监听事件，并拿到子组件传出的参数并赋值给子组件的外部属性money。
+//.sync修饰符相当于封装了如下操作 &lt;Child :money=&#34;total&#34; v-on:update-money=&#34;total = $event&#34;/&gt; </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-07 21:19:12 +0800 CST'>August 7, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to SyncModifier" href="http://KuangDangLi.github.io/post/syncmodifier/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Computed vs Watch
     </h2>
   </header>
@@ -287,19 +301,6 @@ Object.entires(obj) in命令有时会用来查看对象中是否含有指定属�
   </section>
   <footer class="entry-footer"><span title='2022-04-21 20:40:47 +0800 CST'>April 21, 2022</span></footer>
   <a class="entry-link" aria-label="post link to JS对象基本语法" href="http://KuangDangLi.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Js数据类型 1<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>数据类型是指js语言中值的类型。截至es6版本，js共有七种数据类型。分别是:
- 原始类型（primitive type），最基本的数据类型。   数值（number）：整数和小数（比如1和3.14）。 字符串（string）：文本（比如 Hello World）。 布尔值（boolean）：表示真伪的两个特殊值，即true和false。  合成类型（complex type）   对象（object）：各种值组成的集合，可以看作是一个存放各种值的容器。对象是最复杂的数据类型，有三个子类型包括狭义的对象（object）、数组（array）、函数（function，处理数据的方法）。  特殊值   undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值。 unll：表示空值，即此处的值为空。  es6新加类型   symbol：暂不涉及。  </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-04-15 15:38:37 +0800 CST'>April 15, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Js数据类型 1" href="http://KuangDangLi.github.io/post/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

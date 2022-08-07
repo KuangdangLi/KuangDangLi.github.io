@@ -6,7 +6,18 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Aug 2022 15:14:41 +0800</lastBuildDate><atom:link href="http://KuangDangLi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Aug 2022 21:19:12 +0800</lastBuildDate><atom:link href="http://KuangDangLi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SyncModifier</title>
+      <link>http://KuangDangLi.github.io/post/syncmodifier/</link>
+      <pubDate>Sun, 07 Aug 2022 21:19:12 +0800</pubDate>
+      
+      <guid>http://KuangDangLi.github.io/post/syncmodifier/</guid>
+      <description>sync修饰符 子组件尝试改变一个prop属性值并将其同步到父组件时，开发者可以使用sync修饰符。 代码实例
+Vue.component(&amp;#34;Child&amp;#34;,{  template: ` &amp;lt;div class=&amp;#34;child&amp;#34;&amp;gt; {{money}} &amp;lt;button @click=&amp;#34;$emit(&amp;#39;update:money&amp;#39;, money-100)&amp;#34;&amp;gt; &amp;lt;span&amp;gt;花钱&amp;lt;/span&amp;gt; &amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; `,  props: [&amp;#34;money&amp;#34;] }) new Vue({  components: { Child: Child },  template:` &amp;lt;div class=&amp;#34;app&amp;#34;&amp;gt; App.vue 我现在有 {{total}} &amp;lt;hr&amp;gt; &amp;lt;Child :money.sync=&amp;#34;total&amp;#34;/&amp;gt; &amp;lt;/div&amp;gt; `,  data() {  return { total: 10000 };  } }) 子组件注册一个点击事件update:money，传出参数money-100，父组件使用.sync修饰符监听事件，并拿到子组件传出的参数并赋值给子组件的外部属性money。
+//.sync修饰符相当于封装了如下操作 &amp;lt;Child :money=&amp;#34;total&amp;#34; v-on:update-money=&amp;#34;total = $event&amp;#34;/&amp;gt; </description>
+    </item>
+    
     <item>
       <title>Computed vs Watch</title>
       <link>http://KuangDangLi.github.io/post/computed-vs-watch/</link>
