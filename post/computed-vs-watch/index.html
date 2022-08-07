@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Computed vs Watch | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;
+computed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;
+需要特别注意的是computed不支持异步操作。
+watch watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象; 其可以监听的数据来源：data，props，computed 内的数据;
+watch中的回调函数接受两个参数，newVal和oldVal;
+watch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;
+watch默认组件加载不触发回调函数执行，可通过immediate来设置;
+watch支持异步;
+watch不支持缓存。">
+<meta name="author" content="">
+<link rel="canonical" href="http://kuangdangli.github.io/post/computed-vs-watch/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Computed vs Watch" />
+<meta property="og:description" content="浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;
+computed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;
+需要特别注意的是computed不支持异步操作。
+watch watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象; 其可以监听的数据来源：data，props，computed 内的数据;
+watch中的回调函数接受两个参数，newVal和oldVal;
+watch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;
+watch默认组件加载不触发回调函数执行，可通过immediate来设置;
+watch支持异步;
+watch不支持缓存。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kuangdangli.github.io/post/computed-vs-watch/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-07T15:14:41&#43;08:00" />
+<meta property="article:modified_time" content="2022-08-07T15:14:41&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Computed vs Watch"/>
+<meta name="twitter:description" content="浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;
+computed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;
+需要特别注意的是computed不支持异步操作。
+watch watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象; 其可以监听的数据来源：data，props，computed 内的数据;
+watch中的回调函数接受两个参数，newVal和oldVal;
+watch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;
+watch默认组件加载不触发回调函数执行，可通过immediate来设置;
+watch支持异步;
+watch不支持缓存。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://kuangdangli.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Computed vs Watch",
+      "item": "http://kuangdangli.github.io/post/computed-vs-watch/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Computed vs Watch",
+  "name": "Computed vs Watch",
+  "description": "浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;\ncomputed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;\n需要特别注意的是computed不支持异步操作。\nwatch watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象; 其可以监听的数据来源：data，props，computed 内的数据;\nwatch中的回调函数接受两个参数，newVal和oldVal;\nwatch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;\nwatch默认组件加载不触发回调函数执行，可通过immediate来设置;\nwatch支持异步;\nwatch不支持缓存。",
+  "keywords": [
+    
+  ],
+  "articleBody": "浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;\ncomputed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;\n需要特别注意的是computed不支持异步操作。\nwatch watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象; 其可以监听的数据来源：data，props，computed 内的数据;\nwatch中的回调函数接受两个参数，newVal和oldVal;\nwatch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;\nwatch默认组件加载不触发回调函数执行，可通过immediate来设置;\nwatch支持异步;\nwatch不支持缓存。\n",
+  "wordCount" : "40",
+  "inLanguage": "en",
+  "datePublished": "2022-08-07T15:14:41+08:00",
+  "dateModified": "2022-08-07T15:14:41+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kuangdangli.github.io/post/computed-vs-watch/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kuangdangli.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Computed vs Watch
+    </h1>
+    <div class="post-meta"><span title='2022-08-07 15:14:41 +0800 CST'>August 7, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="浅析computed与watch的区别">浅析computed与watch的区别<a hidden class="anchor" aria-hidden="true" href="#浅析computed与watch的区别">#</a></h1>
+<h2 id="computed">computed<a hidden class="anchor" aria-hidden="true" href="#computed">#</a></h2>
+<p>computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter;
+计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;<br>
+computed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的；
+只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;<br>
+需要特别注意的是computed不支持异步操作。</p>
+<h2 id="watch">watch<a hidden class="anchor" aria-hidden="true" href="#watch">#</a></h2>
+<p>watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象;
+其可以监听的数据来源：data，props，computed 内的数据;<br>
+watch中的回调函数接受两个参数，newVal和oldVal;<br>
+watch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;<br>
+watch默认组件加载不触发回调函数执行，可通过immediate来设置;<br>
+watch支持异步;<br>
+watch不支持缓存。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

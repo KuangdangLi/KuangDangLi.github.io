@@ -6,7 +6,24 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Aug 2022 15:41:44 +0800</lastBuildDate><atom:link href="http://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Aug 2022 15:14:41 +0800</lastBuildDate><atom:link href="http://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computed vs Watch</title>
+      <link>http://kuangdangli.github.io/post/computed-vs-watch/</link>
+      <pubDate>Sun, 07 Aug 2022 15:14:41 +0800</pubDate>
+      
+      <guid>http://kuangdangli.github.io/post/computed-vs-watch/</guid>
+      <description>浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;
+computed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;
+需要特别注意的是computed不支持异步操作。
+watch watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象; 其可以监听的数据来源：data，props，computed 内的数据;
+watch中的回调函数接受两个参数，newVal和oldVal;
+watch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;
+watch默认组件加载不触发回调函数执行，可通过immediate来设置;
+watch支持异步;
+watch不支持缓存。</description>
+    </item>
+    
     <item>
       <title>New Vue Options</title>
       <link>http://kuangdangli.github.io/post/new-vue-options/</link>

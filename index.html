@@ -127,6 +127,26 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2>Computed vs Watch
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;
+computed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;
+需要特别注意的是computed不支持异步操作。
+watch watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象; 其可以监听的数据来源：data，props，computed 内的数据;
+watch中的回调函数接受两个参数，newVal和oldVal;
+watch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;
+watch默认组件加载不触发回调函数执行，可通过immediate来设置;
+watch支持异步;
+watch不支持缓存。</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-07 15:14:41 +0800 CST'>August 7, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to Computed vs Watch" href="http://kuangdangli.github.io/post/computed-vs-watch/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>New Vue Options
     </h2>
   </header>
@@ -276,27 +296,6 @@ Object.entires(obj) in命令有时会用来查看对象中是否含有指定属�
   </section>
   <footer class="entry-footer"><span title='2022-04-15 15:38:37 +0800 CST'>April 15, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Js数据类型 1" href="http://kuangdangli.github.io/post/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Js的基本语法
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
-语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
-var a = 1 &#43; 3; 1 &#43; 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。
-一般来说，语句会改变环境（声明、赋值）。
-注意：js书写大小写敏感以及大部分空格与回车没有实际意义（除了return后的回车）。
-标识符 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名以及函数名。
-标识符命名规则如下：
- 第一个字符，可以是任意unicode字母（包括英文字母和其他语言的字母）以及美元符号和下划线。 第二个字符以及后面的字符，除了unicode字母、美元符号和下换线，还可以用数字0-9。 中文是合法的标识符，可以用作变量名。  if else语句 if (n === 2) {  console.log(&#39;hello world&#39;) } else {  console.log(&#39;fuck world&#39;) } 上述语句指的是如果变量n的值为2，输出hello world，否则输出fuck world。
-if (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if…else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。
-for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。...</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-04-09 15:49:20 +0800 CST'>April 9, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Js的基本语法" href="http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
