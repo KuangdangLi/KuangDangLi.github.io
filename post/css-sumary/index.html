@@ -9,15 +9,15 @@
 <meta name="keywords" content="" />
 <meta name="description" content="CSS知识总结 CSS简介  CSS，全称Cascading Style Sheets，中文名层叠样式表，是一种用来为结构化文档（如 HTML 文档或 XML 应用）添加样式（字体、间距和颜色等）的 计算机语言，由 W3C 定义和维护。由哈肯・维姆・莱首先提出，初始版本于1996年12月17日发行。  基本概念  块   CSS通过display属性可以将元素设置为块级元素、内联元素、内联块元素。一个块级元素的内容宽度是其父元素的100%，其高度与其内容高度一致。内联元素的 height width 与内容一致。无法设置内联元素的 height width。inline-block 混合了 inline 和 block 的特性。  盒模型   CSS盒由content、padding、border、margin组成。 CSS盒模型分为content-box和border-box两种。content-box内容盒中内容的宽度和边界就是盒子的宽度和边界。border-box的边界是border，其宽度为content&#43;padding&#43;border。  文档流   元素布局默认为从左到右、从上到下。内联元素和内联块元素占满一行再换行，不同的是内联元素在换行时会折叠内容到下一行，内联块元素不会，容不下的元素会直接另起一行。块级元素独占一行，从上到下布局。  外边距合并   两个外边距相接的父子元素、兄弟元素，这些外边距将合并为一个外边距，即最大的单个外边距的大小。 父子元素外边距合并可以通过设置padding/border、overflow:hidden、display:flex挡住。兄弟元素外边距合并可以通过设置inline-block消除。  CSS布局   CSS布局有float布局、flex布局、grid布局三种主流形式。 CSS布局有两种思路。可以先定下大局，然后再完善每个部分的小布局。也可以从小到大，先完成小布局，然后组成大布局。  层叠上下文   层叠上下文是对二维平面中的HTML元素的三维构想，通过在一条虚构的Z轴中的顺序来决定渲染优先级。 在单个的层叠上下文中，各元素属性的顺序有上到下分别是z-index值为非负数的定位元素、内联子元素、浮动元素、块级子元素、border、background、z-index值为负数的定位元素。 创建层叠上下文的元素详见MDN层叠上下文。 层叠上下文可以包含在其他层叠上下文中，并且一起创建一个层叠上下文的层级。每个层叠上下文都完全独立于它的兄弟元素：当处理层叠时只考虑子元素。每个层叠上下文都是自包含的：当一个元素的内容发生层叠后，该元素将被作为整体在父级层叠上下文中按顺序进行层叠。  浏览器渲染原理   浏览器渲染步骤：根据HTML构建HTML树，根据CSS构建CSS树，将两棵树合并成渲染树，再进行布局绘制以及合成，最终渲染出用户看到的画面。  CSS动画   通过transform和transition两个属性来写动画。transform负责图形的位置移动、大小形状变化，transition负责插入中间帧补充移动、形变过程使动画变得流畅。 通过animation和@keyframes来写动画。@keyframes可以定义动画移动、形变的具体值以及定义其所在的关键帧。animation属性负责动画进行的时长、过渡方式、延迟等，完善动画表现。  ">
 <meta name="author" content="">
-<link rel="canonical" href="http://kuangdangli.github.io/post/css-sumary/" />
+<link rel="canonical" href="http://KuangDangLi.github.io/post/css-sumary/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
     onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -59,7 +59,7 @@
 </noscript><meta property="og:title" content="CSS Sumary" />
 <meta property="og:description" content="CSS知识总结 CSS简介  CSS，全称Cascading Style Sheets，中文名层叠样式表，是一种用来为结构化文档（如 HTML 文档或 XML 应用）添加样式（字体、间距和颜色等）的 计算机语言，由 W3C 定义和维护。由哈肯・维姆・莱首先提出，初始版本于1996年12月17日发行。  基本概念  块   CSS通过display属性可以将元素设置为块级元素、内联元素、内联块元素。一个块级元素的内容宽度是其父元素的100%，其高度与其内容高度一致。内联元素的 height width 与内容一致。无法设置内联元素的 height width。inline-block 混合了 inline 和 block 的特性。  盒模型   CSS盒由content、padding、border、margin组成。 CSS盒模型分为content-box和border-box两种。content-box内容盒中内容的宽度和边界就是盒子的宽度和边界。border-box的边界是border，其宽度为content&#43;padding&#43;border。  文档流   元素布局默认为从左到右、从上到下。内联元素和内联块元素占满一行再换行，不同的是内联元素在换行时会折叠内容到下一行，内联块元素不会，容不下的元素会直接另起一行。块级元素独占一行，从上到下布局。  外边距合并   两个外边距相接的父子元素、兄弟元素，这些外边距将合并为一个外边距，即最大的单个外边距的大小。 父子元素外边距合并可以通过设置padding/border、overflow:hidden、display:flex挡住。兄弟元素外边距合并可以通过设置inline-block消除。  CSS布局   CSS布局有float布局、flex布局、grid布局三种主流形式。 CSS布局有两种思路。可以先定下大局，然后再完善每个部分的小布局。也可以从小到大，先完成小布局，然后组成大布局。  层叠上下文   层叠上下文是对二维平面中的HTML元素的三维构想，通过在一条虚构的Z轴中的顺序来决定渲染优先级。 在单个的层叠上下文中，各元素属性的顺序有上到下分别是z-index值为非负数的定位元素、内联子元素、浮动元素、块级子元素、border、background、z-index值为负数的定位元素。 创建层叠上下文的元素详见MDN层叠上下文。 层叠上下文可以包含在其他层叠上下文中，并且一起创建一个层叠上下文的层级。每个层叠上下文都完全独立于它的兄弟元素：当处理层叠时只考虑子元素。每个层叠上下文都是自包含的：当一个元素的内容发生层叠后，该元素将被作为整体在父级层叠上下文中按顺序进行层叠。  浏览器渲染原理   浏览器渲染步骤：根据HTML构建HTML树，根据CSS构建CSS树，将两棵树合并成渲染树，再进行布局绘制以及合成，最终渲染出用户看到的画面。  CSS动画   通过transform和transition两个属性来写动画。transform负责图形的位置移动、大小形状变化，transition负责插入中间帧补充移动、形变过程使动画变得流畅。 通过animation和@keyframes来写动画。@keyframes可以定义动画移动、形变的具体值以及定义其所在的关键帧。animation属性负责动画进行的时长、过渡方式、延迟等，完善动画表现。  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://kuangdangli.github.io/post/css-sumary/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="http://KuangDangLi.github.io/post/css-sumary/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-24T14:33:51&#43;08:00" />
 <meta property="article:modified_time" content="2022-03-24T14:33:51&#43;08:00" />
 
@@ -77,13 +77,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://kuangdangli.github.io/post/"
+      "item": "http://KuangDangLi.github.io/post/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "CSS Sumary",
-      "item": "http://kuangdangli.github.io/post/css-sumary/"
+      "item": "http://KuangDangLi.github.io/post/css-sumary/"
     }
   ]
 }
@@ -105,14 +105,14 @@
   "dateModified": "2022-03-24T14:33:51+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://kuangdangli.github.io/post/css-sumary/"
+    "@id": "http://KuangDangLi.github.io/post/css-sumary/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "My New Hugo Site",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://kuangdangli.github.io/favicon.ico"
+      "url": "http://KuangDangLi.github.io/favicon.ico"
     }
   }
 }
@@ -134,7 +134,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -245,7 +245,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
+    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
