@@ -2,17 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>My New Hugo Site</title>
-    <link>http://KuangDangLi.github.io/</link>
+    <link>http://kuangdangli.github.io/</link>
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Aug 2022 21:47:06 +0800</lastBuildDate><atom:link href="http://KuangDangLi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Aug 2022 10:55:47 +0800</lastBuildDate><atom:link href="http://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>初识React</title>
+      <link>http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/</link>
+      <pubDate>Thu, 25 Aug 2022 10:55:47 +0800</pubDate>
+      
+      <guid>http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/</guid>
+      <description>基础API介绍 正常情况下，React项目需要同时引入React、ReactDOM两个库才能正常运行。 React用来创建React元素，ReactDOM用来渲染。
+const App = React.createElement(&amp;#39;div&amp;#39;,{className=&amp;#39;red&amp;#39;},n) // React.createElement(  type,  [props],  [...children] ) React.createElement创建并返回指定类型的新 React 元素。其中的类型参数既可以是标签名字符串（如 &amp;lsquo;div&amp;rsquo; 或 &amp;lsquo;span&amp;rsquo;），也可以是 React 组件 类型 （class 组件或函数组件），或是 React fragment 类型。属性参数可以用来设置类名或绑定事件等。第三个参数接受其它数据。
+ReactDOM.render(App,root) //render(element, container[, callback]) 在提供的 container 里渲染一个 React 元素，并返回对该组件的引用（或者针对无状态组件返回 null）。
+如果 React 元素之前已经在 container 里渲染过，这将会对其执行更新操作，并仅会在必要时改变 DOM 以映射最新的 React 元素。
+如果提供了可选的回调函数，该回调将在组件被渲染或更新之后被执行。
+注意：
+在 React 18 中，render 函数已被 createRoot 函数所取代。
+使用基础API 用往常的思路来构建一个简单的+1按钮。
+const React = window.React//CDN引入的React会挂载在全局变量上 const ReactDOM = window.ReactDOM  let n = 0;  const App = React.</description>
+    </item>
+    
+    <item>
+      <title>引入React</title>
+      <link>http://kuangdangli.github.io/post/react/%E5%BC%95%E5%85%A5react/</link>
+      <pubDate>Tue, 23 Aug 2022 21:59:24 +0800</pubDate>
+      
+      <guid>http://kuangdangli.github.io/post/react/%E5%BC%95%E5%85%A5react/</guid>
+      <description>React是什么 React（也称为 React.js 或 ReactJS）是一个免费的开放源代码前端 JavaScript工具库，用于基于 UI 组件构建用户界面。它由 Meta（前身为 Facebook）和一个由个人开发者和公司组成的社群维护。
+如何引入React  从CDN引入React 从类似BootCDN的网站获取到React、ReactDOM这两个库的链接，使用HTML的script标签将其引入到项目中。  &amp;lt;script src=&amp;#34;https://cdn.bootcdn.net/ajax/libs/react/18.2.0/umd/react.production.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.bootcdn.net/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; //注意两个库引入的顺序 一般存在cjs和umd两个版本。cjs全称CommonJS，是Node.js支持的模块规范。umd是同一模块定义，兼容各种模块规范(含浏览器)。理论上优先使用umd，同时支持Node.js和浏览器。
+ 通过webpack引入React
+  使用create-react-app create-react-app，在React中起到的作用和Vue@cli在Vue中作用差不多，方便开发者快速创建项目。下面是使用create-react-app的步骤
+  yarn global add create-react-app//全局安装create-react-app create-react-app xxx//在当前目录下创建名为xxx的React项目 cd xxx yarn start//进入项目，开启预览 </description>
+    </item>
+    
     <item>
       <title>Vue Reactivity</title>
-      <link>http://KuangDangLi.github.io/post/vue-reactivity/</link>
+      <link>http://kuangdangli.github.io/post/vue-reactivity/</link>
       <pubDate>Sun, 07 Aug 2022 21:47:06 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/vue-reactivity/</guid>
+      <guid>http://kuangdangli.github.io/post/vue-reactivity/</guid>
       <description>浅析Vue数据响应式 Vue.js 一个核心思想是数据驱动。所谓数据驱动，是指视图是由数据驱动生成的，开发者对视图的修改，不会直接操作 DOM，而是通过修改数据。Vue利用Object.defineProperty将data对象的property改造成getter、setter，实现对data的监听和代理，在内部它们让 Vue 能够追踪依赖，在 property 被访问和修改时通知变更。
 下面通过代码来简单还原一下Vue数据响应。
 let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  let value = data.n  Object.defineProperty(data, &amp;#39;n&amp;#39;, {  get(){  return value  },  set(newValue){  if(newValue&amp;lt;0)return  value = newValue  }//使用get、set定义伪属性n，覆盖掉对象上原始n。此后，myData对象上的n属性值的查看、修改都会经过自定义的函数，通过函数可以屏蔽掉需求外的操纵。这就达成了对data的监听。  })   const obj = {}  Object.defineProperty(obj, &amp;#39;n&amp;#39;, {  get(){  return data.n  },  set(value){  if(value&amp;lt;0)return  data.</description>
@@ -20,10 +50,10 @@ let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  le
     
     <item>
       <title>SyncModifier</title>
-      <link>http://KuangDangLi.github.io/post/syncmodifier/</link>
+      <link>http://kuangdangli.github.io/post/syncmodifier/</link>
       <pubDate>Sun, 07 Aug 2022 21:19:12 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/syncmodifier/</guid>
+      <guid>http://kuangdangli.github.io/post/syncmodifier/</guid>
       <description>sync修饰符 子组件尝试改变一个prop属性值并将其同步到父组件时，开发者可以使用sync修饰符。 代码实例
 Vue.component(&amp;#34;Child&amp;#34;,{  template: ` &amp;lt;div class=&amp;#34;child&amp;#34;&amp;gt; {{money}} &amp;lt;button @click=&amp;#34;$emit(&amp;#39;update:money&amp;#39;, money-100)&amp;#34;&amp;gt; &amp;lt;span&amp;gt;花钱&amp;lt;/span&amp;gt; &amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; `,  props: [&amp;#34;money&amp;#34;] }) new Vue({  components: { Child: Child },  template:` &amp;lt;div class=&amp;#34;app&amp;#34;&amp;gt; App.vue 我现在有 {{total}} &amp;lt;hr&amp;gt; &amp;lt;Child :money.sync=&amp;#34;total&amp;#34;/&amp;gt; &amp;lt;/div&amp;gt; `,  data() {  return { total: 10000 };  } }) 子组件注册一个点击事件update:money，传出参数money-100，父组件使用.sync修饰符监听事件，并拿到子组件传出的参数并赋值给子组件的外部属性money。
 //.sync修饰符相当于封装了如下操作 &amp;lt;Child :money=&amp;#34;total&amp;#34; v-on:update-money=&amp;#34;total = $event&amp;#34;/&amp;gt; </description>
@@ -31,10 +61,10 @@ Vue.component(&amp;#34;Child&amp;#34;,{  template: ` &amp;lt;div class=&amp;#34;
     
     <item>
       <title>Computed vs Watch</title>
-      <link>http://KuangDangLi.github.io/post/computed-vs-watch/</link>
+      <link>http://kuangdangli.github.io/post/computed-vs-watch/</link>
       <pubDate>Sun, 07 Aug 2022 15:14:41 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/computed-vs-watch/</guid>
+      <guid>http://kuangdangli.github.io/post/computed-vs-watch/</guid>
       <description>浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;
 computed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;
 需要特别注意的是computed不支持异步操作。
@@ -48,10 +78,10 @@ watch不支持缓存。</description>
     
     <item>
       <title>New Vue Options</title>
-      <link>http://KuangDangLi.github.io/post/new-vue-options/</link>
+      <link>http://kuangdangli.github.io/post/new-vue-options/</link>
       <pubDate>Thu, 04 Aug 2022 15:41:44 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/new-vue-options/</guid>
+      <guid>http://kuangdangli.github.io/post/new-vue-options/</guid>
       <description>实例 let vm = new Vue(options) 通过构造函数Vue创建实例，接收options作为参数,一般称之为选项或构造选项；得到实例vm，vm封装了对视图的所有操作，包括数据读写、事件绑定、DOM更新。
 options options有五类属性，包括数据、DOM、生命周期钩子、资源、组合。本篇文章不采取属性分类对其进行介绍，而是按照属性的常用程度进行介绍。
 el,挂载点（DOM属性） 提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标。可以是 CSS 选择器，也可以是一个 HTMLElement 实例。在实例挂载之后，元素可以用 vm.\$el 访问。 如果没有在实例初始化时使用el选择挂载点，可以通过vm.$mount()来选择挂载点。
@@ -63,10 +93,10 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
     
     <item>
       <title>Vue Version</title>
-      <link>http://KuangDangLi.github.io/post/vue-version/</link>
+      <link>http://kuangdangli.github.io/post/vue-version/</link>
       <pubDate>Thu, 28 Jul 2022 20:16:27 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/vue-version/</guid>
+      <guid>http://kuangdangli.github.io/post/vue-version/</guid>
       <description>Vue 两个版本的区别和使用方法  vue分为两个版本，一个是完整版，文件名为vue.js；另一个是只包含运行时版，其文件名为vue.runtime.js。
  完整版本相较于运行时版，体内内置编译器，可以读取在html页面或template中的字符串将其转化为dom元素。而运行时版本没有内置编译器，因此需要在render函数中接收h函数手写构造dom元素。 template意为模板，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据。所有 Vue.js 的模板都是合法的 HTML，所以能被遵循规范的浏览器和 HTML 解析器解析。
 在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数减到最少。 在模板中可以直接写入常规的html语法，vue会将其渲染为dom元素。 通过“Mustache”语法 (双大括号) 的文本插值可以进行数据绑定。遵循插值语法，开发者可以在模板中表达原始HTML、Attribute以及使用js表达式。 Vue提供模板用html语法来构建页面，同样也提供了render函数允许开发者用js语言来构造dom。  //render函数签名 render(createElement: CreateElement, hack: RenderContext&amp;lt;Props&amp;gt;): VNode;  返回值VNode (虚拟节点) ,一个用于描述 vue 组件结构的 JS 对象; 参数,第一个参数createElement，是一个函数，DOM 中createElement 用于创建 DOM 节点。vue 中的createElement 是用于创建 VNode 的。  用 codesandbox.io 写 Vue 代码  codesandbox.io是一个在线编码网站，支持包括Vue、React、Angular在类的多种框架，一键点选，无需额外下载。  </description>
@@ -74,10 +104,10 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
     
     <item>
       <title>A Little Bit MVC</title>
-      <link>http://KuangDangLi.github.io/post/a-little-bit-mvc/</link>
+      <link>http://kuangdangli.github.io/post/a-little-bit-mvc/</link>
       <pubDate>Wed, 20 Jul 2022 15:27:26 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/a-little-bit-mvc/</guid>
+      <guid>http://kuangdangli.github.io/post/a-little-bit-mvc/</guid>
       <description>MVC  MVC(Model-View-Controller)是一种架构设计模式，它将应用的实现抽象出三层结构：
 1.数据层Model，在层级结构的最下层，存储程序需要操作的数据和信息。
  声明对象 m = { 存储数据的对象:{ n:存储数据 } 更新数据的方法(){ 对数据进行处理 触发eventsBus 数据存储或覆盖 } }  2.视图层View，代表模型包含的数据的可视化，在程序的最顶层向用户提供操作界面。
@@ -92,10 +122,10 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
     
     <item>
       <title>Closure</title>
-      <link>http://KuangDangLi.github.io/post/closure/</link>
+      <link>http://kuangdangli.github.io/post/closure/</link>
       <pubDate>Thu, 14 Jul 2022 15:13:12 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/closure/</guid>
+      <guid>http://kuangdangli.github.io/post/closure/</guid>
       <description>闭包是什么 闭包(closure)，指的是能够读取其他函数内部变量的函数。在JavaScript语言中，只有函数内部的子函数才能读取内部变量，因此可以把闭包理解为“一个定义在另一函数内部的、并且读取了外部函数变量的函数”。
 如何理解闭包 要理解JS中的闭包首先需要了解作用域。
 作用域 </description>
@@ -103,10 +133,10 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
     
     <item>
       <title>DOM Event</title>
-      <link>http://KuangDangLi.github.io/post/dom-event/</link>
+      <link>http://kuangdangli.github.io/post/dom-event/</link>
       <pubDate>Tue, 14 Jun 2022 21:23:12 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/dom-event/</guid>
+      <guid>http://kuangdangli.github.io/post/dom-event/</guid>
       <description>事件 事件注册 事件对象 事件冒泡及捕获 事件委托  1.事件 在web中，事件是指在浏览器窗口中经由特定操作触发的自动加载某种动作的机制。事件举例:
  用户在某个元素上点击鼠标或悬停光标 用户在键盘中按下某个按键。 用户调整浏览器的大小或者关闭浏览器窗口。 一个网页停止加载。 提交表单。 播放、暂停、关闭视频。 发生错误。 想看更多web支持的事件请移步MDN Event reference。（英文版本更全）
 事件触发后自动运行的代码块是事件处理器，也叫作事件监听器。  2.事件注册 推荐两种事件注册方法
@@ -116,10 +146,10 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
     
     <item>
       <title>JQuery Basic Function</title>
-      <link>http://KuangDangLi.github.io/post/jquery-basic-function/</link>
+      <link>http://kuangdangli.github.io/post/jquery-basic-function/</link>
       <pubDate>Tue, 14 Jun 2022 16:31:12 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/jquery-basic-function/</guid>
+      <guid>http://kuangdangli.github.io/post/jquery-basic-function/</guid>
       <description>jQuery如何获取元素？ 将一个选择表达式放进构造函数jQuery()（简写为$），得到一个被选中的元素，并且可以对其进行操作。 选择表达式可以说是CSS选择器：   $(document)//选择整个文档对象  $(&amp;#39;#myID&amp;#39;)//选择ID为myId的元素  $(&amp;#39;div.myClass&amp;#39;)//选择class为myClass 的div元素  $(&amp;#39;input[name=first]&amp;#39;)//选择name属性等于first的input的元素 此外也可以填入jQuery特有的表达式:
  $(&amp;#39;a:first&amp;#39;) //选择网页中第一个a元素 　$(&amp;#39;tr:odd&amp;#39;) //选择表格的奇数行 　$(&amp;#39;#myForm :input&amp;#39;) // 选择表单中的input元素 　$(&amp;#39;div:visible&amp;#39;) //选择可见的div元素 　$(&amp;#39;div:gt(2)&amp;#39;) // 选择所有的div元素，除了前三个 　$(&amp;#39;div:animated&amp;#39;) // 选择当前处于动画状态的div元素 jQuery()中可以接受第二个作为限定检索范围的参数，一个DOM 元素、文档或 作为上下文（context）的jQuery 对象。
  jQuery 的链式操作是怎样的？
@@ -131,10 +161,10 @@ jQuery的操作都会返回一个jQuery对象，以便进行下一步操作。�
     
     <item>
       <title>Js函数执行时机</title>
-      <link>http://KuangDangLi.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
+      <link>http://kuangdangli.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
       <pubDate>Sun, 01 May 2022 21:01:18 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
+      <guid>http://kuangdangli.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
       <description>首先明确函数通过函数名加()来调用执行，函数声明不会调用执行函数。先声明后执行，在不同的时间函数可能面临着不同的环境与变量，其执行效果也不同。
 例子 let a = 1 function fn(){  console.log(a) } 未调用函数，无结果
 let a = 1 function fn(){  console.log(a) } fn() 声明变量并赋值；声明函数；随后调用函数，打印出a的值1.
@@ -146,10 +176,10 @@ let i = 0 for(i = 0; i&amp;lt;6; i++){  setTimeout(()=&amp;gt;{  console.</descr
     
     <item>
       <title>JS对象基本语法</title>
-      <link>http://KuangDangLi.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <link>http://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Thu, 21 Apr 2022 20:40:47 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <guid>http://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>什么是对象？ 对象是一组“键值对”（key-value）的集合，是一种是无序的复合数据集合。
 var obj = {  jjj : &amp;#39;hello&amp;#39;,  kkk : &amp;#39;world&amp;#39; }; 上述代码中，大括号就定义了一个对象，它被赋值给变量obj，所以变量obj就指向一个对象。其内部包含两个键值对，其中jjj和kkk叫做键名是字符串；&#39;hello&#39;和&#39;world&#39;叫做键值，可以是任何数据类型。对象的每一个键名又叫做属性（property）。
 声明对象的两种语法 let obj = {  &amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39;,  &amp;#39;age&amp;#39;: 18 } let obj = new Object ({  &amp;#39;name&amp;#39; : &amp;#39;frank&amp;#39;,  &amp;#39;age&amp;#39; : 18 }) 第二种写法是正规写法，不过一般采用第一种简写方式
@@ -164,20 +194,20 @@ Object.entires(obj) in命令有时会用来查看对象中是否含有指定属�
     
     <item>
       <title>Js数据类型 1</title>
-      <link>http://KuangDangLi.github.io/post/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/</link>
+      <link>http://kuangdangli.github.io/post/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/</link>
       <pubDate>Fri, 15 Apr 2022 15:38:37 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/</guid>
+      <guid>http://kuangdangli.github.io/post/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/</guid>
       <description>数据类型是指js语言中值的类型。截至es6版本，js共有七种数据类型。分别是:
  原始类型（primitive type），最基本的数据类型。   数值（number）：整数和小数（比如1和3.14）。 字符串（string）：文本（比如 Hello World）。 布尔值（boolean）：表示真伪的两个特殊值，即true和false。  合成类型（complex type）   对象（object）：各种值组成的集合，可以看作是一个存放各种值的容器。对象是最复杂的数据类型，有三个子类型包括狭义的对象（object）、数组（array）、函数（function，处理数据的方法）。  特殊值   undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值。 unll：表示空值，即此处的值为空。  es6新加类型   symbol：暂不涉及。  </description>
     </item>
     
     <item>
       <title>Js的基本语法</title>
-      <link>http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <link>http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Sat, 09 Apr 2022 15:49:20 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <guid>http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
 语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
 var a = 1 + 3; 1 + 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。
@@ -192,46 +222,46 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
     
     <item>
       <title>JavaScript的诞生</title>
-      <link>http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
+      <link>http://kuangdangli.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
       <pubDate>Sat, 26 Mar 2022 22:18:33 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</guid>
+      <guid>http://kuangdangli.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</guid>
       <description> Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格&amp;mdash;-（简化的）函数式编程 +（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  </description>
     </item>
     
     <item>
       <title>Url</title>
-      <link>http://KuangDangLi.github.io/post/url/</link>
+      <link>http://kuangdangli.github.io/post/url/</link>
       <pubDate>Thu, 24 Mar 2022 18:16:41 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/url/</guid>
+      <guid>http://kuangdangli.github.io/post/url/</guid>
       <description>浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello&amp;amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello&amp;amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  </description>
     </item>
     
     <item>
       <title>CSS Sumary</title>
-      <link>http://KuangDangLi.github.io/post/css-sumary/</link>
+      <link>http://kuangdangli.github.io/post/css-sumary/</link>
       <pubDate>Thu, 24 Mar 2022 14:33:51 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/css-sumary/</guid>
+      <guid>http://kuangdangli.github.io/post/css-sumary/</guid>
       <description>CSS知识总结 CSS简介  CSS，全称Cascading Style Sheets，中文名层叠样式表，是一种用来为结构化文档（如 HTML 文档或 XML 应用）添加样式（字体、间距和颜色等）的 计算机语言，由 W3C 定义和维护。由哈肯・维姆・莱首先提出，初始版本于1996年12月17日发行。  基本概念  块   CSS通过display属性可以将元素设置为块级元素、内联元素、内联块元素。一个块级元素的内容宽度是其父元素的100%，其高度与其内容高度一致。内联元素的 height width 与内容一致。无法设置内联元素的 height width。inline-block 混合了 inline 和 block 的特性。  盒模型   CSS盒由content、padding、border、margin组成。 CSS盒模型分为content-box和border-box两种。content-box内容盒中内容的宽度和边界就是盒子的宽度和边界。border-box的边界是border，其宽度为content+padding+border。  文档流   元素布局默认为从左到右、从上到下。内联元素和内联块元素占满一行再换行，不同的是内联元素在换行时会折叠内容到下一行，内联块元素不会，容不下的元素会直接另起一行。块级元素独占一行，从上到下布局。  外边距合并   两个外边距相接的父子元素、兄弟元素，这些外边距将合并为一个外边距，即最大的单个外边距的大小。 父子元素外边距合并可以通过设置padding/border、overflow:hidden、display:flex挡住。兄弟元素外边距合并可以通过设置inline-block消除。  CSS布局   CSS布局有float布局、flex布局、grid布局三种主流形式。 CSS布局有两种思路。可以先定下大局，然后再完善每个部分的小布局。也可以从小到大，先完成小布局，然后组成大布局。  层叠上下文   层叠上下文是对二维平面中的HTML元素的三维构想，通过在一条虚构的Z轴中的顺序来决定渲染优先级。 在单个的层叠上下文中，各元素属性的顺序有上到下分别是z-index值为非负数的定位元素、内联子元素、浮动元素、块级子元素、border、background、z-index值为负数的定位元素。 创建层叠上下文的元素详见MDN层叠上下文。 层叠上下文可以包含在其他层叠上下文中，并且一起创建一个层叠上下文的层级。每个层叠上下文都完全独立于它的兄弟元素：当处理层叠时只考虑子元素。每个层叠上下文都是自包含的：当一个元素的内容发生层叠后，该元素将被作为整体在父级层叠上下文中按顺序进行层叠。  浏览器渲染原理   浏览器渲染步骤：根据HTML构建HTML树，根据CSS构建CSS树，将两棵树合并成渲染树，再进行布局绘制以及合成，最终渲染出用户看到的画面。  CSS动画   通过transform和transition两个属性来写动画。transform负责图形的位置移动、大小形状变化，transition负责插入中间帧补充移动、形变过程使动画变得流畅。 通过animation和@keyframes来写动画。@keyframes可以定义动画移动、形变的具体值以及定义其所在的关键帧。animation属性负责动画进行的时长、过渡方式、延迟等，完善动画表现。  </description>
     </item>
     
     <item>
       <title>Commonly Used Tags</title>
-      <link>http://KuangDangLi.github.io/post/commonly-used-tags/</link>
+      <link>http://kuangdangli.github.io/post/commonly-used-tags/</link>
       <pubDate>Tue, 15 Mar 2022 16:20:29 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/commonly-used-tags/</guid>
+      <guid>http://kuangdangli.github.io/post/commonly-used-tags/</guid>
       <description>HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。</description>
     </item>
     
     <item>
       <title>HtmlFirstNote</title>
-      <link>http://KuangDangLi.github.io/post/htmlfirstnote/</link>
+      <link>http://kuangdangli.github.io/post/htmlfirstnote/</link>
       <pubDate>Sat, 12 Mar 2022 18:21:23 +0800</pubDate>
       
-      <guid>http://KuangDangLi.github.io/post/htmlfirstnote/</guid>
+      <guid>http://kuangdangli.github.io/post/htmlfirstnote/</guid>
       <description>HTML入门笔记1  HTML是谁发明的？
 HTML的发明者是蒂莫西・约翰・伯纳斯 - 李爵士(Sir Timothy John Berners-Lee)。 HTML 起手应该写什么？ 使用!加tab生成起手式 常用的章节标签有哪些，分别是什么意思?   标题 h1~h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  全局属性有哪些？   类选择器 class 元素是否可编辑 contenteditable 是否隐藏 hidden id选择器 id 样式声明 style 元素是否被聚焦 tabindex 额外信息 title  常用的内容标签有哪些，分别是什么意思?   无序列表 ol+li 有序列表 ul+li 描述列表 dl+dt+dd 保留原来的格式 pre 分割线 hr 换行 br 超链接 a 语气强调，斜体显示 em 内容强调，默认加粗字体 strong 表示代码 code 行内引用 quote 换行引用 blockquote  </description>
     </item>

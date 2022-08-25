@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>初识React | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="基础API介绍 正常情况下，React项目需要同时引入React、ReactDOM两个库才能正常运行。 React用来创建React元素，ReactDOM用来渲染。
+const App = React.createElement(&#39;div&#39;,{className=&#39;red&#39;},n) // React.createElement(  type,  [props],  [...children] ) React.createElement创建并返回指定类型的新 React 元素。其中的类型参数既可以是标签名字符串（如 &lsquo;div&rsquo; 或 &lsquo;span&rsquo;），也可以是 React 组件 类型 （class 组件或函数组件），或是 React fragment 类型。属性参数可以用来设置类名或绑定事件等。第三个参数接受其它数据。
+ReactDOM.render(App,root) //render(element, container[, callback]) 在提供的 container 里渲染一个 React 元素，并返回对该组件的引用（或者针对无状态组件返回 null）。
+如果 React 元素之前已经在 container 里渲染过，这将会对其执行更新操作，并仅会在必要时改变 DOM 以映射最新的 React 元素。
+如果提供了可选的回调函数，该回调将在组件被渲染或更新之后被执行。
+注意：
+在 React 18 中，render 函数已被 createRoot 函数所取代。
+使用基础API 用往常的思路来构建一个简单的&#43;1按钮。
+const React = window.React//CDN引入的React会挂载在全局变量上 const ReactDOM = window.ReactDOM  let n = 0;  const App = React.">
+<meta name="author" content="">
+<link rel="canonical" href="http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="初识React" />
+<meta property="og:description" content="基础API介绍 正常情况下，React项目需要同时引入React、ReactDOM两个库才能正常运行。 React用来创建React元素，ReactDOM用来渲染。
+const App = React.createElement(&#39;div&#39;,{className=&#39;red&#39;},n) // React.createElement(  type,  [props],  [...children] ) React.createElement创建并返回指定类型的新 React 元素。其中的类型参数既可以是标签名字符串（如 &lsquo;div&rsquo; 或 &lsquo;span&rsquo;），也可以是 React 组件 类型 （class 组件或函数组件），或是 React fragment 类型。属性参数可以用来设置类名或绑定事件等。第三个参数接受其它数据。
+ReactDOM.render(App,root) //render(element, container[, callback]) 在提供的 container 里渲染一个 React 元素，并返回对该组件的引用（或者针对无状态组件返回 null）。
+如果 React 元素之前已经在 container 里渲染过，这将会对其执行更新操作，并仅会在必要时改变 DOM 以映射最新的 React 元素。
+如果提供了可选的回调函数，该回调将在组件被渲染或更新之后被执行。
+注意：
+在 React 18 中，render 函数已被 createRoot 函数所取代。
+使用基础API 用往常的思路来构建一个简单的&#43;1按钮。
+const React = window.React//CDN引入的React会挂载在全局变量上 const ReactDOM = window.ReactDOM  let n = 0;  const App = React." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-25T10:55:47&#43;08:00" />
+<meta property="article:modified_time" content="2022-08-25T10:55:47&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="初识React"/>
+<meta name="twitter:description" content="基础API介绍 正常情况下，React项目需要同时引入React、ReactDOM两个库才能正常运行。 React用来创建React元素，ReactDOM用来渲染。
+const App = React.createElement(&#39;div&#39;,{className=&#39;red&#39;},n) // React.createElement(  type,  [props],  [...children] ) React.createElement创建并返回指定类型的新 React 元素。其中的类型参数既可以是标签名字符串（如 &lsquo;div&rsquo; 或 &lsquo;span&rsquo;），也可以是 React 组件 类型 （class 组件或函数组件），或是 React fragment 类型。属性参数可以用来设置类名或绑定事件等。第三个参数接受其它数据。
+ReactDOM.render(App,root) //render(element, container[, callback]) 在提供的 container 里渲染一个 React 元素，并返回对该组件的引用（或者针对无状态组件返回 null）。
+如果 React 元素之前已经在 container 里渲染过，这将会对其执行更新操作，并仅会在必要时改变 DOM 以映射最新的 React 元素。
+如果提供了可选的回调函数，该回调将在组件被渲染或更新之后被执行。
+注意：
+在 React 18 中，render 函数已被 createRoot 函数所取代。
+使用基础API 用往常的思路来构建一个简单的&#43;1按钮。
+const React = window.React//CDN引入的React会挂载在全局变量上 const ReactDOM = window.ReactDOM  let n = 0;  const App = React."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://kuangdangli.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "初识React",
+      "item": "http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "初识React",
+  "name": "初识React",
+  "description": "基础API介绍 正常情况下，React项目需要同时引入React、ReactDOM两个库才能正常运行。 React用来创建React元素，ReactDOM用来渲染。\nconst App = React.createElement(\u0026#39;div\u0026#39;,{className=\u0026#39;red\u0026#39;},n) // React.createElement(  type,  [props],  [...children] ) React.createElement创建并返回指定类型的新 React 元素。其中的类型参数既可以是标签名字符串（如 \u0026lsquo;div\u0026rsquo; 或 \u0026lsquo;span\u0026rsquo;），也可以是 React 组件 类型 （class 组件或函数组件），或是 React fragment 类型。属性参数可以用来设置类名或绑定事件等。第三个参数接受其它数据。\nReactDOM.render(App,root) //render(element, container[, callback]) 在提供的 container 里渲染一个 React 元素，并返回对该组件的引用（或者针对无状态组件返回 null）。\n如果 React 元素之前已经在 container 里渲染过，这将会对其执行更新操作，并仅会在必要时改变 DOM 以映射最新的 React 元素。\n如果提供了可选的回调函数，该回调将在组件被渲染或更新之后被执行。\n注意：\n在 React 18 中，render 函数已被 createRoot 函数所取代。\n使用基础API 用往常的思路来构建一个简单的+1按钮。\nconst React = window.React//CDN引入的React会挂载在全局变量上 const ReactDOM = window.ReactDOM  let n = 0;  const App = React.",
+  "keywords": [
+    
+  ],
+  "articleBody": "基础API介绍 正常情况下，React项目需要同时引入React、ReactDOM两个库才能正常运行。 React用来创建React元素，ReactDOM用来渲染。\nconst App = React.createElement('div',{className='red'},n) // React.createElement(  type,  [props],  [...children] ) React.createElement创建并返回指定类型的新 React 元素。其中的类型参数既可以是标签名字符串（如 ‘div’ 或 ‘span’），也可以是 React 组件 类型 （class 组件或函数组件），或是 React fragment 类型。属性参数可以用来设置类名或绑定事件等。第三个参数接受其它数据。\nReactDOM.render(App,root) //render(element, container[, callback]) 在提供的 container 里渲染一个 React 元素，并返回对该组件的引用（或者针对无状态组件返回 null）。\n如果 React 元素之前已经在 container 里渲染过，这将会对其执行更新操作，并仅会在必要时改变 DOM 以映射最新的 React 元素。\n如果提供了可选的回调函数，该回调将在组件被渲染或更新之后被执行。\n注意：\n在 React 18 中，render 函数已被 createRoot 函数所取代。\n使用基础API 用往常的思路来构建一个简单的+1按钮。\nconst React = window.React//CDN引入的React会挂载在全局变量上 const ReactDOM = window.ReactDOM  let n = 0;  const App = React.createElement('div',null,[n,  React.createElement(  'button',  {onClick:()=n+=1},  +1  ) ])  ReactDOM.render(App,root) 这时候如果点击屏幕上出现的+1按钮，我们会惊讶地发现n并没有发生变化。为了弄清楚这个让人迷惑不解的问题，我们给onClick打上log:console.log(n)。\nlog正常工作并且正常打出了自加后的n，但是ui却并没有刷新。这与我们一贯的思维(使用Vue的思维)不太一样。\n或许是因为React不会因为数据变化自动刷新？尝试加入手动刷新。\nconst App = React.createElement('div',null,[n,  React.createElement(  'button',  {onClick:()={n+=1;  ReactDOM.render(App,root)  }},  +1  ) ]) 结果与我们的期望背道而驰，UI并没有与按钮点击行为同步。\n事实上，这个问题不是一个React问题，更多地是一个原生js问题。React.createElement会返回一个虚拟DOM，本质上是一个对象。当我们用这个对象为App赋值时，这个对象中的属性值已经固定了，特别是对于一些像n一样会进行传值的简单类型。当我们点击按钮调用onClick时，n的值改变了，但是并不会影响到App。事实上我们点击按钮手动刷新的App与最初并没有什么改变，因此UI并不会刷新。\n我们需要每次render时的App都会是一个经过重新计算赋值的对象。我们决定将App改造为一个会返回虚拟DOM的函数。\nconst App = ()=React.createElement('div',null,[n,  React.createElement(  'button',  {onClick:()={n+=1;  ReactDOM.render(App,root)  }},  +1  ) ]) 这时，页面上的n可以如我们期望那般刷新了。App成为一个返回值为React元素的函数，每次调用都会重新计算，这让数据更新成为了可能。onClick会调用render，这使得UI与数据的更新同步。\nApp = React.createElement('div',null,n) App = ()=React.createElement('div',null,n) 理解上述两段代码的不同。\n",
+  "wordCount" : "118",
+  "inLanguage": "en",
+  "datePublished": "2022-08-25T10:55:47+08:00",
+  "dateModified": "2022-08-25T10:55:47+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kuangdangli.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      初识React
+    </h1>
+    <div class="post-meta"><span title='2022-08-25 10:55:47 +0800 CST'>August 25, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="基础api介绍">基础API介绍<a hidden class="anchor" aria-hidden="true" href="#基础api介绍">#</a></h2>
+<p>正常情况下，React项目需要同时引入<code>React</code>、<code>ReactDOM</code>两个库才能正常运行。
+<code>React</code>用来创建<code>React</code>元素，<code>ReactDOM</code>用来渲染。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>,{<span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>},<span style="color:#a6e22e">n</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span>,
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">props</span>],
+</span></span><span style="display:flex;"><span>  [...<span style="color:#a6e22e">children</span>]
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p><code>React.createElement</code>创建并返回指定类型的新 React 元素。其中的类型参数既可以是标签名字符串（如 &lsquo;div&rsquo; 或 &lsquo;span&rsquo;），也可以是 React 组件 类型 （class 组件或函数组件），或是 React fragment 类型。属性参数可以用来设置类名或绑定事件等。第三个参数接受其它数据。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">App</span>,<span style="color:#a6e22e">root</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//render(element, container[, callback])
+</span></span></span></code></pre></div><p>在提供的 container 里渲染一个 React 元素，并返回对该组件的引用（或者针对无状态组件返回 null）。</p>
+<p>如果 React 元素之前已经在 container 里渲染过，这将会对其执行更新操作，并仅会在必要时改变 DOM 以映射最新的 React 元素。</p>
+<p>如果提供了可选的回调函数，该回调将在组件被渲染或更新之后被执行。</p>
+<p>注意：</p>
+<p>在 React 18 中，render 函数已被 createRoot 函数所取代。</p>
+<h2 id="使用基础api">使用基础API<a hidden class="anchor" aria-hidden="true" href="#使用基础api">#</a></h2>
+<p>用往常的思路来构建一个简单的+1按钮。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">React</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">React</span><span style="color:#75715e">//CDN引入的React会挂载在全局变量上
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">ReactDOM</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span>  <span style="color:#a6e22e">n</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>,<span style="color:#66d9ef">null</span>,[<span style="color:#a6e22e">n</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;button&#39;</span>,
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">onClick</span><span style="color:#f92672">:</span>()=&gt;<span style="color:#a6e22e">n</span><span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>},
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">App</span>,<span style="color:#a6e22e">root</span>)
+</span></span></code></pre></div><p>这时候如果点击屏幕上出现的+1按钮，我们会惊讶地发现n并没有发生变化。为了弄清楚这个让人迷惑不解的问题，我们给onClick打上<code>log</code>:<code>console.log(n)</code>。</p>
+<p><img loading="lazy" src="https://files.catbox.moe/imonwp.png" alt="log"  />
+</p>
+<p>log正常工作并且正常打出了自加后的<code>n</code>，但是ui却并没有刷新。这与我们一贯的思维(使用Vue的思维)不太一样。</p>
+<p>或许是因为<code>React</code>不会因为数据变化自动刷新？尝试加入手动刷新。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>,<span style="color:#66d9ef">null</span>,[<span style="color:#a6e22e">n</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;button&#39;</span>,
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">onClick</span><span style="color:#f92672">:</span>()=&gt;{<span style="color:#a6e22e">n</span><span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">App</span>,<span style="color:#a6e22e">root</span>)
+</span></span><span style="display:flex;"><span>        }},
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>])
+</span></span></code></pre></div><p>结果与我们的期望背道而驰，UI并没有与按钮点击行为同步。</p>
+<p>事实上，这个问题不是一个<code>React</code>问题，更多地是一个原生<code>js</code>问题。<code>React.createElement</code>会返回一个虚拟DOM，本质上是一个对象。当我们用这个对象为<code>App</code>赋值时，这个对象中的属性值已经固定了，特别是对于一些像<code>n</code>一样会进行传值的简单类型。当我们点击按钮调用<code>onClick</code>时，<code>n</code>的值改变了，但是并不会影响到<code>App</code>。事实上我们点击按钮手动刷新的<code>App</code>与最初并没有什么改变，因此UI并不会刷新。</p>
+<p>我们需要每次<code>render</code>时的<code>App</code>都会是一个经过重新计算赋值的对象。我们决定将<code>App</code>改造为一个会返回虚拟DOM的函数。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> ()=&gt;<span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>,<span style="color:#66d9ef">null</span>,[<span style="color:#a6e22e">n</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;button&#39;</span>,
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">onClick</span><span style="color:#f92672">:</span>()=&gt;{<span style="color:#a6e22e">n</span><span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">App</span>,<span style="color:#a6e22e">root</span>)
+</span></span><span style="display:flex;"><span>        }},
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>])
+</span></span></code></pre></div><p>这时，页面上的<code>n</code>可以如我们期望那般刷新了。<code>App</code>成为一个返回值为<code>React</code>元素的函数，每次调用都会重新计算，这让数据更新成为了可能。<code>onClick</code>会调用<code>render</code>，这使得UI与数据的更新同步。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>,<span style="color:#66d9ef">null</span>,<span style="color:#a6e22e">n</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> ()=&gt;<span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>,<span style="color:#66d9ef">null</span>,<span style="color:#a6e22e">n</span>)
+</span></span></code></pre></div><p>理解上述两段代码的不同。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

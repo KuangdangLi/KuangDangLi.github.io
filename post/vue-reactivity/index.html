@@ -11,15 +11,15 @@
 下面通过代码来简单还原一下Vue数据响应。
 let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  let value = data.n  Object.defineProperty(data, &#39;n&#39;, {  get(){  return value  },  set(newValue){  if(newValue&lt;0)return  value = newValue  }//使用get、set定义伪属性n，覆盖掉对象上原始n。此后，myData对象上的n属性值的查看、修改都会经过自定义的函数，通过函数可以屏蔽掉需求外的操纵。这就达成了对data的监听。  })   const obj = {}  Object.defineProperty(obj, &#39;n&#39;, {  get(){  return data.n  },  set(value){  if(value&lt;0)return  data.">
 <meta name="author" content="">
-<link rel="canonical" href="http://KuangDangLi.github.io/post/vue-reactivity/" />
+<link rel="canonical" href="http://kuangdangli.github.io/post/vue-reactivity/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
     onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -63,7 +63,7 @@ let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  le
 下面通过代码来简单还原一下Vue数据响应。
 let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  let value = data.n  Object.defineProperty(data, &#39;n&#39;, {  get(){  return value  },  set(newValue){  if(newValue&lt;0)return  value = newValue  }//使用get、set定义伪属性n，覆盖掉对象上原始n。此后，myData对象上的n属性值的查看、修改都会经过自定义的函数，通过函数可以屏蔽掉需求外的操纵。这就达成了对data的监听。  })   const obj = {}  Object.defineProperty(obj, &#39;n&#39;, {  get(){  return data.n  },  set(value){  if(value&lt;0)return  data." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://KuangDangLi.github.io/post/vue-reactivity/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="http://kuangdangli.github.io/post/vue-reactivity/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-08-07T21:47:06&#43;08:00" />
 <meta property="article:modified_time" content="2022-08-07T21:47:06&#43;08:00" />
 
@@ -83,13 +83,13 @@ let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  le
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://KuangDangLi.github.io/post/"
+      "item": "http://kuangdangli.github.io/post/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Vue Reactivity",
-      "item": "http://KuangDangLi.github.io/post/vue-reactivity/"
+      "item": "http://kuangdangli.github.io/post/vue-reactivity/"
     }
   ]
 }
@@ -111,14 +111,14 @@ let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  le
   "dateModified": "2022-08-07T21:47:06+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://KuangDangLi.github.io/post/vue-reactivity/"
+    "@id": "http://kuangdangli.github.io/post/vue-reactivity/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "My New Hugo Site",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://KuangDangLi.github.io/favicon.ico"
+      "url": "http://kuangdangli.github.io/favicon.ico"
     }
   }
 }
@@ -140,7 +140,7 @@ let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  le
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -220,7 +220,7 @@ let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  le
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
+    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

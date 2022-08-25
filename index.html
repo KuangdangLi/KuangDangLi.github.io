@@ -10,16 +10,16 @@
 
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="canonical" href="http://KuangDangLi.github.io/" />
+<link rel="canonical" href="http://kuangdangli.github.io/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://KuangDangLi.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://KuangDangLi.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://KuangDangLi.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://KuangDangLi.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://KuangDangLi.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://KuangDangLi.github.io/index.xml">
+<link rel="alternate" type="application/rss+xml" href="http://kuangdangli.github.io/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,7 +59,7 @@
 </noscript><meta property="og:title" content="My New Hugo Site" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://KuangDangLi.github.io/" />
+<meta property="og:url" content="http://kuangdangli.github.io/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="My New Hugo Site"/>
@@ -70,9 +70,9 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "My New Hugo Site",
-  "url": "http://KuangDangLi.github.io/",
+  "url": "http://kuangdangli.github.io/",
   "description": "",
-  "thumbnailUrl": "http://KuangDangLi.github.io/favicon.ico",
+  "thumbnailUrl": "http://kuangdangli.github.io/favicon.ico",
   "sameAs": [
       
   ]
@@ -95,7 +95,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://KuangDangLi.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -127,6 +127,42 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2>初识React
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>基础API介绍 正常情况下，React项目需要同时引入React、ReactDOM两个库才能正常运行。 React用来创建React元素，ReactDOM用来渲染。
+const App = React.createElement(&#39;div&#39;,{className=&#39;red&#39;},n) // React.createElement(  type,  [props],  [...children] ) React.createElement创建并返回指定类型的新 React 元素。其中的类型参数既可以是标签名字符串（如 ‘div’ 或 ‘span’），也可以是 React 组件 类型 （class 组件或函数组件），或是 React fragment 类型。属性参数可以用来设置类名或绑定事件等。第三个参数接受其它数据。
+ReactDOM.render(App,root) //render(element, container[, callback]) 在提供的 container 里渲染一个 React 元素，并返回对该组件的引用（或者针对无状态组件返回 null）。
+如果 React 元素之前已经在 container 里渲染过，这将会对其执行更新操作，并仅会在必要时改变 DOM 以映射最新的 React 元素。
+如果提供了可选的回调函数，该回调将在组件被渲染或更新之后被执行。
+注意：
+在 React 18 中，render 函数已被 createRoot 函数所取代。
+使用基础API 用往常的思路来构建一个简单的&#43;1按钮。
+const React = window.React//CDN引入的React会挂载在全局变量上 const ReactDOM = window.ReactDOM  let n = 0;  const App = React....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-25 10:55:47 +0800 CST'>August 25, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 初识React" href="http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>引入React
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>React是什么 React（也称为 React.js 或 ReactJS）是一个免费的开放源代码前端 JavaScript工具库，用于基于 UI 组件构建用户界面。它由 Meta（前身为 Facebook）和一个由个人开发者和公司组成的社群维护。
+如何引入React  从CDN引入React 从类似BootCDN的网站获取到React、ReactDOM这两个库的链接，使用HTML的script标签将其引入到项目中。  &lt;script src=&#34;https://cdn.bootcdn.net/ajax/libs/react/18.2.0/umd/react.production.min.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;https://cdn.bootcdn.net/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js&#34;&gt;&lt;/script&gt; //注意两个库引入的顺序 一般存在cjs和umd两个版本。cjs全称CommonJS，是Node.js支持的模块规范。umd是同一模块定义，兼容各种模块规范(含浏览器)。理论上优先使用umd，同时支持Node.js和浏览器。
+ 通过webpack引入React
+  使用create-react-app create-react-app，在React中起到的作用和Vue@cli在Vue中作用差不多，方便开发者快速创建项目。下面是使用create-react-app的步骤
+  yarn global add create-react-app//全局安装create-react-app create-react-app xxx//在当前目录下创建名为xxx的React项目 cd xxx yarn start//进入项目，开启预览 </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-23 21:59:24 +0800 CST'>August 23, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 引入React" href="http://kuangdangli.github.io/post/react/%E5%BC%95%E5%85%A5react/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Vue Reactivity
     </h2>
   </header>
@@ -136,7 +172,7 @@
 let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  let value = data.n  Object.defineProperty(data, &#39;n&#39;, {  get(){  return value  },  set(newValue){  if(newValue&lt;0)return  value = newValue  }//使用get、set定义伪属性n，覆盖掉对象上原始n。此后，myData对象上的n属性值的查看、修改都会经过自定义的函数，通过函数可以屏蔽掉需求外的操纵。这就达成了对data的监听。  })   const obj = {}  Object.defineProperty(obj, &#39;n&#39;, {  get(){  return data.n  },  set(value){  if(value&lt;0)return  data....</p>
   </section>
   <footer class="entry-footer"><span title='2022-08-07 21:47:06 +0800 CST'>August 7, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Vue Reactivity" href="http://KuangDangLi.github.io/post/vue-reactivity/"></a>
+  <a class="entry-link" aria-label="post link to Vue Reactivity" href="http://kuangdangli.github.io/post/vue-reactivity/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -150,7 +186,7 @@ Vue.component(&#34;Child&#34;,{  template: ` &lt;div class=&#34;child&#34;&gt; {
 //.sync修饰符相当于封装了如下操作 &lt;Child :money=&#34;total&#34; v-on:update-money=&#34;total = $event&#34;/&gt; </p>
   </section>
   <footer class="entry-footer"><span title='2022-08-07 21:19:12 +0800 CST'>August 7, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to SyncModifier" href="http://KuangDangLi.github.io/post/syncmodifier/"></a>
+  <a class="entry-link" aria-label="post link to SyncModifier" href="http://kuangdangli.github.io/post/syncmodifier/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -170,7 +206,7 @@ watch支持异步;
 watch不支持缓存。</p>
   </section>
   <footer class="entry-footer"><span title='2022-08-07 15:14:41 +0800 CST'>August 7, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Computed vs Watch" href="http://KuangDangLi.github.io/post/computed-vs-watch/"></a>
+  <a class="entry-link" aria-label="post link to Computed vs Watch" href="http://kuangdangli.github.io/post/computed-vs-watch/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -188,7 +224,7 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
 实例创建之后，可以通过 vm.\$data 访问原始数据对象。Vue 实例也代理了 data 对象上所有的 property，因此访问 vm.a 等价于访问 vm.$data.a。 以 _ 或 $ 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突。你可以使用例如 vm....</p>
   </section>
   <footer class="entry-footer"><span title='2022-08-04 15:41:44 +0800 CST'>August 4, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to New Vue Options" href="http://KuangDangLi.github.io/post/new-vue-options/"></a>
+  <a class="entry-link" aria-label="post link to New Vue Options" href="http://kuangdangli.github.io/post/new-vue-options/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -202,7 +238,7 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
 在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数减到最少。 在模板中可以直接写入常规的html语法，vue会将其渲染为dom元素。 通过“Mustache”语法 (双大括号) 的文本插值可以进行数据绑定。遵循插值语法，开发者可以在模板中表达原始HTML、Attribute以及使用js表达式。 Vue提供模板用html语法来构建页面，同样也提供了render函数允许开发者用js语言来构造dom。  //render函数签名 render(createElement: CreateElement, hack: RenderContext&lt;Props&gt;): VNode;  返回值VNode (虚拟节点) ,一个用于描述 vue 组件结构的 JS 对象; 参数,第一个参数createElement，是一个函数，DOM 中createElement 用于创建 DOM 节点。vue 中的createElement 是用于创建 VNode 的。  用 codesandbox.io 写 Vue 代码  codesandbox.io是一个在线编码网站，支持包括Vue、React、Angular在类的多种框架，一键点选，无需额外下载。  </p>
   </section>
   <footer class="entry-footer"><span title='2022-07-28 20:16:27 +0800 CST'>July 28, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Vue Version" href="http://KuangDangLi.github.io/post/vue-version/"></a>
+  <a class="entry-link" aria-label="post link to Vue Version" href="http://kuangdangli.github.io/post/vue-version/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -223,7 +259,7 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
 3.精简代码，降低圈复杂度。减少 if-else、switch-case 使用。...</p>
   </section>
   <footer class="entry-footer"><span title='2022-07-20 15:27:26 +0800 CST'>July 20, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to A Little Bit MVC" href="http://KuangDangLi.github.io/post/a-little-bit-mvc/"></a>
+  <a class="entry-link" aria-label="post link to A Little Bit MVC" href="http://kuangdangli.github.io/post/a-little-bit-mvc/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -237,7 +273,7 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
 作用域 </p>
   </section>
   <footer class="entry-footer"><span title='2022-07-14 15:13:12 +0800 CST'>July 14, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Closure" href="http://KuangDangLi.github.io/post/closure/"></a>
+  <a class="entry-link" aria-label="post link to Closure" href="http://kuangdangli.github.io/post/closure/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -253,53 +289,17 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
  第二种是DOM Level2提供的方法，addEventListener(type,listener)注册事件监听 和 removeEventListener(type,listener)移除事件监听。type参数指定事件类型，listener参数接受具名函数或者直接编写不具名函数。 使用第二种方法改写代码。  const btn = document....</p>
   </section>
   <footer class="entry-footer"><span title='2022-06-14 21:23:12 +0800 CST'>June 14, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to DOM Event" href="http://KuangDangLi.github.io/post/dom-event/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>JQuery Basic Function
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>jQuery如何获取元素？ 将一个选择表达式放进构造函数jQuery()（简写为$），得到一个被选中的元素，并且可以对其进行操作。 选择表达式可以说是CSS选择器：   $(document)//选择整个文档对象  $(&#39;#myID&#39;)//选择ID为myId的元素  $(&#39;div.myClass&#39;)//选择class为myClass 的div元素  $(&#39;input[name=first]&#39;)//选择name属性等于first的input的元素 此外也可以填入jQuery特有的表达式:
- $(&#39;a:first&#39;) //选择网页中第一个a元素 　$(&#39;tr:odd&#39;) //选择表格的奇数行 　$(&#39;#myForm :input&#39;) // 选择表单中的input元素 　$(&#39;div:visible&#39;) //选择可见的div元素 　$(&#39;div:gt(2)&#39;) // 选择所有的div元素，除了前三个 　$(&#39;div:animated&#39;) // 选择当前处于动画状态的div元素 jQuery()中可以接受第二个作为限定检索范围的参数，一个DOM 元素、文档或 作为上下文（context）的jQuery 对象。
- jQuery 的链式操作是怎样的？
-jQuery的操作都会返回一个jQuery对象，以便进行下一步操作。一连串的操作连起来以链条的形式呈现出来，我们称其为链式操作。
-  jQuery如何创建元素？
-使用jQuery()来创建元素。如果一个字符串做为一个参数传递个$(), jQuery 检查这个属性是否看上去像HTML (也就是， &lt;tag … &gt; 之类的元素在这个字符串中)。如果没有, 这个字符串将被解释为选择器， 作为解析上下文。 但是如果该字符串是一个 HTML 代码片断，那么jQuery 就会根据它尝试创建一个新的 DOM 元素。然后jQuery对象创建并返回引用的这些元素。
-  $( &#34;&lt;p id=&#39;test&#39;&gt;My &lt;em&gt;new&lt;/em&gt; text&lt;/p&gt;&#34; )....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-06-14 16:31:12 +0800 CST'>June 14, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to JQuery Basic Function" href="http://KuangDangLi.github.io/post/jquery-basic-function/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Js函数执行时机
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>首先明确函数通过函数名加()来调用执行，函数声明不会调用执行函数。先声明后执行，在不同的时间函数可能面临着不同的环境与变量，其执行效果也不同。
-例子 let a = 1 function fn(){  console.log(a) } 未调用函数，无结果
-let a = 1 function fn(){  console.log(a) } fn() 声明变量并赋值；声明函数；随后调用函数，打印出a的值1.
-let a = 1 function fn(){  console.log(a) } a=2 fn() 声明变量并赋值；声明函数；修改变量值；随后调用函数，打印出a的值为2.
-let a = 1 function fn(){  console.log(a) } fn() a=2 声明变量并赋值；声明函数；随后调用，打印出a的值1；修改a的值。
-let a = 1 function fn(){  setTimeout(()=&gt;{  console.log(a)  },0) } fn() a = 2 声明变量并赋值；声明函数；随后调用，函数中嵌套的函数setTimeout要求打印的操作在队列中的任务完成后再执行；修改a的值；队列任务完成，打印a的值。
-let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){  setTimeout(()=&gt;{  console....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-05-01 21:01:18 +0800 CST'>May 1, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Js函数执行时机" href="http://KuangDangLi.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/"></a>
+  <a class="entry-link" aria-label="post link to DOM Event" href="http://kuangdangli.github.io/post/dom-event/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="next" href="http://KuangDangLi.github.io/page/2/">Next Page »</a>
+    <a class="next" href="http://kuangdangli.github.io/page/2/">Next Page »</a>
   </nav>
 </footer>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="http://KuangDangLi.github.io/">My New Hugo Site</a></span>
+    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
