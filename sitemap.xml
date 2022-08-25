@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://kuangdangli.github.io/post/react/jsx/</loc>
+    <lastmod>2022-08-25T21:22:37+08:00</lastmod>
+  </url><url>
     <loc>http://kuangdangli.github.io/</loc>
-    <lastmod>2022-08-25T10:55:47+08:00</lastmod>
+    <lastmod>2022-08-25T21:22:37+08:00</lastmod>
   </url><url>
     <loc>http://kuangdangli.github.io/post/</loc>
-    <lastmod>2022-08-25T10:55:47+08:00</lastmod>
+    <lastmod>2022-08-25T21:22:37+08:00</lastmod>
   </url><url>
     <loc>http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/</loc>
     <lastmod>2022-08-25T10:55:47+08:00</lastmod>

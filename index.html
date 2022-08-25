@@ -127,6 +127,22 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2>JSX<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>JSX JSX是一种标签语法，它的形式很容易让人联想到模板，但它具有JavaScript的全部功能，能同时写出标记与逻辑用来生成React元素。
+const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;//一段简单的JSX代码 JSX的本质 Babel 会把 JSX 转译成一个名为 React.createElement() 的函数。
+以下两种示例代码完全等效：
+const element = (  &lt;h1 className=&#34;greeting&#34;&gt;  Hello, world!  &lt;/h1&gt; ); const element = React.createElement(  &#39;h1&#39;,  {className: &#39;greeting&#39;},  &#39;Hello, world!&#39; ); React.createElement() 实际上创建了一个这样的对象：
+// 注意：这是简化过的结构 const element = {  type: &#39;h1&#39;,  props: {  className: &#39;greeting&#39;,  children: &#39;Hello, world!&#39;  } }; 这些对象被称为 “React 元素”。它们描述了开发者希望在屏幕上看到的内容。React 通过读取这些对象，然后使用它们来构建 DOM 以及保持随时更新。...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-25 21:22:37 +0800 CST'>August 25, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to JSX" href="http://kuangdangli.github.io/post/react/jsx/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>初识React
     </h2>
   </header>
@@ -274,22 +290,6 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
   </section>
   <footer class="entry-footer"><span title='2022-07-14 15:13:12 +0800 CST'>July 14, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Closure" href="http://kuangdangli.github.io/post/closure/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>DOM Event
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>事件 事件注册 事件对象 事件冒泡及捕获 事件委托  1.事件 在web中，事件是指在浏览器窗口中经由特定操作触发的自动加载某种动作的机制。事件举例:
- 用户在某个元素上点击鼠标或悬停光标 用户在键盘中按下某个按键。 用户调整浏览器的大小或者关闭浏览器窗口。 一个网页停止加载。 提交表单。 播放、暂停、关闭视频。 发生错误。 想看更多web支持的事件请移步MDN Event reference。（英文版本更全）
-事件触发后自动运行的代码块是事件处理器，也叫作事件监听器。  2.事件注册 推荐两种事件注册方法
- 第一种是通过事件处理器属性将事件处理器绑定在制定元素上。  const btn = document.querySelector(&#39;button&#39;);  function bgChange() {  const rndCol = &#39;rgb(&#39; &#43; random(255) &#43; &#39;,&#39; &#43; random(255) &#43; &#39;,&#39; &#43; random(255) &#43; &#39;)&#39;;  document.body.style.backgroundColor = rndCol; }  btn.onclick = bgChange; 上述代码将具名函数bgChange通过.onclick属性绑定在btn上，用户点击按钮就会触发动作为网页赋上随机背景色。
- 第二种是DOM Level2提供的方法，addEventListener(type,listener)注册事件监听 和 removeEventListener(type,listener)移除事件监听。type参数指定事件类型，listener参数接受具名函数或者直接编写不具名函数。 使用第二种方法改写代码。  const btn = document....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-06-14 21:23:12 +0800 CST'>June 14, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to DOM Event" href="http://kuangdangli.github.io/post/dom-event/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

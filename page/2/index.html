@@ -127,6 +127,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>DOM Event
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>事件 事件注册 事件对象 事件冒泡及捕获 事件委托  1.事件 在web中，事件是指在浏览器窗口中经由特定操作触发的自动加载某种动作的机制。事件举例:
+ 用户在某个元素上点击鼠标或悬停光标 用户在键盘中按下某个按键。 用户调整浏览器的大小或者关闭浏览器窗口。 一个网页停止加载。 提交表单。 播放、暂停、关闭视频。 发生错误。 想看更多web支持的事件请移步MDN Event reference。（英文版本更全）
+事件触发后自动运行的代码块是事件处理器，也叫作事件监听器。  2.事件注册 推荐两种事件注册方法
+ 第一种是通过事件处理器属性将事件处理器绑定在制定元素上。  const btn = document.querySelector(&#39;button&#39;);  function bgChange() {  const rndCol = &#39;rgb(&#39; &#43; random(255) &#43; &#39;,&#39; &#43; random(255) &#43; &#39;,&#39; &#43; random(255) &#43; &#39;)&#39;;  document.body.style.backgroundColor = rndCol; }  btn.onclick = bgChange; 上述代码将具名函数bgChange通过.onclick属性绑定在btn上，用户点击按钮就会触发动作为网页赋上随机背景色。
+ 第二种是DOM Level2提供的方法，addEventListener(type,listener)注册事件监听 和 removeEventListener(type,listener)移除事件监听。type参数指定事件类型，listener参数接受具名函数或者直接编写不具名函数。 使用第二种方法改写代码。  const btn = document....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-06-14 21:23:12 +0800 CST'>June 14, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to DOM Event" href="http://kuangdangli.github.io/post/dom-event/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>JQuery Basic Function
     </h2>
   </header>
@@ -263,22 +279,10 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
   <footer class="entry-footer"><span title='2022-03-15 16:20:29 +0800 CST'>March 15, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Commonly Used Tags" href="http://kuangdangli.github.io/post/commonly-used-tags/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>HtmlFirstNote<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>HTML入门笔记1  HTML是谁发明的？
-HTML的发明者是蒂莫西・约翰・伯纳斯 - 李爵士(Sir Timothy John Berners-Lee)。 HTML 起手应该写什么？ 使用!加tab生成起手式 常用的章节标签有哪些，分别是什么意思?   标题 h1~h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  全局属性有哪些？   类选择器 class 元素是否可编辑 contenteditable 是否隐藏 hidden id选择器 id 样式声明 style 元素是否被聚焦 tabindex 额外信息 title  常用的内容标签有哪些，分别是什么意思?   无序列表 ol&#43;li 有序列表 ul&#43;li 描述列表 dl&#43;dt&#43;dd 保留原来的格式 pre 分割线 hr 换行 br 超链接 a 语气强调，斜体显示 em 内容强调，默认加粗字体 strong 表示代码 code 行内引用 quote 换行引用 blockquote  </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-03-12 18:21:23 +0800 CST'>March 12, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to HtmlFirstNote" href="http://kuangdangli.github.io/post/htmlfirstnote/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://kuangdangli.github.io/">« Prev Page</a>
+    <a class="next" href="http://kuangdangli.github.io/page/3/">Next Page »</a>
   </nav>
 </footer>
     </main>
