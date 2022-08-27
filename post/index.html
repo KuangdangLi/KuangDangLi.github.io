@@ -131,6 +131,29 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>函数组件模拟生命周期<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>使用 useEffect模拟生命周期   模拟 componentDidMount()
+useEffect(()=&gt;{console.log(&#39;第一次渲染&#39;)},[]) useEffect()接受两个参数，第一个参数为回调函数，第二个参数为空数组，回调函数会在组件挂载时执行。
+  模拟 componentDidUpdate()
+useEffect(()=&gt;{console.log(&#39;第一次渲染&#39;)}) useEffect() 只接受回调函数一个参数，传入的回调会在组件中任意属性变更是执行。
+useEffect(()=&gt;{console.log(&#39;第一次渲染&#39;)},[n]) useEffect()接受两个参数，第一个参数为回调函数，第二个参数为数组，数组里写上监听的数据。回调函数会在监听数据变更时执行
+   注意此种方法无论是监听所有数据还是特定数据，在首次渲染时都会执行。   模拟 componentWillMount()
+useEffect(()=&gt;{  console.log(&#39;第一次渲染&#39;)  return ()=&gt;{  console.log(&#39;组件要死了&#39;)  } }) 作为useEffect()接受的第一个参数传入的函数返回值函数会在组件销毁时执行。
+  模拟 constructor() 函数组件执行的时候就相当于constructor().
+  render() 函数组件的返回值就是render()的返回值。
+  全真模拟 componentDidUpdate() 上文介绍的 React 原生hook模拟 componentDidUpdate()会在组件挂载时也执行。想要切实模拟数据更新后执行的钩子函数需要自定义。
+思路在于创建 count 中间值，用中间值来记录数据变化的次数，在 count 大于1的时候再执行需要的回调函数。
+const useUpdate = (fn,dep)=&gt;{  const [count,setCount] = useState(0);  useEffect(()=&gt;{  setCount(x=&gt;x&#43;1)  },[dep])   useEffect(()=&gt;{  if(count&gt;1){  fn()  }  },[count,fn]) } 此自定义函数接收两个参数，第一个参数为回调函数，第二个参数为想要监听的数据。...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-27 21:29:29 +0800 CST'>August 27, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 函数组件模拟生命周期" href="http://kuangdangli.github.io/post/react/%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E6%A8%A1%E6%8B%9F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>类组件生命周期
     </h2>
   </header>
@@ -293,20 +316,6 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
   </section>
   <footer class="entry-footer"><span title='2022-08-04 15:41:44 +0800 CST'>August 4, 2022</span></footer>
   <a class="entry-link" aria-label="post link to New Vue Options" href="http://kuangdangli.github.io/post/new-vue-options/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Vue Version
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Vue 两个版本的区别和使用方法  vue分为两个版本，一个是完整版，文件名为vue.js；另一个是只包含运行时版，其文件名为vue.runtime.js。
- 完整版本相较于运行时版，体内内置编译器，可以读取在html页面或template中的字符串将其转化为dom元素。而运行时版本没有内置编译器，因此需要在render函数中接收h函数手写构造dom元素。 template意为模板，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据。所有 Vue.js 的模板都是合法的 HTML，所以能被遵循规范的浏览器和 HTML 解析器解析。
-在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数减到最少。 在模板中可以直接写入常规的html语法，vue会将其渲染为dom元素。 通过“Mustache”语法 (双大括号) 的文本插值可以进行数据绑定。遵循插值语法，开发者可以在模板中表达原始HTML、Attribute以及使用js表达式。 Vue提供模板用html语法来构建页面，同样也提供了render函数允许开发者用js语言来构造dom。  //render函数签名 render(createElement: CreateElement, hack: RenderContext&lt;Props&gt;): VNode;  返回值VNode (虚拟节点) ,一个用于描述 vue 组件结构的 JS 对象; 参数,第一个参数createElement，是一个函数，DOM 中createElement 用于创建 DOM 节点。vue 中的createElement 是用于创建 VNode 的。  用 codesandbox.io 写 Vue 代码  codesandbox.io是一个在线编码网站，支持包括Vue、React、Angular在类的多种框架，一键点选，无需额外下载。  </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-07-28 20:16:27 +0800 CST'>July 28, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Vue Version" href="http://kuangdangli.github.io/post/vue-version/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
