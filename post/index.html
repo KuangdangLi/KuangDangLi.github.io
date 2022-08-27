@@ -131,6 +131,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>初识组件
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>组件的概念 组件，从概念上类似于 JavaScript 函数。它接受任意的入参（即 “props”），并返回用于描述页面展示内容的 React 元素。
+组件与元素的区别 元素是一个React元素，而组件是一个返回React元素的函数；元素的名字一般以小写字母开头，而组件的第一个字母通常大写。
+//定义一个简单的组件 const Div = ()=&gt; &lt;div className=&#39;hello&#39;&gt;hello World&lt;/div&gt; //定义一个简单的元素 const div = &lt;div className=&#39;hello&#39;&gt;hello World&lt;/div&gt; 组件的种类 组件分为函数组件和类组件。
+//函数组件 function Welcome(props) {  return &lt;h1&gt;hello,{{props.name}}&lt;/h1&gt; } //使用方法 &lt;Welcome name=&#39;frank&#39;/&gt; //函数组件 class Welcome extends React.Component{  render(){  return &lt;h1&gt;hello,{{this.props.name}}&lt;/h1&gt;  } } //使用方法 &lt;Welcome name=&#39;frank&#39;/&gt; JSX标签的翻译逻辑:
+&lt;div/ &gt;会被翻译成c(&#39;div&#39;);
+&lt;Welcome /&gt;会被翻译为React.createElement(Welcome);
+React.createElement():
+如果传入一个字符串‘div’，则会创建一个div;
+如果传入一个函数，则会调用该函数，获取其返回值;
+如果传入一个类，则会new类(执行constructor)，获取一个组件对象，然后调用render方法，获取其返回值。
+props 当React元素为用户自定义组件时，它会将JSX所接收的属性(attributes)以及子组件(children)转换为单个对象传递给子组件，这个对象被称为&#34;props&#34;。
+例如，下面这段代码会在页面上渲染 “Hello, React”：
+function Welcome(props){  return &lt;h1&gt;hello,{{props....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-27 10:46:57 +0800 CST'>August 27, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 初识组件" href="http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86%E7%BB%84%E4%BB%B6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>JSX<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
@@ -280,20 +304,6 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
   </section>
   <footer class="entry-footer"><span title='2022-07-20 15:27:26 +0800 CST'>July 20, 2022</span></footer>
   <a class="entry-link" aria-label="post link to A Little Bit MVC" href="http://kuangdangli.github.io/post/a-little-bit-mvc/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Closure
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>闭包是什么 闭包(closure)，指的是能够读取其他函数内部变量的函数。在JavaScript语言中，只有函数内部的子函数才能读取内部变量，因此可以把闭包理解为“一个定义在另一函数内部的、并且读取了外部函数变量的函数”。
-如何理解闭包 要理解JS中的闭包首先需要了解作用域。
-作用域 </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-07-14 15:13:12 +0800 CST'>July 14, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Closure" href="http://kuangdangli.github.io/post/closure/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

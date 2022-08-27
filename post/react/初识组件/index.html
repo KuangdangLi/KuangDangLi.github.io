@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>初识组件 | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="组件的概念 组件，从概念上类似于 JavaScript 函数。它接受任意的入参（即 “props”），并返回用于描述页面展示内容的 React 元素。
+组件与元素的区别 元素是一个React元素，而组件是一个返回React元素的函数；元素的名字一般以小写字母开头，而组件的第一个字母通常大写。
+//定义一个简单的组件 const Div = ()=&gt; &lt;div className=&#39;hello&#39;&gt;hello World&lt;/div&gt; //定义一个简单的元素 const div = &lt;div className=&#39;hello&#39;&gt;hello World&lt;/div&gt; 组件的种类 组件分为函数组件和类组件。
+//函数组件 function Welcome(props) {  return &lt;h1&gt;hello,{{props.name}}&lt;/h1&gt; } //使用方法 &lt;Welcome name=&#39;frank&#39;/&gt; //函数组件 class Welcome extends React.Component{  render(){  return &lt;h1&gt;hello,{{this.props.name}}&lt;/h1&gt;  } } //使用方法 &lt;Welcome name=&#39;frank&#39;/&gt; JSX标签的翻译逻辑:
+&lt;div/ &gt;会被翻译成c(&#39;div&#39;);
+&lt;Welcome /&gt;会被翻译为React.createElement(Welcome);
+React.createElement():
+如果传入一个字符串&lsquo;div&rsquo;，则会创建一个div;
+如果传入一个函数，则会调用该函数，获取其返回值;
+如果传入一个类，则会new类(执行constructor)，获取一个组件对象，然后调用render方法，获取其返回值。
+props 当React元素为用户自定义组件时，它会将JSX所接收的属性(attributes)以及子组件(children)转换为单个对象传递给子组件，这个对象被称为&quot;props&quot;。
+例如，下面这段代码会在页面上渲染 “Hello, React”：
+function Welcome(props){  return &lt;h1&gt;hello,{{props.">
+<meta name="author" content="">
+<link rel="canonical" href="http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86%E7%BB%84%E4%BB%B6/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="初识组件" />
+<meta property="og:description" content="组件的概念 组件，从概念上类似于 JavaScript 函数。它接受任意的入参（即 “props”），并返回用于描述页面展示内容的 React 元素。
+组件与元素的区别 元素是一个React元素，而组件是一个返回React元素的函数；元素的名字一般以小写字母开头，而组件的第一个字母通常大写。
+//定义一个简单的组件 const Div = ()=&gt; &lt;div className=&#39;hello&#39;&gt;hello World&lt;/div&gt; //定义一个简单的元素 const div = &lt;div className=&#39;hello&#39;&gt;hello World&lt;/div&gt; 组件的种类 组件分为函数组件和类组件。
+//函数组件 function Welcome(props) {  return &lt;h1&gt;hello,{{props.name}}&lt;/h1&gt; } //使用方法 &lt;Welcome name=&#39;frank&#39;/&gt; //函数组件 class Welcome extends React.Component{  render(){  return &lt;h1&gt;hello,{{this.props.name}}&lt;/h1&gt;  } } //使用方法 &lt;Welcome name=&#39;frank&#39;/&gt; JSX标签的翻译逻辑:
+&lt;div/ &gt;会被翻译成c(&#39;div&#39;);
+&lt;Welcome /&gt;会被翻译为React.createElement(Welcome);
+React.createElement():
+如果传入一个字符串&lsquo;div&rsquo;，则会创建一个div;
+如果传入一个函数，则会调用该函数，获取其返回值;
+如果传入一个类，则会new类(执行constructor)，获取一个组件对象，然后调用render方法，获取其返回值。
+props 当React元素为用户自定义组件时，它会将JSX所接收的属性(attributes)以及子组件(children)转换为单个对象传递给子组件，这个对象被称为&quot;props&quot;。
+例如，下面这段代码会在页面上渲染 “Hello, React”：
+function Welcome(props){  return &lt;h1&gt;hello,{{props." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86%E7%BB%84%E4%BB%B6/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-27T10:46:57&#43;08:00" />
+<meta property="article:modified_time" content="2022-08-27T10:46:57&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="初识组件"/>
+<meta name="twitter:description" content="组件的概念 组件，从概念上类似于 JavaScript 函数。它接受任意的入参（即 “props”），并返回用于描述页面展示内容的 React 元素。
+组件与元素的区别 元素是一个React元素，而组件是一个返回React元素的函数；元素的名字一般以小写字母开头，而组件的第一个字母通常大写。
+//定义一个简单的组件 const Div = ()=&gt; &lt;div className=&#39;hello&#39;&gt;hello World&lt;/div&gt; //定义一个简单的元素 const div = &lt;div className=&#39;hello&#39;&gt;hello World&lt;/div&gt; 组件的种类 组件分为函数组件和类组件。
+//函数组件 function Welcome(props) {  return &lt;h1&gt;hello,{{props.name}}&lt;/h1&gt; } //使用方法 &lt;Welcome name=&#39;frank&#39;/&gt; //函数组件 class Welcome extends React.Component{  render(){  return &lt;h1&gt;hello,{{this.props.name}}&lt;/h1&gt;  } } //使用方法 &lt;Welcome name=&#39;frank&#39;/&gt; JSX标签的翻译逻辑:
+&lt;div/ &gt;会被翻译成c(&#39;div&#39;);
+&lt;Welcome /&gt;会被翻译为React.createElement(Welcome);
+React.createElement():
+如果传入一个字符串&lsquo;div&rsquo;，则会创建一个div;
+如果传入一个函数，则会调用该函数，获取其返回值;
+如果传入一个类，则会new类(执行constructor)，获取一个组件对象，然后调用render方法，获取其返回值。
+props 当React元素为用户自定义组件时，它会将JSX所接收的属性(attributes)以及子组件(children)转换为单个对象传递给子组件，这个对象被称为&quot;props&quot;。
+例如，下面这段代码会在页面上渲染 “Hello, React”：
+function Welcome(props){  return &lt;h1&gt;hello,{{props."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://kuangdangli.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "初识组件",
+      "item": "http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86%E7%BB%84%E4%BB%B6/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "初识组件",
+  "name": "初识组件",
+  "description": "组件的概念 组件，从概念上类似于 JavaScript 函数。它接受任意的入参（即 “props”），并返回用于描述页面展示内容的 React 元素。\n组件与元素的区别 元素是一个React元素，而组件是一个返回React元素的函数；元素的名字一般以小写字母开头，而组件的第一个字母通常大写。\n//定义一个简单的组件 const Div = ()=\u0026gt; \u0026lt;div className=\u0026#39;hello\u0026#39;\u0026gt;hello World\u0026lt;/div\u0026gt; //定义一个简单的元素 const div = \u0026lt;div className=\u0026#39;hello\u0026#39;\u0026gt;hello World\u0026lt;/div\u0026gt; 组件的种类 组件分为函数组件和类组件。\n//函数组件 function Welcome(props) {  return \u0026lt;h1\u0026gt;hello,{{props.name}}\u0026lt;/h1\u0026gt; } //使用方法 \u0026lt;Welcome name=\u0026#39;frank\u0026#39;/\u0026gt; //函数组件 class Welcome extends React.Component{  render(){  return \u0026lt;h1\u0026gt;hello,{{this.props.name}}\u0026lt;/h1\u0026gt;  } } //使用方法 \u0026lt;Welcome name=\u0026#39;frank\u0026#39;/\u0026gt; JSX标签的翻译逻辑:\n\u0026lt;div/ \u0026gt;会被翻译成c('div');\n\u0026lt;Welcome /\u0026gt;会被翻译为React.createElement(Welcome);\nReact.createElement():\n如果传入一个字符串\u0026lsquo;div\u0026rsquo;，则会创建一个div;\n如果传入一个函数，则会调用该函数，获取其返回值;\n如果传入一个类，则会new类(执行constructor)，获取一个组件对象，然后调用render方法，获取其返回值。\nprops 当React元素为用户自定义组件时，它会将JSX所接收的属性(attributes)以及子组件(children)转换为单个对象传递给子组件，这个对象被称为\u0026quot;props\u0026quot;。\n例如，下面这段代码会在页面上渲染 “Hello, React”：\nfunction Welcome(props){  return \u0026lt;h1\u0026gt;hello,{{props.",
+  "keywords": [
+    
+  ],
+  "articleBody": "组件的概念 组件，从概念上类似于 JavaScript 函数。它接受任意的入参（即 “props”），并返回用于描述页面展示内容的 React 元素。\n组件与元素的区别 元素是一个React元素，而组件是一个返回React元素的函数；元素的名字一般以小写字母开头，而组件的第一个字母通常大写。\n//定义一个简单的组件 const Div = ()= div className='hello'hello World/div //定义一个简单的元素 const div = div className='hello'hello World/div 组件的种类 组件分为函数组件和类组件。\n//函数组件 function Welcome(props) {  return h1hello,{{props.name}}/h1 } //使用方法 Welcome name='frank'/ //函数组件 class Welcome extends React.Component{  render(){  return h1hello,{{this.props.name}}/h1  } } //使用方法 Welcome name='frank'/ JSX标签的翻译逻辑:\n会被翻译成c('div');\n会被翻译为React.createElement(Welcome);\nReact.createElement():\n如果传入一个字符串‘div’，则会创建一个div;\n如果传入一个函数，则会调用该函数，获取其返回值;\n如果传入一个类，则会new类(执行constructor)，获取一个组件对象，然后调用render方法，获取其返回值。\nprops 当React元素为用户自定义组件时，它会将JSX所接收的属性(attributes)以及子组件(children)转换为单个对象传递给子组件，这个对象被称为\"props\"。\n例如，下面这段代码会在页面上渲染 “Hello, React”：\nfunction Welcome(props){  return h1hello,{{props.name}}/h1 } const root = ReactDOM.createRoot(document.getElementById('root')); const element = Welcome name='React'/; //props为:{name:'React'} root.render(element) 需要注意的是，React组件无论是使用函数声明还是通过 class 声明，都绝不能修改自身的 props。\nstate 类组件的state  state初始化\n在构造函数中初始化state class Welcome extends React.Component{  constructor(){  super();  this.state = {  n:0  }  } }  读state\nthis.state可读state对象的数据 class Welcome extends React.Component{ constructor(){  super();  this.state = {  n:0  } } render(){  divn:{{this.state.n}}/div } }  写state\nReact组件中的state对象不可直接修改。 add(){  this.state.n+=1; } 这种写法是不被允许的。有两点原因：第一，React不像Vue一样直接劫持监听数据，做不到根据数据变化主动更新UI；第二，React不鼓励在state对象自身上直接进行修改，若要变更数据请生成新的state对象。 正确的写state的姿势:  使用this.setState来主动通知React修改数据。 用新生成的对象代替原本的state。  add(){  this.setState({n:this.state.n+1}) } 需要注意的是，React提供的this.setState是一个异步函数，一般使用函数来充当它的参数，而不是直接使用数据对象。 add(){  this.setState((state)={n:this.state.n+1}) }   函数组件的state React提供React.useState()来初始化函数组件的state。\n useState方法唯一的参数就是初始state。不同于类组件，我们可以按照需要使用数字或字符串对其进行赋值，而不一定是对象。如果开发者需要在state中存储两个不同的变量，只需要调用useState两次即可。 useState的返回值为当前state以及更新state的函数。  const Hello = ()={  const [n,setN] = React.useState(0) } ",
+  "wordCount" : "147",
+  "inLanguage": "en",
+  "datePublished": "2022-08-27T10:46:57+08:00",
+  "dateModified": "2022-08-27T10:46:57+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86%E7%BB%84%E4%BB%B6/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kuangdangli.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      初识组件
+    </h1>
+    <div class="post-meta"><span title='2022-08-27 10:46:57 +0800 CST'>August 27, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="组件的概念">组件的概念<a hidden class="anchor" aria-hidden="true" href="#组件的概念">#</a></h2>
+<p>组件，从概念上类似于 JavaScript 函数。它接受任意的入参（即 “props”），并返回用于描述页面展示内容的 React 元素。</p>
+<h2 id="组件与元素的区别">组件与元素的区别<a hidden class="anchor" aria-hidden="true" href="#组件与元素的区别">#</a></h2>
+<p>元素是一个React元素，而组件是一个返回React元素的函数；元素的名字一般以小写字母开头，而组件的第一个字母通常大写。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#75715e">//定义一个简单的组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Div</span> <span style="color:#f92672">=</span> ()=&gt; <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hello&#39;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">hello</span> <span style="color:#a6e22e">World</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//定义一个简单的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">div</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hello&#39;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">hello</span> <span style="color:#a6e22e">World</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span></code></pre></div><h2 id="组件的种类">组件的种类<a hidden class="anchor" aria-hidden="true" href="#组件的种类">#</a></h2>
+<p>组件分为函数组件和类组件。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#75715e">//函数组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">hello</span>,{{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//使用方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;frank&#39;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//函数组件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Welcome</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>(){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">hello</span>,{{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//使用方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;frank&#39;</span><span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div><p><code>JSX</code>标签的翻译逻辑:</p>
+<p><code>&lt;div/ &gt;</code>会被翻译成<code>c('div')</code>;</p>
+<p><code>&lt;Welcome /&gt;</code>会被翻译为<code>React.createElement(Welcome)</code>;</p>
+<p><code>React.createElement()</code>:</p>
+<p>如果传入一个<strong>字符串</strong>&lsquo;div&rsquo;，则会创建一个<code>div</code>;</p>
+<p>如果传入一个<strong>函数</strong>，则会调用该函数，获取其返回值;</p>
+<p>如果传入一个<strong>类</strong>，则会<code>new</code><strong>类</strong>(执行<code>constructor</code>)，获取一个<strong>组件对象</strong>，然后调用<code>render</code>方法，获取其返回值。</p>
+<h2 id="props">props<a hidden class="anchor" aria-hidden="true" href="#props">#</a></h2>
+<p>当React元素为用户自定义组件时，它会将JSX所接收的属性(attributes)以及子组件(children)转换为单个对象传递给子组件，这个对象被称为&quot;props&quot;。</p>
+<p>例如，下面这段代码会在页面上渲染 “Hello, React”：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">hello</span>,{{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">root</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">createRoot</span>(document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>));
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;React&#39;</span><span style="color:#f92672">/&gt;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//props为:{name:&#39;React&#39;}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>)
+</span></span></code></pre></div><p>需要注意的是，React组件无论是使用函数声明还是通过 class 声明，都绝不能修改自身的 props。</p>
+<h2 id="state">state<a hidden class="anchor" aria-hidden="true" href="#state">#</a></h2>
+<h3 id="类组件的state">类组件的state<a hidden class="anchor" aria-hidden="true" href="#类组件的state">#</a></h3>
+<ol>
+<li>state初始化<br>
+在构造函数中初始化state
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Welcome</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span>{
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">constructor</span>(){
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">super</span>();
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>读state<br>
+<code>this.state</code>可读state对象的数据
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Welcome</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span>{
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">constructor</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">render</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">n</span><span style="color:#f92672">:</span>{{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">n</span>}}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>写state<br>
+React组件中的state对象不可直接修改。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#a6e22e">add</span>(){
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">n</span><span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>这种写法是不被允许的。有两点原因：第一，React不像Vue一样直接劫持监听数据，做不到根据数据变化主动更新UI；第二，React不鼓励在<code>state</code>对象自身上直接进行修改，若要变更数据请生成新的<code>state</code>对象。
+正确的写<code>state</code>的姿势:
+<ul>
+<li>使用<code>this.setState</code>来主动通知React修改数据。</li>
+<li>用新生成的对象代替原本的<code>state</code>。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#a6e22e">add</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>})
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>需要注意的是，React提供的<code>this.setState</code>是一个异步函数，一般使用函数来充当它的参数，而不是直接使用数据对象。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#a6e22e">add</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>((<span style="color:#a6e22e">state</span>)=&gt;{<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>})
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="函数组件的state">函数组件的state<a hidden class="anchor" aria-hidden="true" href="#函数组件的state">#</a></h3>
+<p>React提供<code>React.useState()</code>来初始化函数组件的<code>state</code>。</p>
+<ul>
+<li><code>useState</code>方法唯一的参数就是初始<code>state</code>。不同于类组件，我们可以按照需要使用数字或字符串对其进行赋值，而不一定是对象。如果开发者需要在<code>state</code>中存储两个不同的变量，只需要调用<code>useState</code>两次即可。</li>
+<li><code>useState</code>的返回值为当前<code>state</code>以及更新<code>state</code>的函数。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Hello</span> <span style="color:#f92672">=</span> ()<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">n</span>,<span style="color:#a6e22e">setN</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>} 
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

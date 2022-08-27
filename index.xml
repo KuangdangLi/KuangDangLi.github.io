@@ -6,7 +6,28 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Aug 2022 21:22:37 +0800</lastBuildDate><atom:link href="http://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Aug 2022 10:46:57 +0800</lastBuildDate><atom:link href="http://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>初识组件</title>
+      <link>http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Sat, 27 Aug 2022 10:46:57 +0800</pubDate>
+      
+      <guid>http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86%E7%BB%84%E4%BB%B6/</guid>
+      <description>组件的概念 组件，从概念上类似于 JavaScript 函数。它接受任意的入参（即 “props”），并返回用于描述页面展示内容的 React 元素。
+组件与元素的区别 元素是一个React元素，而组件是一个返回React元素的函数；元素的名字一般以小写字母开头，而组件的第一个字母通常大写。
+//定义一个简单的组件 const Div = ()=&amp;gt; &amp;lt;div className=&amp;#39;hello&amp;#39;&amp;gt;hello World&amp;lt;/div&amp;gt; //定义一个简单的元素 const div = &amp;lt;div className=&amp;#39;hello&amp;#39;&amp;gt;hello World&amp;lt;/div&amp;gt; 组件的种类 组件分为函数组件和类组件。
+//函数组件 function Welcome(props) {  return &amp;lt;h1&amp;gt;hello,{{props.name}}&amp;lt;/h1&amp;gt; } //使用方法 &amp;lt;Welcome name=&amp;#39;frank&amp;#39;/&amp;gt; //函数组件 class Welcome extends React.Component{  render(){  return &amp;lt;h1&amp;gt;hello,{{this.props.name}}&amp;lt;/h1&amp;gt;  } } //使用方法 &amp;lt;Welcome name=&amp;#39;frank&amp;#39;/&amp;gt; JSX标签的翻译逻辑:
+&amp;lt;div/ &amp;gt;会被翻译成c(&#39;div&#39;);
+&amp;lt;Welcome /&amp;gt;会被翻译为React.createElement(Welcome);
+React.createElement():
+如果传入一个字符串&amp;lsquo;div&amp;rsquo;，则会创建一个div;
+如果传入一个函数，则会调用该函数，获取其返回值;
+如果传入一个类，则会new类(执行constructor)，获取一个组件对象，然后调用render方法，获取其返回值。
+props 当React元素为用户自定义组件时，它会将JSX所接收的属性(attributes)以及子组件(children)转换为单个对象传递给子组件，这个对象被称为&amp;quot;props&amp;quot;。
+例如，下面这段代码会在页面上渲染 “Hello, React”：
+function Welcome(props){  return &amp;lt;h1&amp;gt;hello,{{props.</description>
+    </item>
+    
     <item>
       <title>JSX</title>
       <link>http://kuangdangli.github.io/post/react/jsx/</link>
