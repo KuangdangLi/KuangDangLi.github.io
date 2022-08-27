@@ -131,6 +131,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>类组件生命周期
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>组件的生命周期 生命周期是指组件再运行过程中特定的阶段执行的方法。
+组件生命周期图谱见下图:下文将分别介绍一下常见的生命周期。
+constructor(props) 调用时间:
+在 React 组件挂载之前，会调用它的构造函数。实现构造函数时，应在其他语句之前调用 super(props)。否则会出现bug。
+用途：
+在 React 中，constructor仅用于以下两种情况：
+ 通过给 this.state赋值对象来初始化内部 state。 为事件处理函数绑定实例。  如果不初始化 state 或不进行方法绑定，则不需要为 React 组件实现构造函数。
+注意，不要在 constructor 中调用 setState。同样地，不要在其它方法中直接为 this.state 赋值，你应该调用 this.setState。另外，请避免将 props 的值复制给 state，你可以使用 this.props来读取它的值。
+shouldComponentUpdate(nextProps, nextState) 调用时间:
+当 props 和 state 发生变化时，shouldComponentUpdate() 会在渲染执行前被调用。返回值默认为 true。首次渲染或使用 forceUpdate时不会调用该方法。
+用途:
+使用 this.props与 nextProps 以及 this.state 与 nextState进行比较，返回 true 和 false 来通知 React 是否要更新。如果 shouldComponentUpdate() 返回 false，则不会调用 render()。
+不建议使用该方法进行手动比较，内置的 pureComponent 是更为推荐的选项。 pureComponent 会对 props 和 state 进行浅层比较，并减少了条过必要更新的可能性。...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-27 17:07:06 +0800 CST'>August 27, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 类组件生命周期" href="http://kuangdangli.github.io/post/react/%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>初识组件
     </h2>
   </header>
@@ -283,27 +307,6 @@ Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 gett
   </section>
   <footer class="entry-footer"><span title='2022-07-28 20:16:27 +0800 CST'>July 28, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Vue Version" href="http://kuangdangli.github.io/post/vue-version/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>A Little Bit MVC
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>MVC  MVC(Model-View-Controller)是一种架构设计模式，它将应用的实现抽象出三层结构：
-1.数据层Model，在层级结构的最下层，存储程序需要操作的数据和信息。
- 声明对象 m = { 存储数据的对象:{ n:存储数据 } 更新数据的方法(){ 对数据进行处理 触发eventsBus 数据存储或覆盖 } }  2.视图层View，代表模型包含的数据的可视化，在程序的最顶层向用户提供操作界面。
- 声明对象v = { 存储容器的属性 存储模板 初始化方法 渲染方法 }  3.控制层Controller，控制层作用于数据和视图上。它控制数据流向模型对象，并在数据变化时更新视图。它使视图与模型分离开。
- 声明对象c = { 初始化方法 { 调用对象v的初始化方法 调用对象v的渲染方法 调用对象c的事件绑定 eventBus绑定 } 事件绑定 } eventBus基本API  1.eventBus.on,用来绑定eventBus，传入name和函数方法。 2.eventBus.trigger，用来触发eventBus。 3.eventBus.off，取消eventBus。
-//eventBus.on使用伪代码 调用eventBus.on这个API 传入eventName 传入函数 //eventBus.trigger使用伪代码 调用eventBus.trigger这个API 传入eventName //eventBus.off使用伪代码 调用eventBus.off这个API 传入eventName 表驱动编程  表驱动方法是一种使你可以在表中查找信息，而不必用逻辑语句（if 或 case）来把他们找出来的方法。事实上，任何信息都可以通过表来挑选。在简单的情况下，逻辑语句往往更简单而且更直接。但随着逻辑链的复杂，表就变得越来越富于吸引力了。表驱动编程的意义在于逻辑与数据的分离。
- 可以简单的理解的就是用同样的方式处理不同的数据，表驱动方法具有以下特点：
-1.可读性强，数据处理流程一目了然。
-2.便于维护，只需要增、删数据索引和方法就可以实现功能。
-3.精简代码，降低圈复杂度。减少 if-else、switch-case 使用。...</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-07-20 15:27:26 +0800 CST'>July 20, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to A Little Bit MVC" href="http://kuangdangli.github.io/post/a-little-bit-mvc/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
