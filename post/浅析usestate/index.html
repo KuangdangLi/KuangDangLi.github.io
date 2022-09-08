@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>浅析useState | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="useState是什么 useState 是 React 的一个基础API，用来管理函数组件的 state。
+const [state,setState] = useState(initialState) useState 返回一个 state 和一个更新 state 的函数。
+初次渲染时，state 与 initialState 值相同。
+setState 用于更新 state，并且通知 React 进行一次重新渲染。
+ setState(newValue) 重新渲染中的 state 将会是最新的 state。
+简单实现useState 以下为完整代码
+let _state = []; let index = 0; function simpleUseState(initialValue) {  let currentIndex = index;  _state[currentIndex] = _state[currentIndex] === undefined ? initialValue : _state[currentIndex];  function setState(newValue){  _state[currentIndex] = newValue;  render()//这步为重新渲染，需要将index的值归零  }  index &#43;= 1;  return [_state[currentIndex],setState] } 几点要点：">
+<meta name="author" content="">
+<link rel="canonical" href="http://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usestate/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="浅析useState" />
+<meta property="og:description" content="useState是什么 useState 是 React 的一个基础API，用来管理函数组件的 state。
+const [state,setState] = useState(initialState) useState 返回一个 state 和一个更新 state 的函数。
+初次渲染时，state 与 initialState 值相同。
+setState 用于更新 state，并且通知 React 进行一次重新渲染。
+ setState(newValue) 重新渲染中的 state 将会是最新的 state。
+简单实现useState 以下为完整代码
+let _state = []; let index = 0; function simpleUseState(initialValue) {  let currentIndex = index;  _state[currentIndex] = _state[currentIndex] === undefined ? initialValue : _state[currentIndex];  function setState(newValue){  _state[currentIndex] = newValue;  render()//这步为重新渲染，需要将index的值归零  }  index &#43;= 1;  return [_state[currentIndex],setState] } 几点要点：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usestate/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-08T22:03:46&#43;08:00" />
+<meta property="article:modified_time" content="2022-09-08T22:03:46&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="浅析useState"/>
+<meta name="twitter:description" content="useState是什么 useState 是 React 的一个基础API，用来管理函数组件的 state。
+const [state,setState] = useState(initialState) useState 返回一个 state 和一个更新 state 的函数。
+初次渲染时，state 与 initialState 值相同。
+setState 用于更新 state，并且通知 React 进行一次重新渲染。
+ setState(newValue) 重新渲染中的 state 将会是最新的 state。
+简单实现useState 以下为完整代码
+let _state = []; let index = 0; function simpleUseState(initialValue) {  let currentIndex = index;  _state[currentIndex] = _state[currentIndex] === undefined ? initialValue : _state[currentIndex];  function setState(newValue){  _state[currentIndex] = newValue;  render()//这步为重新渲染，需要将index的值归零  }  index &#43;= 1;  return [_state[currentIndex],setState] } 几点要点："/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://kuangdangli.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "浅析useState",
+      "item": "http://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usestate/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "浅析useState",
+  "name": "浅析useState",
+  "description": "useState是什么 useState 是 React 的一个基础API，用来管理函数组件的 state。\nconst [state,setState] = useState(initialState) useState 返回一个 state 和一个更新 state 的函数。\n初次渲染时，state 与 initialState 值相同。\nsetState 用于更新 state，并且通知 React 进行一次重新渲染。\n setState(newValue) 重新渲染中的 state 将会是最新的 state。\n简单实现useState 以下为完整代码\nlet _state = []; let index = 0; function simpleUseState(initialValue) {  let currentIndex = index;  _state[currentIndex] = _state[currentIndex] === undefined ? initialValue : _state[currentIndex];  function setState(newValue){  _state[currentIndex] = newValue;  render()//这步为重新渲染，需要将index的值归零  }  index += 1;  return [_state[currentIndex],setState] } 几点要点：",
+  "keywords": [
+    
+  ],
+  "articleBody": "useState是什么 useState 是 React 的一个基础API，用来管理函数组件的 state。\nconst [state,setState] = useState(initialState) useState 返回一个 state 和一个更新 state 的函数。\n初次渲染时，state 与 initialState 值相同。\nsetState 用于更新 state，并且通知 React 进行一次重新渲染。\n setState(newValue) 重新渲染中的 state 将会是最新的 state。\n简单实现useState 以下为完整代码\nlet _state = []; let index = 0; function simpleUseState(initialValue) {  let currentIndex = index;  _state[currentIndex] = _state[currentIndex] === undefined ? initialValue : _state[currentIndex];  function setState(newValue){  _state[currentIndex] = newValue;  render()//这步为重新渲染，需要将index的值归零  }  index += 1;  return [_state[currentIndex],setState] } 几点要点：\n _state 初始化写在函数外部，因为初始化只需要在组件渲染时执行一次，而不是在函数执行时重复初始化。 记录同一个组件的复杂状态，选择使用数组而不是对象。相比对象需要自定义 key ，数组天然生成的 index 管理值更方便。 index 需要在 render 时初始化一次。因为我们使用的是数组管理值，我们需要每次更新渲染时使用的 index 都保持一致，无论是顺序还是长度。 useState 依赖 index 来管理复杂状态，这导致我们不能在任何条件语句中使用 useState。因为这会改变 useState 的执行顺序，改变不同 state 对应的 index。  使用注意事项  setState 不是在原有 state 的基础上修改值，而是生成一个新的 state 代替原有的 state。基于此，如果 state 是对象，那么在使用 setState时需要注意：   不可局部更新 state setState 不会自动合并原有 state 未更新部分，局部更新会丢失原有对象未更新部分，因此需要手动合并原有 state。 接受一个全新的对象 const [user,setUser] = useState({name:'lee',age: '22'}); user.name = 'jack' setUser(user) 像上述代码一样在原有 state 上修改值，再调用 setState 是无法取得更新 state 效果的。这是因为setState 是通过比较新老state 的地址来判断 state 是否有变化的，若地址无变化则不会更新。  useState 与 setState 都接受函数作为参数。   useState会在初次渲染时调用计算返回值并将其作为初始状态，在后续渲染时会被忽略。 如果新的 state 需要通过使用先前的 state 计算得出，那么可以将函数传递给 setState。该函数将接收先前的 state，并返回一个更新后的值。  ",
+  "wordCount" : "144",
+  "inLanguage": "en",
+  "datePublished": "2022-09-08T22:03:46+08:00",
+  "dateModified": "2022-09-08T22:03:46+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usestate/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kuangdangli.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      浅析useState
+    </h1>
+    <div class="post-meta"><span title='2022-09-08 22:03:46 +0800 CST'>September 8, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="usestate是什么"><code>useState</code>是什么<a hidden class="anchor" aria-hidden="true" href="#usestate是什么">#</a></h2>
+<p><code>useState</code> 是 <code>React</code> 的一个基础API，用来管理函数组件的 <code>state</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">state</span>,<span style="color:#a6e22e">setState</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#a6e22e">initialState</span>)
+</span></span></code></pre></div><p><code>useState</code> 返回一个 <code>state</code> 和一个更新 <code>state</code> 的函数。</p>
+<p>初次渲染时，<code>state</code> 与 <code>initialState</code> 值相同。</p>
+<p><code>setState</code> 用于更新 <code>state</code>，并且通知 <code>React</code> 进行一次重新渲染。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span>    <span style="color:#a6e22e">setState</span>(<span style="color:#a6e22e">newValue</span>)
+</span></span></code></pre></div><p>重新渲染中的 <code>state</code> 将会是最新的 <code>state</code>。</p>
+<h2 id="简单实现usestate">简单实现<code>useState</code><a hidden class="anchor" aria-hidden="true" href="#简单实现usestate">#</a></h2>
+<p>以下为完整代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">_state</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">simpleUseState</span>(<span style="color:#a6e22e">initialValue</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">currentIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">index</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_state</span>[<span style="color:#a6e22e">currentIndex</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">_state</span>[<span style="color:#a6e22e">currentIndex</span>] <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">initialValue</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">_state</span>[<span style="color:#a6e22e">currentIndex</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setState</span>(<span style="color:#a6e22e">newValue</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">_state</span>[<span style="color:#a6e22e">currentIndex</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">newValue</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">render</span>()<span style="color:#75715e">//这步为重新渲染，需要将index的值归零
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">index</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">_state</span>[<span style="color:#a6e22e">currentIndex</span>],<span style="color:#a6e22e">setState</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>几点要点：</p>
+<ol>
+<li><code>_state</code> 初始化写在函数外部，因为初始化只需要在组件渲染时执行一次，而不是在函数执行时重复初始化。</li>
+<li>记录同一个组件的复杂状态，选择使用数组而不是对象。相比对象需要自定义 <code>key</code> ，数组天然生成的 <code>index</code> 管理值更方便。</li>
+<li><code>index</code> 需要在 <code>render</code> 时初始化一次。因为我们使用的是数组管理值，我们需要每次更新渲染时使用的 <code>index</code> 都保持一致，无论是顺序还是长度。</li>
+<li><code>useState</code> 依赖 <code>index</code> 来管理复杂状态，这导致我们不能在任何条件语句中使用 <code>useState</code>。因为这会改变 <code>useState</code> 的执行顺序，改变不同 <code>state</code> 对应的 <code>index</code>。</li>
+</ol>
+<h2 id="使用注意事项">使用注意事项<a hidden class="anchor" aria-hidden="true" href="#使用注意事项">#</a></h2>
+<ol>
+<li><code>setState</code> 不是在原有 <code>state</code> 的基础上修改值，而是生成一个新的 <code>state</code> 代替原有的 <code>state</code>。基于此，如果 <code>state</code> 是对象，那么在使用 <code>setState</code>时需要注意：</li>
+</ol>
+<ul>
+<li>不可局部更新 <code>state</code>
+<code>setState</code> 不会自动合并原有 <code>state</code> 未更新部分，局部更新会丢失原有对象未更新部分，因此需要手动合并原有 <code>state</code>。</li>
+<li>接受一个全新的对象
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">user</span>,<span style="color:#a6e22e">setUser</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>({<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;lee&#39;</span>,<span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;22&#39;</span>});
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;jack&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setUser</span>(<span style="color:#a6e22e">user</span>)
+</span></span></code></pre></div>像上述代码一样在原有 <code>state</code> 上修改值，再调用 <code>setState</code> 是无法取得更新 <code>state</code> 效果的。这是因为<code>setState</code> 是通过比较新老<code>state</code> 的地址来判断 <code>state</code> 是否有变化的，若地址无变化则不会更新。</li>
+</ul>
+<ol start="2">
+<li><code>useState</code> 与 <code>setState</code> 都接受函数作为参数。</li>
+</ol>
+<ul>
+<li><code>useState</code>会在初次渲染时调用计算返回值并将其作为初始状态，在后续渲染时会被忽略。</li>
+<li>如果新的 <code>state</code> 需要通过使用先前的 <code>state</code> 计算得出，那么可以将函数传递给 <code>setState</code>。该函数将接收先前的 state，并返回一个更新后的值。</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

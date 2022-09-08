@@ -6,25 +6,20 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Aug 2022 21:29:29 +0800</lastBuildDate><atom:link href="http://kuangdangli.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Sep 2022 22:03:46 +0800</lastBuildDate><atom:link href="http://kuangdangli.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>函数组件模拟生命周期</title>
-      <link>http://kuangdangli.github.io/post/react/%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E6%A8%A1%E6%8B%9F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
-      <pubDate>Sat, 27 Aug 2022 21:29:29 +0800</pubDate>
+      <title>浅析useState</title>
+      <link>http://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usestate/</link>
+      <pubDate>Thu, 08 Sep 2022 22:03:46 +0800</pubDate>
       
-      <guid>http://kuangdangli.github.io/post/react/%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E6%A8%A1%E6%8B%9F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
-      <description>使用 useEffect模拟生命周期   模拟 componentDidMount()
-useEffect(()=&amp;gt;{console.log(&amp;#39;第一次渲染&amp;#39;)},[]) useEffect()接受两个参数，第一个参数为回调函数，第二个参数为空数组，回调函数会在组件挂载时执行。
-  模拟 componentDidUpdate()
-useEffect(()=&amp;gt;{console.log(&amp;#39;第一次渲染&amp;#39;)}) useEffect() 只接受回调函数一个参数，传入的回调会在组件中任意属性变更是执行。
-useEffect(()=&amp;gt;{console.log(&amp;#39;第一次渲染&amp;#39;)},[n]) useEffect()接受两个参数，第一个参数为回调函数，第二个参数为数组，数组里写上监听的数据。回调函数会在监听数据变更时执行
-   注意此种方法无论是监听所有数据还是特定数据，在首次渲染时都会执行。   模拟 componentWillMount()
-useEffect(()=&amp;gt;{  console.log(&amp;#39;第一次渲染&amp;#39;)  return ()=&amp;gt;{  console.log(&amp;#39;组件要死了&amp;#39;)  } }) 作为useEffect()接受的第一个参数传入的函数返回值函数会在组件销毁时执行。
-  模拟 constructor() 函数组件执行的时候就相当于constructor().
-  render() 函数组件的返回值就是render()的返回值。
-  全真模拟 componentDidUpdate() 上文介绍的 React 原生hook模拟 componentDidUpdate()会在组件挂载时也执行。想要切实模拟数据更新后执行的钩子函数需要自定义。
-思路在于创建 count 中间值，用中间值来记录数据变化的次数，在 count 大于1的时候再执行需要的回调函数。
-const useUpdate = (fn,dep)=&amp;gt;{  const [count,setCount] = useState(0);  useEffect(()=&amp;gt;{  setCount(x=&amp;gt;x+1)  },[dep])   useEffect(()=&amp;gt;{  if(count&amp;gt;1){  fn()  }  },[count,fn]) } 此自定义函数接收两个参数，第一个参数为回调函数，第二个参数为想要监听的数据。</description>
+      <guid>http://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usestate/</guid>
+      <description>useState是什么 useState 是 React 的一个基础API，用来管理函数组件的 state。
+const [state,setState] = useState(initialState) useState 返回一个 state 和一个更新 state 的函数。
+初次渲染时，state 与 initialState 值相同。
+setState 用于更新 state，并且通知 React 进行一次重新渲染。
+ setState(newValue) 重新渲染中的 state 将会是最新的 state。
+简单实现useState 以下为完整代码
+let _state = []; let index = 0; function simpleUseState(initialValue) {  let currentIndex = index;  _state[currentIndex] = _state[currentIndex] === undefined ? initialValue : _state[currentIndex];  function setState(newValue){  _state[currentIndex] = newValue;  render()//这步为重新渲染，需要将index的值归零  }  index += 1;  return [_state[currentIndex],setState] } 几点要点：</description>
     </item>
     
     <item>
@@ -268,16 +263,6 @@ Object.entires(obj) in命令有时会用来查看对象中是否含有指定属�
     </item>
     
     <item>
-      <title>Js数据类型 1</title>
-      <link>http://kuangdangli.github.io/post/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/</link>
-      <pubDate>Fri, 15 Apr 2022 15:38:37 +0800</pubDate>
-      
-      <guid>http://kuangdangli.github.io/post/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/</guid>
-      <description>数据类型是指js语言中值的类型。截至es6版本，js共有七种数据类型。分别是:
- 原始类型（primitive type），最基本的数据类型。   数值（number）：整数和小数（比如1和3.14）。 字符串（string）：文本（比如 Hello World）。 布尔值（boolean）：表示真伪的两个特殊值，即true和false。  合成类型（complex type）   对象（object）：各种值组成的集合，可以看作是一个存放各种值的容器。对象是最复杂的数据类型，有三个子类型包括狭义的对象（object）、数组（array）、函数（function，处理数据的方法）。  特殊值   undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值。 unll：表示空值，即此处的值为空。  es6新加类型   symbol：暂不涉及。  </description>
-    </item>
-    
-    <item>
       <title>Js的基本语法</title>
       <link>http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Sat, 09 Apr 2022 15:49:20 +0800</pubDate>
@@ -329,16 +314,6 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
       
       <guid>http://kuangdangli.github.io/post/commonly-used-tags/</guid>
       <description>HTML常用标签 a标签的用法  属性：  href 指向链接。其可用取值有：网址、路径、伪协议、ID。 target 决定打开新页面的方式。其可用取值有：_self、_blank、_parent、_top、以及自命名窗口。 download 下载页面。 rel=noopener 与js相关，略。   用法：  跳转外部页面。 跳转内部锚地。 跳转到邮箱或电话等 。    img标签的用法  作用：  发出get请求，展示一张图片。   属性  src 图片路径 alt 对图片的文本描述。鼠标悬浮在图片上或图片访问失败时显示。 width/height 宽高，编辑其中一项时，另一项自适应，同时定义宽高的值但是不符合图片原本宽高比例时图片变形。   事件  onload 当成功打开时，执行自定义操作。 onerror 打开失败时，执行自定义操作。   响应式  max-width:100% 宽度自适应浏览器。   可替换元素 略。  table标签的用法  相关的标签  table thead tbody tfoot tr td th   相关的样式  table-layout 定义了用于布局表格单元格，行和列的算法。其可用取值有:auto、fixed。 border-collapse 表格边框是否合并。其可用取值有:collapse、seprate。 border-spacing 指定相邻单元格边框之间的距离。    感想 这章内容好多好杂听着好晕。然后在写这篇博客的时候，刚开始忘了hugo的new命令，touch了一个新md，导致最后本地预览不了，推上GitHub后也死活看不着。翻了一个多小时才意识到是新建文章第一步就出了问题（还有front matter里的draft值）。建站第一篇文章推上github的时候也因为仓库名的问题搞了好久。出现的这俩问题以及浪费的时间教会了我，想当程序员首先要学会细心地抄，抄都抄不对的时候感觉自己是个噼里啪啦kilakila究极无敌世无第二大傻逼。</description>
-    </item>
-    
-    <item>
-      <title>HtmlFirstNote</title>
-      <link>http://kuangdangli.github.io/post/htmlfirstnote/</link>
-      <pubDate>Sat, 12 Mar 2022 18:21:23 +0800</pubDate>
-      
-      <guid>http://kuangdangli.github.io/post/htmlfirstnote/</guid>
-      <description>HTML入门笔记1  HTML是谁发明的？
-HTML的发明者是蒂莫西・约翰・伯纳斯 - 李爵士(Sir Timothy John Berners-Lee)。 HTML 起手应该写什么？ 使用!加tab生成起手式 常用的章节标签有哪些，分别是什么意思?   标题 h1~h6 章节 section 文章 article 段落 p 头部 header 脚部 footer 主要内容 main 旁支内容 aside 划分 div  全局属性有哪些？   类选择器 class 元素是否可编辑 contenteditable 是否隐藏 hidden id选择器 id 样式声明 style 元素是否被聚焦 tabindex 额外信息 title  常用的内容标签有哪些，分别是什么意思?   无序列表 ol+li 有序列表 ul+li 描述列表 dl+dt+dd 保留原来的格式 pre 分割线 hr 换行 br 超链接 a 语气强调，斜体显示 em 内容强调，默认加粗字体 strong 表示代码 code 行内引用 quote 换行引用 blockquote  </description>
     </item>
     
   </channel>
