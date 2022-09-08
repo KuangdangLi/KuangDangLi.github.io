@@ -2,80 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://kuangdangli.github.io/</loc>
+    <loc>https://kuangdangli.github.io/</loc>
     <lastmod>2022-09-08T22:03:46+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/</loc>
+    <loc>https://kuangdangli.github.io/post/</loc>
     <lastmod>2022-09-08T22:03:46+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usestate/</loc>
+    <loc>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usestate/</loc>
     <lastmod>2022-09-08T22:03:46+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/react/%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
+    <loc>https://kuangdangli.github.io/post/react/%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
     <lastmod>2022-08-27T17:07:06+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86%E7%BB%84%E4%BB%B6/</loc>
+    <loc>https://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86%E7%BB%84%E4%BB%B6/</loc>
     <lastmod>2022-08-27T10:46:57+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/react/jsx/</loc>
+    <loc>https://kuangdangli.github.io/post/react/jsx/</loc>
     <lastmod>2022-08-25T21:22:37+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/</loc>
+    <loc>https://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/</loc>
     <lastmod>2022-08-25T10:55:47+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/react/%E5%BC%95%E5%85%A5react/</loc>
+    <loc>https://kuangdangli.github.io/post/react/%E5%BC%95%E5%85%A5react/</loc>
     <lastmod>2022-08-23T21:59:24+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/vue-reactivity/</loc>
+    <loc>https://kuangdangli.github.io/post/vue-reactivity/</loc>
     <lastmod>2022-08-07T21:47:06+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/syncmodifier/</loc>
+    <loc>https://kuangdangli.github.io/post/syncmodifier/</loc>
     <lastmod>2022-08-07T21:19:12+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/computed-vs-watch/</loc>
+    <loc>https://kuangdangli.github.io/post/computed-vs-watch/</loc>
     <lastmod>2022-08-07T15:14:41+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/new-vue-options/</loc>
+    <loc>https://kuangdangli.github.io/post/new-vue-options/</loc>
     <lastmod>2022-08-04T15:41:44+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/vue-version/</loc>
+    <loc>https://kuangdangli.github.io/post/vue-version/</loc>
     <lastmod>2022-07-28T20:16:27+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/a-little-bit-mvc/</loc>
+    <loc>https://kuangdangli.github.io/post/a-little-bit-mvc/</loc>
     <lastmod>2022-07-20T15:27:26+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/closure/</loc>
+    <loc>https://kuangdangli.github.io/post/closure/</loc>
     <lastmod>2022-07-14T15:13:12+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/dom-event/</loc>
+    <loc>https://kuangdangli.github.io/post/dom-event/</loc>
     <lastmod>2022-06-14T21:23:12+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/jquery-basic-function/</loc>
+    <loc>https://kuangdangli.github.io/post/jquery-basic-function/</loc>
     <lastmod>2022-06-14T16:31:12+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</loc>
+    <loc>https://kuangdangli.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</loc>
     <lastmod>2022-05-01T21:01:18+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
+    <loc>https://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2022-04-21T20:40:47+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
+    <loc>https://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2022-04-09T15:49:20+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</loc>
+    <loc>https://kuangdangli.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</loc>
     <lastmod>2022-03-26T22:18:33+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/url/</loc>
+    <loc>https://kuangdangli.github.io/post/url/</loc>
     <lastmod>2022-03-24T18:16:41+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/css-sumary/</loc>
+    <loc>https://kuangdangli.github.io/post/css-sumary/</loc>
     <lastmod>2022-03-24T14:33:51+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/post/commonly-used-tags/</loc>
+    <loc>https://kuangdangli.github.io/post/commonly-used-tags/</loc>
     <lastmod>2022-03-15T16:20:29+08:00</lastmod>
   </url><url>
-    <loc>http://kuangdangli.github.io/categories/</loc>
+    <loc>https://kuangdangli.github.io/categories/</loc>
   </url><url>
-    <loc>http://kuangdangli.github.io/tags/</loc>
+    <loc>https://kuangdangli.github.io/tags/</loc>
   </url>
 </urlset>

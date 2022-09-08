@@ -13,15 +13,15 @@
  第一种是通过事件处理器属性将事件处理器绑定在制定元素上。  const btn = document.querySelector(&#39;button&#39;);  function bgChange() {  const rndCol = &#39;rgb(&#39; &#43; random(255) &#43; &#39;,&#39; &#43; random(255) &#43; &#39;,&#39; &#43; random(255) &#43; &#39;)&#39;;  document.body.style.backgroundColor = rndCol; }  btn.onclick = bgChange; 上述代码将具名函数bgChange通过.onclick属性绑定在btn上，用户点击按钮就会触发动作为网页赋上随机背景色。
  第二种是DOM Level2提供的方法，addEventListener(type,listener)注册事件监听 和 removeEventListener(type,listener)移除事件监听。type参数指定事件类型，listener参数接受具名函数或者直接编写不具名函数。 使用第二种方法改写代码。  const btn = document.">
 <meta name="author" content="">
-<link rel="canonical" href="http://kuangdangli.github.io/post/dom-event/" />
+<link rel="canonical" href="https://kuangdangli.github.io/post/dom-event/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
     onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://kuangdangli.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://kuangdangli.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://kuangdangli.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://kuangdangli.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://kuangdangli.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="https://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://kuangdangli.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -67,7 +67,7 @@
  第一种是通过事件处理器属性将事件处理器绑定在制定元素上。  const btn = document.querySelector(&#39;button&#39;);  function bgChange() {  const rndCol = &#39;rgb(&#39; &#43; random(255) &#43; &#39;,&#39; &#43; random(255) &#43; &#39;,&#39; &#43; random(255) &#43; &#39;)&#39;;  document.body.style.backgroundColor = rndCol; }  btn.onclick = bgChange; 上述代码将具名函数bgChange通过.onclick属性绑定在btn上，用户点击按钮就会触发动作为网页赋上随机背景色。
  第二种是DOM Level2提供的方法，addEventListener(type,listener)注册事件监听 和 removeEventListener(type,listener)移除事件监听。type参数指定事件类型，listener参数接受具名函数或者直接编写不具名函数。 使用第二种方法改写代码。  const btn = document." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://kuangdangli.github.io/post/dom-event/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://kuangdangli.github.io/post/dom-event/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-06-14T21:23:12&#43;08:00" />
 <meta property="article:modified_time" content="2022-06-14T21:23:12&#43;08:00" />
 
@@ -89,13 +89,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://kuangdangli.github.io/post/"
+      "item": "https://kuangdangli.github.io/post/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "DOM Event",
-      "item": "http://kuangdangli.github.io/post/dom-event/"
+      "item": "https://kuangdangli.github.io/post/dom-event/"
     }
   ]
 }
@@ -117,14 +117,14 @@
   "dateModified": "2022-06-14T21:23:12+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://kuangdangli.github.io/post/dom-event/"
+    "@id": "https://kuangdangli.github.io/post/dom-event/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "My New Hugo Site",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://kuangdangli.github.io/favicon.ico"
+      "url": "https://kuangdangli.github.io/favicon.ico"
     }
   }
 }
@@ -146,7 +146,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <a href="https://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -257,7 +257,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="http://kuangdangli.github.io/">My New Hugo Site</a></span>
+    <span>&copy; 2022 <a href="https://kuangdangli.github.io/">My New Hugo Site</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
