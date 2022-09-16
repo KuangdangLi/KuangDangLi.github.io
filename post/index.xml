@@ -6,7 +6,19 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Sep 2022 22:03:46 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Sep 2022 21:01:34 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浅析useReducer</title>
+      <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usereducer/</link>
+      <pubDate>Fri, 16 Sep 2022 21:01:34 +0800</pubDate>
+      
+      <guid>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usereducer/</guid>
+      <description>useReducer 是什么 const [state, dispatch] = useReducer(reducer, state) useState 的替代方案。接收一个reducer 方法和 state ，返回当前的 state 及与其配套的 dispatch 方法。dispatch 通过与 reducer 配合来修改 state并刷新页面。在 state 逻辑较复杂且包含多个子值，或者修改前后的 state 相互依赖时， 使用 useReducer 是一个更方便的选择。
+useReducer 的使用 state  指定初始state  const [state, dispatch] = useReducer(reducer, {n:1}) 将 state 作为 useReducer 的第二个参数直接传入。
+惰性初始化  function init(initialArg) {  return {count:initialArg} } const [state, dispatch] = useReducer(reducer, initialArg, init) useReducer 接收三个参数，其中第三个参数为 state 的初始化函数，第二个参数为初始化函数的参数。
+reducer function reducer(state,action){  switch(action.type){  case &amp;#34;add&amp;#34;:  return {n:state.</description>
+    </item>
+    
     <item>
       <title>浅析useState</title>
       <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usestate/</link>

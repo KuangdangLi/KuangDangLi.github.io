@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>浅析useReducer | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="useReducer 是什么 const [state, dispatch] = useReducer(reducer, state) useState 的替代方案。接收一个reducer 方法和 state ，返回当前的 state 及与其配套的 dispatch 方法。dispatch 通过与 reducer 配合来修改 state并刷新页面。在 state 逻辑较复杂且包含多个子值，或者修改前后的 state 相互依赖时， 使用 useReducer 是一个更方便的选择。
+useReducer 的使用 state  指定初始state  const [state, dispatch] = useReducer(reducer, {n:1}) 将 state 作为 useReducer 的第二个参数直接传入。
+惰性初始化  function init(initialArg) {  return {count:initialArg} } const [state, dispatch] = useReducer(reducer, initialArg, init) useReducer 接收三个参数，其中第三个参数为 state 的初始化函数，第二个参数为初始化函数的参数。
+reducer function reducer(state,action){  switch(action.type){  case &#34;add&#34;:  return {n:state.">
+<meta name="author" content="">
+<link rel="canonical" href="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usereducer/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://kuangdangli.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="浅析useReducer" />
+<meta property="og:description" content="useReducer 是什么 const [state, dispatch] = useReducer(reducer, state) useState 的替代方案。接收一个reducer 方法和 state ，返回当前的 state 及与其配套的 dispatch 方法。dispatch 通过与 reducer 配合来修改 state并刷新页面。在 state 逻辑较复杂且包含多个子值，或者修改前后的 state 相互依赖时， 使用 useReducer 是一个更方便的选择。
+useReducer 的使用 state  指定初始state  const [state, dispatch] = useReducer(reducer, {n:1}) 将 state 作为 useReducer 的第二个参数直接传入。
+惰性初始化  function init(initialArg) {  return {count:initialArg} } const [state, dispatch] = useReducer(reducer, initialArg, init) useReducer 接收三个参数，其中第三个参数为 state 的初始化函数，第二个参数为初始化函数的参数。
+reducer function reducer(state,action){  switch(action.type){  case &#34;add&#34;:  return {n:state." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usereducer/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-16T21:01:34&#43;08:00" />
+<meta property="article:modified_time" content="2022-09-16T21:01:34&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="浅析useReducer"/>
+<meta name="twitter:description" content="useReducer 是什么 const [state, dispatch] = useReducer(reducer, state) useState 的替代方案。接收一个reducer 方法和 state ，返回当前的 state 及与其配套的 dispatch 方法。dispatch 通过与 reducer 配合来修改 state并刷新页面。在 state 逻辑较复杂且包含多个子值，或者修改前后的 state 相互依赖时， 使用 useReducer 是一个更方便的选择。
+useReducer 的使用 state  指定初始state  const [state, dispatch] = useReducer(reducer, {n:1}) 将 state 作为 useReducer 的第二个参数直接传入。
+惰性初始化  function init(initialArg) {  return {count:initialArg} } const [state, dispatch] = useReducer(reducer, initialArg, init) useReducer 接收三个参数，其中第三个参数为 state 的初始化函数，第二个参数为初始化函数的参数。
+reducer function reducer(state,action){  switch(action.type){  case &#34;add&#34;:  return {n:state."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://kuangdangli.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "浅析useReducer",
+      "item": "https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usereducer/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "浅析useReducer",
+  "name": "浅析useReducer",
+  "description": "useReducer 是什么 const [state, dispatch] = useReducer(reducer, state) useState 的替代方案。接收一个reducer 方法和 state ，返回当前的 state 及与其配套的 dispatch 方法。dispatch 通过与 reducer 配合来修改 state并刷新页面。在 state 逻辑较复杂且包含多个子值，或者修改前后的 state 相互依赖时， 使用 useReducer 是一个更方便的选择。\nuseReducer 的使用 state  指定初始state  const [state, dispatch] = useReducer(reducer, {n:1}) 将 state 作为 useReducer 的第二个参数直接传入。\n惰性初始化  function init(initialArg) {  return {count:initialArg} } const [state, dispatch] = useReducer(reducer, initialArg, init) useReducer 接收三个参数，其中第三个参数为 state 的初始化函数，第二个参数为初始化函数的参数。\nreducer function reducer(state,action){  switch(action.type){  case \u0026#34;add\u0026#34;:  return {n:state.",
+  "keywords": [
+    
+  ],
+  "articleBody": "useReducer 是什么 const [state, dispatch] = useReducer(reducer, state) useState 的替代方案。接收一个reducer 方法和 state ，返回当前的 state 及与其配套的 dispatch 方法。dispatch 通过与 reducer 配合来修改 state并刷新页面。在 state 逻辑较复杂且包含多个子值，或者修改前后的 state 相互依赖时， 使用 useReducer 是一个更方便的选择。\nuseReducer 的使用 state  指定初始state  const [state, dispatch] = useReducer(reducer, {n:1}) 将 state 作为 useReducer 的第二个参数直接传入。\n惰性初始化  function init(initialArg) {  return {count:initialArg} } const [state, dispatch] = useReducer(reducer, initialArg, init) useReducer 接收三个参数，其中第三个参数为 state 的初始化函数，第二个参数为初始化函数的参数。\nreducer function reducer(state,action){  switch(action.type){  case \"add\":  return {n:state.n + 1};  case \"multi\":  return {n:state.n*2};  default:  thorw new Error(\"未知操作\")  } } reducer 方法接收两个参数，第一个参数为 state ，第二个参数为 action 。action 是一个对象，在对象中需要指定 type, reducer 函数体需要根据 action.type 进行一系列条件判断，返回相应的 state。\ndispatch const initial = {n:1};  const reducer = (state,action)={  switch(action.type){  case \"add\":  return ({n:state.n + action.number});  case \"multi\":  return ({n:state.n*action.number});  default:  throw new Error(\"未知操作\")  } }  function App(){  const [state,dispatch] = useReducer(reducer,initial);  const {n} = state;  useEffect(()=console.log(n),[n])  return (  div className=\"App\"  h1n:{n}/h1  button onClick={()=dispatch({type:\"add\",number:n})}+{n}/button  button onClick={()=dispatch({type:\"multi\",number:n})}*{n}/button   /div  ) } dispatch 方法接收 action 对象，返回 reducer 方法中与 action.type 相对应的 state 并刷新页面。\n",
+  "wordCount" : "153",
+  "inLanguage": "en",
+  "datePublished": "2022-09-16T21:01:34+08:00",
+  "dateModified": "2022-09-16T21:01:34+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usereducer/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kuangdangli.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      浅析useReducer
+    </h1>
+    <div class="post-meta"><span title='2022-09-16 21:01:34 +0800 CST'>September 16, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="usereducer-是什么"><code>useReducer</code> 是什么<a hidden class="anchor" aria-hidden="true" href="#usereducer-是什么">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">dispatch</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useReducer</span>(<span style="color:#a6e22e">reducer</span>, <span style="color:#a6e22e">state</span>)
+</span></span></code></pre></div><p><code>useState</code> 的替代方案。接收一个<code>reducer</code> 方法和 <code>state</code> ，返回当前的 <code>state</code> 及与其配套的 <code>dispatch</code> 方法。<code>dispatch</code> 通过与 <code>reducer</code> 配合来修改 <code>state</code>并刷新页面。在 <code>state</code> 逻辑较复杂且包含多个子值，或者修改前后的 <code>state</code> 相互依赖时， 使用 <code>useReducer</code> 是一个更方便的选择。</p>
+<h1 id="usereducer-的使用"><code>useReducer</code> 的使用<a hidden class="anchor" aria-hidden="true" href="#usereducer-的使用">#</a></h1>
+<h2 id="state"><code>state</code><a hidden class="anchor" aria-hidden="true" href="#state">#</a></h2>
+<ol>
+<li>指定初始<code>state</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">dispatch</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useReducer</span>(<span style="color:#a6e22e">reducer</span>, {<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1</span>})
+</span></span></code></pre></div><p>将 <code>state</code> 作为 <code>useReducer</code> 的第二个参数直接传入。</p>
+<ol start="2">
+<li>惰性初始化</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">init</span>(<span style="color:#a6e22e">initialArg</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#a6e22e">count</span><span style="color:#f92672">:</span><span style="color:#a6e22e">initialArg</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">dispatch</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useReducer</span>(<span style="color:#a6e22e">reducer</span>, <span style="color:#a6e22e">initialArg</span>, <span style="color:#a6e22e">init</span>)
+</span></span></code></pre></div><p><code>useReducer</code> 接收三个参数，其中第三个参数为 <code>state</code> 的初始化函数，第二个参数为初始化函数的参数。</p>
+<h2 id="reducer"><code>reducer</code><a hidden class="anchor" aria-hidden="true" href="#reducer">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reducer</span>(<span style="color:#a6e22e">state</span>,<span style="color:#a6e22e">action</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;add&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> {<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">n</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>};
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;multi&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> {<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">n</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>};
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">thorw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;未知操作&#34;</span>)    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>reducer</code> 方法接收两个参数，第一个参数为 <code>state</code> ，第二个参数为 <code>action</code> 。<code>action</code> 是一个对象，在对象中需要指定 <code>type</code>, <code>reducer</code> 函数体需要根据 <code>action.type</code> 进行一系列条件判断，返回相应的 <code>state</code>。</p>
+<h2 id="dispatch"><code>dispatch</code><a hidden class="anchor" aria-hidden="true" href="#dispatch">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initial</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">reducer</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">state</span>,<span style="color:#a6e22e">action</span>)=&gt;{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;add&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> ({<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">n</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">number</span>});
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;multi&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> ({<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">n</span><span style="color:#f92672">*</span><span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">number</span>});
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;未知操作&#34;</span>)    
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">state</span>,<span style="color:#a6e22e">dispatch</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useReducer</span>(<span style="color:#a6e22e">reducer</span>,<span style="color:#a6e22e">initial</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">n</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(()=&gt;<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">n</span>),[<span style="color:#a6e22e">n</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">n</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">n</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{()=&gt;<span style="color:#a6e22e">dispatch</span>({<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;add&#34;</span>,<span style="color:#a6e22e">number</span><span style="color:#f92672">:</span><span style="color:#a6e22e">n</span>})}<span style="color:#f92672">&gt;+</span>{<span style="color:#a6e22e">n</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{()=&gt;<span style="color:#a6e22e">dispatch</span>({<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;multi&#34;</span>,<span style="color:#a6e22e">number</span><span style="color:#f92672">:</span><span style="color:#a6e22e">n</span>})}<span style="color:#f92672">&gt;*</span>{<span style="color:#a6e22e">n</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>dispatch</code> 方法接收 <code>action</code> 对象，返回 <code>reducer</code> 方法中与 <code>action.type</code> 相对应的 <code>state</code> 并刷新页面。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://kuangdangli.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

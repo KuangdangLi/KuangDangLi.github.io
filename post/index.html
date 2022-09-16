@@ -131,6 +131,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>浅析useReducer
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>useReducer 是什么 const [state, dispatch] = useReducer(reducer, state) useState 的替代方案。接收一个reducer 方法和 state ，返回当前的 state 及与其配套的 dispatch 方法。dispatch 通过与 reducer 配合来修改 state并刷新页面。在 state 逻辑较复杂且包含多个子值，或者修改前后的 state 相互依赖时， 使用 useReducer 是一个更方便的选择。
+useReducer 的使用 state  指定初始state  const [state, dispatch] = useReducer(reducer, {n:1}) 将 state 作为 useReducer 的第二个参数直接传入。
+惰性初始化  function init(initialArg) {  return {count:initialArg} } const [state, dispatch] = useReducer(reducer, initialArg, init) useReducer 接收三个参数，其中第三个参数为 state 的初始化函数，第二个参数为初始化函数的参数。
+reducer function reducer(state,action){  switch(action.type){  case &#34;add&#34;:  return {n:state....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-09-16 21:01:34 +0800 CST'>September 16, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 浅析useReducer" href="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usereducer/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>浅析useState
     </h2>
   </header>
@@ -293,24 +308,6 @@ watch不支持缓存。</p>
   </section>
   <footer class="entry-footer"><span title='2022-08-07 15:14:41 +0800 CST'>August 7, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Computed vs Watch" href="https://kuangdangli.github.io/post/computed-vs-watch/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>New Vue Options
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>实例 let vm = new Vue(options) 通过构造函数Vue创建实例，接收options作为参数,一般称之为选项或构造选项；得到实例vm，vm封装了对视图的所有操作，包括数据读写、事件绑定、DOM更新。
-options options有五类属性，包括数据、DOM、生命周期钩子、资源、组合。本篇文章不采取属性分类对其进行介绍，而是按照属性的常用程度进行介绍。
-el,挂载点（DOM属性） 提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标。可以是 CSS 选择器，也可以是一个 HTMLElement 实例。在实例挂载之后，元素可以用 vm.\$el 访问。 如果没有在实例初始化时使用el选择挂载点，可以通过vm.$mount()来选择挂载点。
-data（数据属性） data接受Object和Function，推荐使用Function，因为在组件中只接收Function。
-当一个组件被定义，data 必须声明为返回一个初始数据对象的函数，因为组件可能被用来创建多个实例。如果 data 仍然是一个纯粹的对象，则所有的实例将共享引用同一个数据对象！通过提供 data 函数，每次创建一个新实例后，我们能够调用 data 函数，从而返回初始数据的一个全新副本数据对象。
-Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 getter/setter，从而让 data 的 property 能够响应数据变化。对象必须是纯粹的对象 (含有零个或多个的 key/value 对)：浏览器 API 创建的原生对象，原型上的 property 会被忽略。大概来说，data 应该只能是数据 - 不推荐观察拥有状态行为的对象。
-实例创建之后，可以通过 vm.\$data 访问原始数据对象。Vue 实例也代理了 data 对象上所有的 property，因此访问 vm.a 等价于访问 vm.$data.a。 以 _ 或 $ 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突。你可以使用例如 vm....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-08-04 15:41:44 +0800 CST'>August 4, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to New Vue Options" href="https://kuangdangli.github.io/post/new-vue-options/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

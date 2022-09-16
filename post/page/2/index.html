@@ -131,6 +131,24 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>New Vue Options
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>实例 let vm = new Vue(options) 通过构造函数Vue创建实例，接收options作为参数,一般称之为选项或构造选项；得到实例vm，vm封装了对视图的所有操作，包括数据读写、事件绑定、DOM更新。
+options options有五类属性，包括数据、DOM、生命周期钩子、资源、组合。本篇文章不采取属性分类对其进行介绍，而是按照属性的常用程度进行介绍。
+el,挂载点（DOM属性） 提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标。可以是 CSS 选择器，也可以是一个 HTMLElement 实例。在实例挂载之后，元素可以用 vm.\$el 访问。 如果没有在实例初始化时使用el选择挂载点，可以通过vm.$mount()来选择挂载点。
+data（数据属性） data接受Object和Function，推荐使用Function，因为在组件中只接收Function。
+当一个组件被定义，data 必须声明为返回一个初始数据对象的函数，因为组件可能被用来创建多个实例。如果 data 仍然是一个纯粹的对象，则所有的实例将共享引用同一个数据对象！通过提供 data 函数，每次创建一个新实例后，我们能够调用 data 函数，从而返回初始数据的一个全新副本数据对象。
+Vue 实例的数据对象。Vue 会递归地把 data 的 property 转换为 getter/setter，从而让 data 的 property 能够响应数据变化。对象必须是纯粹的对象 (含有零个或多个的 key/value 对)：浏览器 API 创建的原生对象，原型上的 property 会被忽略。大概来说，data 应该只能是数据 - 不推荐观察拥有状态行为的对象。
+实例创建之后，可以通过 vm.\$data 访问原始数据对象。Vue 实例也代理了 data 对象上所有的 property，因此访问 vm.a 等价于访问 vm.$data.a。 以 _ 或 $ 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突。你可以使用例如 vm....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-04 15:41:44 +0800 CST'>August 4, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to New Vue Options" href="https://kuangdangli.github.io/post/new-vue-options/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Vue Version
     </h2>
   </header>
@@ -282,18 +300,6 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
   </section>
   <footer class="entry-footer"><span title='2022-03-26 22:18:33 +0800 CST'>March 26, 2022</span></footer>
   <a class="entry-link" aria-label="post link to JavaScript的诞生" href="https://kuangdangli.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Url
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>浅析URL  URL 包含哪几部分，每部分分别有什么作用？   以https://ww.baidu.com/s?wd=hello&amp;rsv_spt=1#5为例。https是协议名称，规定以https协议来进行交流传输信息；www.baidu.com是域名，是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者；/s是为路径，用来查找服务器上对应文件；wd=hello&amp;rsv_spt=1是查询参数，用来查找对应内容；#5是锚点，用来定位到页面中特点位置，锚点不会传输给服务器，由浏览器来读。  DNS 的作用是什么，nslookup 命令怎么用？   DNS，即为域名系统，用来将域名与IP对应，提供将域名解析为IP的服务。 在命令行软件中输入 nslookup 要查找的域名，程序返回的信息中出现的Addresses行则为查找域名对应的IP。  IP 的作用是什么，ping 命令怎么用？   IP，即为Internet Protocol，及因特网协议，其具体作用是定位发送或接收数据报的设备设备，以及规定如何封装数据报文以跟其他设备交流。 在命令行软件中输入 ping 要查找的IP，程序会返回按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延）。  域名是什么，分别哪几类域名？   域名是由一串用点分隔的字符组成的互联网上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。 域名分为顶级域和子域名。顶级域包括国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域（一组名称和多个组织）。子域名分为二级域名和三级域名。举例，在usersname.github.io中，github为二级域名，usersname则为三级域名。  </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-03-24 18:16:41 +0800 CST'>March 24, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Url" href="https://kuangdangli.github.io/post/url/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
