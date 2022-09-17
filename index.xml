@@ -6,7 +6,23 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Sep 2022 21:01:34 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Sep 2022 20:37:12 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浅析Context</title>
+      <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90context/</link>
+      <pubDate>Sat, 17 Sep 2022 20:37:12 +0800</pubDate>
+      
+      <guid>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90context/</guid>
+      <description>Context 是什么 Context 单词直译为上下文、背景、语境等，在 React 中此功能主要用于为组件树中的一系列节点共享信息及其更新，提供“上下文”。
+何时使用Context 要为组件树中一系列节点提供全局信息例如用户信息、主题等信息时可以使用 Context，避免使用 props 时的层层嵌套传递。
+API  React.createContext const myContext = React.createContext(defaultValue)   返回一个 Context 对象，其值由在组件树中离订阅此对象的节点最近的可匹配的 Provider 决定，只有当匹配不到对应 Provider 时，其值为 defaultValue。
+ Context.Provider &amp;lt;myContext.Provider value={/* 某个值 */}&amp;gt; &amp;lt;/myContext.Provider&amp;gt;   每个 Context对象都会返回一个 Provider React 组件，组件树中被&amp;lt;myContext.Provider&amp;gt; 标签包裹的子组件都可订阅此 Context。
+Provider 接收一个 value 属性，传递给消费组件。一个 Provider 可以和多个消费组件有对应关系。多个 Provider 也可以嵌套使用，里层的会覆盖外层的数据。
+当 Provider 的 value 值发生变化时，它内部的所有消费组件都会重新渲染。从 Provider 到其内部 consumer 组件的传播不受制于 shouldComponentUpdate 函数，因此当 consumer 组件在其祖先组件跳过更新的情况下也能更新。
+  React.useContext
+const contextValue = React.</description>
+    </item>
+    
     <item>
       <title>浅析useReducer</title>
       <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usereducer/</link>

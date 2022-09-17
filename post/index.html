@@ -131,6 +131,25 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>浅析Context
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Context 是什么 Context 单词直译为上下文、背景、语境等，在 React 中此功能主要用于为组件树中的一系列节点共享信息及其更新，提供“上下文”。
+何时使用Context 要为组件树中一系列节点提供全局信息例如用户信息、主题等信息时可以使用 Context，避免使用 props 时的层层嵌套传递。
+API  React.createContext const myContext = React.createContext(defaultValue)   返回一个 Context 对象，其值由在组件树中离订阅此对象的节点最近的可匹配的 Provider 决定，只有当匹配不到对应 Provider 时，其值为 defaultValue。
+ Context.Provider &lt;myContext.Provider value={/* 某个值 */}&gt; &lt;/myContext.Provider&gt;   每个 Context对象都会返回一个 Provider React 组件，组件树中被&lt;myContext.Provider&gt; 标签包裹的子组件都可订阅此 Context。
+Provider 接收一个 value 属性，传递给消费组件。一个 Provider 可以和多个消费组件有对应关系。多个 Provider 也可以嵌套使用，里层的会覆盖外层的数据。
+当 Provider 的 value 值发生变化时，它内部的所有消费组件都会重新渲染。从 Provider 到其内部 consumer 组件的传播不受制于 shouldComponentUpdate 函数，因此当 consumer 组件在其祖先组件跳过更新的情况下也能更新。
+  React.useContext
+const contextValue = React....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-09-17 20:37:12 +0800 CST'>September 17, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 浅析Context" href="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90context/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>浅析useReducer
     </h2>
   </header>
@@ -288,26 +307,6 @@ Vue.component(&#34;Child&#34;,{  template: ` &lt;div class=&#34;child&#34;&gt; {
   </section>
   <footer class="entry-footer"><span title='2022-08-07 21:19:12 +0800 CST'>August 7, 2022</span></footer>
   <a class="entry-link" aria-label="post link to SyncModifier" href="https://kuangdangli.github.io/post/syncmodifier/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Computed vs Watch
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;
-computed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;
-需要特别注意的是computed不支持异步操作。
-watch watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象; 其可以监听的数据来源：data，props，computed 内的数据;
-watch中的回调函数接受两个参数，newVal和oldVal;
-watch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;
-watch默认组件加载不触发回调函数执行，可通过immediate来设置;
-watch支持异步;
-watch不支持缓存。</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-08-07 15:14:41 +0800 CST'>August 7, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Computed vs Watch" href="https://kuangdangli.github.io/post/computed-vs-watch/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

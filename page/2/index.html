@@ -127,6 +127,26 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Computed vs Watch
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>浅析computed与watch的区别 computed computed，计算属性，用来处理不应该直接放在模板中的复杂逻辑。computed一般写成键值对的形式，值可以是默认的单个函数（被处理成getter），也可以手动设置setter; 计算属性基于 data 中声明过或者父组件传递的 props 中的数据通过计算得到的一个新值，这个新值只会根据已知值的变化而变化，简言之：这个属性依赖其他属性，由其他属性计算而来的。在 computed 属性对象中定义计算属性的方法，和取data对象里的数据属性一样以属性访问的形式调用，即在页面中使用 {{ 方法名 }} 来显示计算的结果;
+computed 属性值默认会缓存计算结果，计算属性是基于它们的响应式依赖进行缓存的； 只有当 computed 属性被使用后，才会执行 computed 的代码，在重复的调用中，只要依赖数据不变，直接取缓存中的计算结果。只有依赖数据发生改变，computed 才会重新计算;
+需要特别注意的是computed不支持异步操作。
+watch watch，监听属性，通过 vm 对象的 $watch() 或 watch 配置来监听 Vue 实例上的属性变化，或某些特定数据的变化，然后执行某些具体的业务逻辑操作。当属性变化时，回调函数自动调用，在函数内部进行计算。watch中写键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象; 其可以监听的数据来源：data，props，computed 内的数据;
+watch中的回调函数接受两个参数，newVal和oldVal;
+watch在监听对象时，默认忽视对象内部值的变化。如果要达到监听对象内部的效果，需要设置deep值;
+watch默认组件加载不触发回调函数执行，可通过immediate来设置;
+watch支持异步;
+watch不支持缓存。</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-07 15:14:41 +0800 CST'>August 7, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to Computed vs Watch" href="https://kuangdangli.github.io/post/computed-vs-watch/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>New Vue Options
     </h2>
   </header>
@@ -284,18 +304,6 @@ for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化
   </section>
   <footer class="entry-footer"><span title='2022-04-09 15:49:20 +0800 CST'>April 9, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Js的基本语法" href="https://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>JavaScript的诞生
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p> Javascript诞生于网景(Netscape)公司。这家公司在1994年发布了网景浏览器，这是历史上第一个比较成熟的网络浏览器，占据了当时互联网市场的多数份额。诞生之初的网景浏览器与大多数普通的浏览器一样都只支持对网页的简单浏览，为了增强页面的动态性以及与用户的互动，网景公司决定开发一种网页脚本语言。与此同时，网景与Java的开发商昇阳Sun组成了开发联盟，并已经使网景浏览器支持Java，这深深地影响了新语言的开发方向。 1995年4月，网景招募了主要方向为函数式编程语言的布兰登・艾克进入公司负责新语言的开发，初始方向是把Scheme语言嵌入进网景浏览器中。但由于昇阳的影响，公司高层间在新语言的开发方向上产生了分歧。当时面向对象编程的Java正是互联网新星，为了乘上这股东风，网景公司最终决定开发一种与Java语言特点相仿但是更加易上手的脚本语言。对Java全无兴趣的布兰登为了应付公司的任务，在1995年5月仅仅耗费10天就把新语言的原型设计了出来。新语言最初的名字是Mocha，后改为LiveScript，最后定名为JavaScript。在布兰登本人的技术背景与公司决策的影响下，JavaScript混合了两种编程语言风格—-（简化的）函数式编程 &#43;（简化的）面向对象编程。 在JavaScript问世后，为了抢夺浏览器市场，微软对网景浏览器的解释器进行了逆向工程，为自家的IE浏览器创建了JScript。在两家公司的竞争下，由于网页脚本语言没有同意的标准规范，开发者开发的网页很难同时完美兼容两家浏览器。1996年11月，网景向ECMA提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript 最著名的实现之一 。  </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-03-26 22:18:33 +0800 CST'>March 26, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to JavaScript的诞生" href="https://kuangdangli.github.io/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
