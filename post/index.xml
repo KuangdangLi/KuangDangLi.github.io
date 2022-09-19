@@ -6,7 +6,17 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Sep 2022 20:37:12 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Sep 2022 17:22:00 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浅析useMemo</title>
+      <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usememo/</link>
+      <pubDate>Mon, 19 Sep 2022 17:22:00 +0800</pubDate>
+      
+      <guid>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usememo/</guid>
+      <description>要理解 React.useMemo (下文统一略称 useMemo)，首先要了解 React.memo(下文统一略称 memo)。
+memo function App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()=&amp;gt;{  setN(n+1)  }  return(  &amp;lt;div className = &amp;#34;App&amp;#34;&amp;gt;  &amp;lt;div&amp;gt;  &amp;lt;button onClick={onClick}&amp;gt;update n:{n}  &amp;lt;/button&amp;gt;  &amp;lt;/div&amp;gt;  &amp;lt;Child date={m}&amp;gt;&amp;lt;/Child&amp;gt;  &amp;lt;/div&amp;gt;  ) }  function Child(props){  console.log(&amp;#34;Child执行了&amp;#34;)  console.log(&amp;#34;此处有大量代码&amp;#34;)  console.log(&amp;#34;````&amp;#34;)  return (  &amp;lt;div&amp;gt;  Child:{props.data}  &amp;lt;/div&amp;gt;  ) } 上例代码中， App 组件中生成了两个互相独立的数据，分别是 n 和 m， 有一个按钮绑定了更新数据 n 的事件，其中还有一个子组件 Child，App 组件作为父组件将 m 作为 props.</description>
+    </item>
+    
     <item>
       <title>浅析Context</title>
       <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90context/</link>

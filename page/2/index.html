@@ -127,6 +127,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>SyncModifier
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>sync修饰符 子组件尝试改变一个prop属性值并将其同步到父组件时，开发者可以使用sync修饰符。 代码实例
+Vue.component(&#34;Child&#34;,{  template: ` &lt;div class=&#34;child&#34;&gt; {{money}} &lt;button @click=&#34;$emit(&#39;update:money&#39;, money-100)&#34;&gt; &lt;span&gt;花钱&lt;/span&gt; &lt;/button&gt; &lt;/div&gt; `,  props: [&#34;money&#34;] }) new Vue({  components: { Child: Child },  template:` &lt;div class=&#34;app&#34;&gt; App.vue 我现在有 {{total}} &lt;hr&gt; &lt;Child :money.sync=&#34;total&#34;/&gt; &lt;/div&gt; `,  data() {  return { total: 10000 };  } }) 子组件注册一个点击事件update:money，传出参数money-100，父组件使用.sync修饰符监听事件，并拿到子组件传出的参数并赋值给子组件的外部属性money。
+//.sync修饰符相当于封装了如下操作 &lt;Child :money=&#34;total&#34; v-on:update-money=&#34;total = $event&#34;/&gt; </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-07 21:19:12 +0800 CST'>August 7, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to SyncModifier" href="https://kuangdangli.github.io/post/syncmodifier/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Computed vs Watch
     </h2>
   </header>
@@ -283,27 +297,6 @@ Object.entires(obj) in命令有时会用来查看对象中是否含有指定属�
   </section>
   <footer class="entry-footer"><span title='2022-04-21 20:40:47 +0800 CST'>April 21, 2022</span></footer>
   <a class="entry-link" aria-label="post link to JS对象基本语法" href="https://kuangdangli.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Js的基本语法
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
-语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
-var a = 1 &#43; 3; 1 &#43; 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。
-一般来说，语句会改变环境（声明、赋值）。
-注意：js书写大小写敏感以及大部分空格与回车没有实际意义（除了return后的回车）。
-标识符 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名以及函数名。
-标识符命名规则如下：
- 第一个字符，可以是任意unicode字母（包括英文字母和其他语言的字母）以及美元符号和下划线。 第二个字符以及后面的字符，除了unicode字母、美元符号和下换线，还可以用数字0-9。 中文是合法的标识符，可以用作变量名。  if else语句 if (n === 2) {  console.log(&#39;hello world&#39;) } else {  console.log(&#39;fuck world&#39;) } 上述语句指的是如果变量n的值为2，输出hello world，否则输出fuck world。
-if (判断体) {  执行体1 } else {  执行体2 }  if后接的判断体中常写入一个表达式，根据此表达式的真伪来执行不同的语句。表达式为真则运行执行体1，表达式为伪则运行执行体2。 对同一个变量进行多次判断时，多个 if…else 语句可以连写在一起。 else总是和最近的if进行配对。 单个语句构成的执行体外的{}可以省略但不推荐，容易造成混淆。  while语句 while(表达式){  语句 } 判断表达式的真假，当表达式为真时，执行语句，执行完再判断表达式的真假，如此循环。当表达式为假时，不执行花括号内语句。
-for循环 for(初始化表达式; 条件; 递增表达式){  语句 }  初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。 条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。 递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。  break 语句和 continue 语句  break 语句用于跳出代码块或循环。 continue 语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。 如果存在多重循环，不带参数的 break 语句和 continue 语句都只针对最内层循环。  标签label label相当于定位符，用于跳转到程序的任意位置，标签的格式如下。...</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-04-09 15:49:20 +0800 CST'>April 9, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Js的基本语法" href="https://kuangdangli.github.io/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

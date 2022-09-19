@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>浅析useMemo | My New Hugo Site</title>
+<meta name="keywords" content="" />
+<meta name="description" content="要理解 React.useMemo (下文统一略称 useMemo)，首先要了解 React.memo(下文统一略称 memo)。
+memo function App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()=&gt;{  setN(n&#43;1)  }  return(  &lt;div className = &#34;App&#34;&gt;  &lt;div&gt;  &lt;button onClick={onClick}&gt;update n:{n}  &lt;/button&gt;  &lt;/div&gt;  &lt;Child date={m}&gt;&lt;/Child&gt;  &lt;/div&gt;  ) }  function Child(props){  console.log(&#34;Child执行了&#34;)  console.log(&#34;此处有大量代码&#34;)  console.log(&#34;````&#34;)  return (  &lt;div&gt;  Child:{props.data}  &lt;/div&gt;  ) } 上例代码中， App 组件中生成了两个互相独立的数据，分别是 n 和 m， 有一个按钮绑定了更新数据 n 的事件，其中还有一个子组件 Child，App 组件作为父组件将 m 作为 props.">
+<meta name="author" content="">
+<link rel="canonical" href="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usememo/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css" integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js" integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://kuangdangli.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kuangdangli.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kuangdangli.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://kuangdangli.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://kuangdangli.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="浅析useMemo" />
+<meta property="og:description" content="要理解 React.useMemo (下文统一略称 useMemo)，首先要了解 React.memo(下文统一略称 memo)。
+memo function App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()=&gt;{  setN(n&#43;1)  }  return(  &lt;div className = &#34;App&#34;&gt;  &lt;div&gt;  &lt;button onClick={onClick}&gt;update n:{n}  &lt;/button&gt;  &lt;/div&gt;  &lt;Child date={m}&gt;&lt;/Child&gt;  &lt;/div&gt;  ) }  function Child(props){  console.log(&#34;Child执行了&#34;)  console.log(&#34;此处有大量代码&#34;)  console.log(&#34;````&#34;)  return (  &lt;div&gt;  Child:{props.data}  &lt;/div&gt;  ) } 上例代码中， App 组件中生成了两个互相独立的数据，分别是 n 和 m， 有一个按钮绑定了更新数据 n 的事件，其中还有一个子组件 Child，App 组件作为父组件将 m 作为 props." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usememo/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-19T17:22:00&#43;08:00" />
+<meta property="article:modified_time" content="2022-09-19T17:22:00&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="浅析useMemo"/>
+<meta name="twitter:description" content="要理解 React.useMemo (下文统一略称 useMemo)，首先要了解 React.memo(下文统一略称 memo)。
+memo function App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()=&gt;{  setN(n&#43;1)  }  return(  &lt;div className = &#34;App&#34;&gt;  &lt;div&gt;  &lt;button onClick={onClick}&gt;update n:{n}  &lt;/button&gt;  &lt;/div&gt;  &lt;Child date={m}&gt;&lt;/Child&gt;  &lt;/div&gt;  ) }  function Child(props){  console.log(&#34;Child执行了&#34;)  console.log(&#34;此处有大量代码&#34;)  console.log(&#34;````&#34;)  return (  &lt;div&gt;  Child:{props.data}  &lt;/div&gt;  ) } 上例代码中， App 组件中生成了两个互相独立的数据，分别是 n 和 m， 有一个按钮绑定了更新数据 n 的事件，其中还有一个子组件 Child，App 组件作为父组件将 m 作为 props."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://kuangdangli.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "浅析useMemo",
+      "item": "https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usememo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "浅析useMemo",
+  "name": "浅析useMemo",
+  "description": "要理解 React.useMemo (下文统一略称 useMemo)，首先要了解 React.memo(下文统一略称 memo)。\nmemo function App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()=\u0026gt;{  setN(n+1)  }  return(  \u0026lt;div className = \u0026#34;App\u0026#34;\u0026gt;  \u0026lt;div\u0026gt;  \u0026lt;button onClick={onClick}\u0026gt;update n:{n}  \u0026lt;/button\u0026gt;  \u0026lt;/div\u0026gt;  \u0026lt;Child date={m}\u0026gt;\u0026lt;/Child\u0026gt;  \u0026lt;/div\u0026gt;  ) }  function Child(props){  console.log(\u0026#34;Child执行了\u0026#34;)  console.log(\u0026#34;此处有大量代码\u0026#34;)  console.log(\u0026#34;````\u0026#34;)  return (  \u0026lt;div\u0026gt;  Child:{props.data}  \u0026lt;/div\u0026gt;  ) } 上例代码中， App 组件中生成了两个互相独立的数据，分别是 n 和 m， 有一个按钮绑定了更新数据 n 的事件，其中还有一个子组件 Child，App 组件作为父组件将 m 作为 props.",
+  "keywords": [
+    
+  ],
+  "articleBody": "要理解 React.useMemo (下文统一略称 useMemo)，首先要了解 React.memo(下文统一略称 memo)。\nmemo function App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()={  setN(n+1)  }  return(  div className = \"App\"  div  button onClick={onClick}update n:{n}  /button  /div  Child date={m}/Child  /div  ) }  function Child(props){  console.log(\"Child执行了\")  console.log(\"此处有大量代码\")  console.log(\"````\")  return (  div  Child:{props.data}  /div  ) } 上例代码中， App 组件中生成了两个互相独立的数据，分别是 n 和 m， 有一个按钮绑定了更新数据 n 的事件，其中还有一个子组件 Child，App 组件作为父组件将 m 作为 props.data 传入了 Child。\n点击更新按钮，n 发生变化，App 组件自然会重新渲染。问题来了，作为 App 的子组件， Child 的依赖 props 没有发生改变， Child 会因为父组件的刷新重新渲染吗？\n从上图中我们能清晰地看到，虽然 Child 的依赖没有发生变化，但它仍然因为父组件的更新重新执行了。从开发者者的角度看，这完全是无意义地执行，假如子组件中有大量代码，那毫无疑问会产生性能浪费。\n为了优化此种情况下的代码执行， React 提供了 memo 来封装组件。\nfunction App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()={  setN(n+1)  }  return(  div className = \"App\"  div  button onClick={onClick}update n:{n}  /button  /div  MemoChild date={m}/MemoChild  /div  ) }  function Child(props){  console.log(\"Child执行了\")  console.log(\"此处有大量代码\")  console.log(\"````\")  return (  div  Child:{props.data}  /div  ) }  const MemoChild = React.memo(Child) n 更新了，但是子组件并没有跟随重新执行。\nReact 官方文档如是说：\n React.memo 为高阶组件。 如果你的组件在相同 props 的情况下渲染相同的结果，那么你可以通过将其包装在 React.memo 中调用，以此通过记忆组件渲染结果的方式来提高组件的性能表现。这意味着在这种情况下，React 将跳过渲染组件的操作并直接复用最近一次渲染的结果。 React.memo 仅检查 props 变更。如果函数组件被 React.memo 包裹，且其实现中拥有 useState，useReducer 或 useContext 的 Hook，当 state 或 context 发生变化时，它仍会重新渲染。 默认情况下其只会对复杂对象做浅层对比，如果你想要控制对比过程，那么请将自定义的比较函数通过第二个参数传入来实现。\n 就如官方文档所说，默认情况下只会进行浅对比，若外部属性中传入了复杂对象如函数，子组件仍然会重新执行。\nfunction App() {  const [n, setN] = React.useState(0);  const [m, setM] = React.useState(0);  const onClick = () = {  setN(n + 1);  };  const onClickChild = () = {  console.log(m);  };   return (  div className=\"App\"  div  button onClick={onClick}update n {n}/button  /div  MemoChild data={m} onClick={onClickChild} /  {/* MemoChild 居然又执行了 */}  /div  ); }  function Child(props) {  console.log(\"child 执行了\");  console.log(\"假设这里有大量代码\");  console.log(\"````\")  return div onClick={props.onClick}child: {props.data}/div; }  const MemoChild = React.memo(Child); 我们可以看到，memo 组件仍然跟随父组件重刷新了。这是因为父组件更新时重新生成了 onClickChild 这一函数，虽然函数名和函数体都未发生任何修改操作，但引用地址发生了变化，浅对比就会视作依赖发生了变化触发 memo 组件重新执行。\n这时候就需要用到 useMemo。\nuseMemo 用来封装在上例中被传入到子组件的这类高开销函数。\nconst onClickChild = React.useMemo(()=()=console.log(m),[m]) useMemo 接收两个参数，第一个参数为需要创建的函数，第二个参数为函数依赖项的数组，返回一个 memoized 值。 useMemo 只会在依赖项发生改变的时候才重新计算值。如果没有提供依赖项，那么每次渲染 useMemo 都会重新计算值。\n如官方文档所说：\n 记住，传入 useMemo 的函数会在渲染期间执行。请不要在这个函数内部执行不应该在渲染期间内执行的操作，诸如副作用这类的操作属于 useEffect 的适用范畴，而不是 useMemo。\n useCallback useMemo 在书写函数时会有多个函数的嵌套，过于繁琐可读性不高，可以使用 useCallback ，简化书写达到相同的功能。\nconst onClickChild = React.useCallback(()=console.log(m),[m]) 如官方文档所说：\n 把内联回调函数及依赖项数组作为参数传入 useCallback，它将返回该回调函数的 memoized 版本，该回调函数仅在某个依赖项改变时才会更新。当你把回调函数传递给经过优化的并使用引用相等性去避免非必要渲染（例如 shouldComponentUpdate）的子组件时，它将非常有用。\nuseCallback(fn, deps) 相当于 useMemo(() = fn, deps)。\n ",
+  "wordCount" : "284",
+  "inLanguage": "en",
+  "datePublished": "2022-09-19T17:22:00+08:00",
+  "dateModified": "2022-09-19T17:22:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usememo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kuangdangli.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kuangdangli.github.io/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      浅析useMemo
+    </h1>
+    <div class="post-meta"><span title='2022-09-19 17:22:00 +0800 CST'>September 19, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>要理解 <code>React.useMemo</code> (下文统一略称 <code>useMemo</code>)，首先要了解 <code>React.memo</code>(下文统一略称 <code>memo</code>)。</p>
+<h1 id="memo"><code>memo</code><a hidden class="anchor" aria-hidden="true" href="#memo">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">n</span>,<span style="color:#a6e22e">setN</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">m</span>,<span style="color:#a6e22e">setM</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">onClick</span> <span style="color:#f92672">=</span> ()=&gt;{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setN</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">onClick</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">update</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">n</span>}
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Child</span> <span style="color:#a6e22e">date</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">m</span>}<span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/Child&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Child</span>(<span style="color:#a6e22e">props</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Child执行了&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;此处有大量代码&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;````&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Child</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">data</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>上例代码中， <code>App</code> 组件中生成了两个互相独立的数据，分别是 <code>n</code> 和 <code>m</code>， 有一个按钮绑定了更新数据 <code>n</code> 的事件，其中还有一个子组件 <code>Child</code>，<code>App</code> 组件作为父组件将 <code>m</code> 作为 <code>props.data</code> 传入了 <code>Child</code>。</p>
+<p>点击更新按钮，<code>n</code> 发生变化，<code>App</code> 组件自然会重新渲染。问题来了，作为 <code>App</code> 的子组件， <code>Child</code> 的依赖 <code>props</code> 没有发生改变， <code>Child</code> 会因为父组件的刷新重新渲染吗？</p>
+<p><img loading="lazy" src="https://files.catbox.moe/o1atmj.png" alt="初始化刷新"  />
+</p>
+<p><img loading="lazy" src="https://files.catbox.moe/2rwh99.png" alt="父组件刷新一次"  />
+</p>
+<p>从上图中我们能清晰地看到，虽然 <code>Child</code> 的依赖没有发生变化，但它仍然因为父组件的更新重新执行了。从开发者者的角度看，这完全是无意义地执行，假如子组件中有大量代码，那毫无疑问会产生性能浪费。</p>
+<p>为了优化此种情况下的代码执行， <code>React</code> 提供了 <code>memo</code> 来封装组件。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">n</span>,<span style="color:#a6e22e">setN</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">m</span>,<span style="color:#a6e22e">setM</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">onClick</span> <span style="color:#f92672">=</span> ()=&gt;{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setN</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">onClick</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">update</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">n</span>}
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MemoChild</span> <span style="color:#a6e22e">date</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">m</span>}<span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/MemoChild&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Child</span>(<span style="color:#a6e22e">props</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Child执行了&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;此处有大量代码&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;````&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Child</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">data</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MemoChild</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">memo</span>(<span style="color:#a6e22e">Child</span>)
+</span></span></code></pre></div><p><img loading="lazy" src="https://files.catbox.moe/2bjuqe.png" alt="memo封装初始化"  />
+
+<img loading="lazy" src="https://files.catbox.moe/7kvg44.png" alt="memo封装父组件更新"  />
+</p>
+<p><code>n</code> 更新了，但是子组件并没有跟随重新执行。</p>
+<p><code>React</code> 官方文档如是说：</p>
+<blockquote>
+<p>React.memo 为高阶组件。
+如果你的组件在相同 props 的情况下渲染相同的结果，那么你可以通过将其包装在 React.memo 中调用，以此通过记忆组件渲染结果的方式来提高组件的性能表现。这意味着在这种情况下，React 将跳过渲染组件的操作并直接复用最近一次渲染的结果。 <br>
+React.memo 仅检查 props 变更。如果函数组件被 React.memo 包裹，且其实现中拥有 useState，useReducer 或 useContext 的 Hook，当 state 或 context 发生变化时，它仍会重新渲染。 <br>
+默认情况下其只会对复杂对象做浅层对比，如果你想要控制对比过程，那么请将自定义的比较函数通过第二个参数传入来实现。</p>
+</blockquote>
+<p>就如官方文档所说，默认情况下只会进行浅对比，若外部属性中传入了复杂对象如函数，子组件仍然会重新执行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">setN</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">setM</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">onClick</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setN</span>(<span style="color:#a6e22e">n</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">onClickChild</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">m</span>);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">onClick</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">update</span> <span style="color:#a6e22e">n</span> {<span style="color:#a6e22e">n</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MemoChild</span> <span style="color:#a6e22e">data</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">m</span>} <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">onClickChild</span>} <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* MemoChild 居然又执行了 */</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Child</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;child 执行了&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;假设这里有大量代码&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;````&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">onClick</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">child</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">data</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MemoChild</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">memo</span>(<span style="color:#a6e22e">Child</span>);
+</span></span></code></pre></div><p><img loading="lazy" src="https://files.catbox.moe/ksnxed.png" alt="memo传入函数初始化"  />
+
+<img loading="lazy" src="https://files.catbox.moe/hq5zc0.png" alt="memo传入函数n更新"  />
+</p>
+<p>我们可以看到，<code>memo</code> 组件仍然跟随父组件重刷新了。这是因为父组件更新时重新生成了 <code>onClickChild</code> 这一函数，虽然函数名和函数体都未发生任何修改操作，但引用地址发生了变化，浅对比就会视作依赖发生了变化触发 <code>memo</code> 组件重新执行。</p>
+<p>这时候就需要用到 <code>useMemo</code>。</p>
+<h1 id="usememo"><code>useMemo</code><a hidden class="anchor" aria-hidden="true" href="#usememo">#</a></h1>
+<p>用来封装在上例中被传入到子组件的这类高开销函数。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">onClickChild</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useMemo</span>(()=&gt;()=&gt;<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">m</span>),[<span style="color:#a6e22e">m</span>])
+</span></span></code></pre></div><p><img loading="lazy" src="https://files.catbox.moe/0xyt8p.png" alt="初始化"  />
+
+<img loading="lazy" src="https://files.catbox.moe/pzfgi5.png" alt="更新"  />
+</p>
+<p><code>useMemo</code> 接收两个参数，第一个参数为需要创建的函数，第二个参数为函数依赖项的数组，返回一个 <code>memoized</code> 值。 <code>useMemo</code> 只会在依赖项发生改变的时候才重新计算值。如果没有提供依赖项，那么每次渲染 <code>useMemo</code> 都会重新计算值。</p>
+<p>如官方文档所说：</p>
+<blockquote>
+<p>记住，传入 useMemo 的函数会在渲染期间执行。请不要在这个函数内部执行不应该在渲染期间内执行的操作，诸如副作用这类的操作属于 useEffect 的适用范畴，而不是 useMemo。</p>
+</blockquote>
+<h1 id="usecallback"><code>useCallback</code><a hidden class="anchor" aria-hidden="true" href="#usecallback">#</a></h1>
+<p><code>useMemo</code> 在书写函数时会有多个函数的嵌套，过于繁琐可读性不高，可以使用 <code>useCallback</code> ，简化书写达到相同的功能。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">onClickChild</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useCallback</span>(()=&gt;<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">m</span>),[<span style="color:#a6e22e">m</span>])
+</span></span></code></pre></div><p>如官方文档所说：</p>
+<blockquote>
+<p>把内联回调函数及依赖项数组作为参数传入 useCallback，它将返回该回调函数的 memoized 版本，该回调函数仅在某个依赖项改变时才会更新。当你把回调函数传递给经过优化的并使用引用相等性去避免非必要渲染（例如 shouldComponentUpdate）的子组件时，它将非常有用。<br>
+useCallback(fn, deps) 相当于 useMemo(() =&gt; fn, deps)。</p>
+</blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://kuangdangli.github.io/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

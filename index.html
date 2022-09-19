@@ -127,6 +127,19 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2>浅析useMemo
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>要理解 React.useMemo (下文统一略称 useMemo)，首先要了解 React.memo(下文统一略称 memo)。
+memo function App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()=&gt;{  setN(n&#43;1)  }  return(  &lt;div className = &#34;App&#34;&gt;  &lt;div&gt;  &lt;button onClick={onClick}&gt;update n:{n}  &lt;/button&gt;  &lt;/div&gt;  &lt;Child date={m}&gt;&lt;/Child&gt;  &lt;/div&gt;  ) }  function Child(props){  console.log(&#34;Child执行了&#34;)  console.log(&#34;此处有大量代码&#34;)  console.log(&#34;````&#34;)  return (  &lt;div&gt;  Child:{props.data}  &lt;/div&gt;  ) } 上例代码中， App 组件中生成了两个互相独立的数据，分别是 n 和 m， 有一个按钮绑定了更新数据 n 的事件，其中还有一个子组件 Child，App 组件作为父组件将 m 作为 props....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-09-19 17:22:00 +0800 CST'>September 19, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 浅析useMemo" href="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usememo/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>浅析Context
     </h2>
   </header>
@@ -289,20 +302,6 @@ let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  le
   </section>
   <footer class="entry-footer"><span title='2022-08-07 21:47:06 +0800 CST'>August 7, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Vue Reactivity" href="https://kuangdangli.github.io/post/vue-reactivity/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>SyncModifier
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>sync修饰符 子组件尝试改变一个prop属性值并将其同步到父组件时，开发者可以使用sync修饰符。 代码实例
-Vue.component(&#34;Child&#34;,{  template: ` &lt;div class=&#34;child&#34;&gt; {{money}} &lt;button @click=&#34;$emit(&#39;update:money&#39;, money-100)&#34;&gt; &lt;span&gt;花钱&lt;/span&gt; &lt;/button&gt; &lt;/div&gt; `,  props: [&#34;money&#34;] }) new Vue({  components: { Child: Child },  template:` &lt;div class=&#34;app&#34;&gt; App.vue 我现在有 {{total}} &lt;hr&gt; &lt;Child :money.sync=&#34;total&#34;/&gt; &lt;/div&gt; `,  data() {  return { total: 10000 };  } }) 子组件注册一个点击事件update:money，传出参数money-100，父组件使用.sync修饰符监听事件，并拿到子组件传出的参数并赋值给子组件的外部属性money。
-//.sync修饰符相当于封装了如下操作 &lt;Child :money=&#34;total&#34; v-on:update-money=&#34;total = $event&#34;/&gt; </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-08-07 21:19:12 +0800 CST'>August 7, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to SyncModifier" href="https://kuangdangli.github.io/post/syncmodifier/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
