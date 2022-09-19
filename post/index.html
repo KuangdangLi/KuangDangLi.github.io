@@ -136,7 +136,7 @@
   </header>
   <section class="entry-content">
     <p>要理解 React.useMemo (下文统一略称 useMemo)，首先要了解 React.memo(下文统一略称 memo)。
-memo function App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()=&gt;{  setN(n&#43;1)  }  return(  &lt;div className = &#34;App&#34;&gt;  &lt;div&gt;  &lt;button onClick={onClick}&gt;update n:{n}  &lt;/button&gt;  &lt;/div&gt;  &lt;Child date={m}&gt;&lt;/Child&gt;  &lt;/div&gt;  ) }  function Child(props){  console.log(&#34;Child执行了&#34;)  console.log(&#34;此处有大量代码&#34;)  console.log(&#34;````&#34;)  return (  &lt;div&gt;  Child:{props.data}  &lt;/div&gt;  ) } 上例代码中， App 组件中生成了两个互相独立的数据，分别是 n 和 m， 有一个按钮绑定了更新数据 n 的事件，其中还有一个子组件 Child，App 组件作为父组件将 m 作为 props....</p>
+memo function App() {  const [n,setN] = React.useState(0)  const [m,setM] = React.useState(0)  const onClick = ()=&gt;{  setN(n&#43;1)  }  return(  &lt;div className = &#34;App&#34;&gt;  &lt;div&gt;  &lt;button onClick={onClick}&gt;update n:{n}  &lt;/button&gt;  &lt;/div&gt;  &lt;Child date={m}&gt;&lt;/Child&gt;  &lt;/div&gt;  ) }  function Child(props){  console.log(&#34;Child执行了&#34;)  console.log(&#34;此处有大量代码&#34;)  console.log(&#34;````&#34;)  return (  &lt;div&gt;  Child:{props.data}  &lt;/div&gt;  ) } 上例代码中， App 组件中生成了两个互相独立的数据，分别是 n 和 m， 有一个按钮绑定了更新数据 n 的事件，其中还有一个子组件 Child，App 组件作为父组件将 m 作为 Child 的 props....</p>
   </section>
   <footer class="entry-footer"><span title='2022-09-19 17:22:00 +0800 CST'>September 19, 2022</span></footer>
   <a class="entry-link" aria-label="post link to 浅析useMemo" href="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usememo/"></a>
