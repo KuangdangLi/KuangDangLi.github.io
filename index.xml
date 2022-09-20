@@ -6,7 +6,23 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Sep 2022 17:22:00 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Sep 2022 20:50:03 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浅析ref</title>
+      <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90ref/</link>
+      <pubDate>Tue, 20 Sep 2022 20:50:03 +0800</pubDate>
+      
+      <guid>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90ref/</guid>
+      <description>Ref 是什么  React 支持一个特殊的、可以附加到任何组件上的 ref 属性。此属性可以是一个由 React.createRef() 函数创建的对象、或者一个回调函数、或者一个字符串（遗留 API）。当 ref 属性是一个回调函数时，此函数会（根据元素的类型）接收底层 DOM 元素或 class 实例作为其参数。这能够让你直接访问 DOM 元素或组件实例。
+ 以上来自 React 官方文档。
+Ref 特性  在典型的 React 数据流中，props 是父组件与子组件交互的唯一方式。要修改一个子组件，你需要使用新的 props 来重新渲染它。但是，在某些情况下，你需要在典型数据流之外强制修改子组件。被修改的子组件可能是一个 React 组件的实例，也可能是一个 DOM 元素。对于这两种情况，React 都提供了解决办法，指 Ref 。
+ 以上来自 React 官方文档。
+Ref 使用场景  下面是几个适合使用 refs 的情况：
+ 管理焦点，文本选择或媒体播放。 触发强制动画。 集成第三方 DOM 库。
+避免使用 refs 来做任何可以通过声明式实现来完成的事情。
+举个例子，避免在 Dialog 组件里暴露 open() 和 close() 方法，最好传递 isOpen 属性。   ref 使用方法 见 React 官方文档。</description>
+    </item>
+    
     <item>
       <title>浅析useMemo</title>
       <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90usememo/</link>

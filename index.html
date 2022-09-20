@@ -127,6 +127,25 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2>浅析ref
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Ref 是什么  React 支持一个特殊的、可以附加到任何组件上的 ref 属性。此属性可以是一个由 React.createRef() 函数创建的对象、或者一个回调函数、或者一个字符串（遗留 API）。当 ref 属性是一个回调函数时，此函数会（根据元素的类型）接收底层 DOM 元素或 class 实例作为其参数。这能够让你直接访问 DOM 元素或组件实例。
+ 以上来自 React 官方文档。
+Ref 特性  在典型的 React 数据流中，props 是父组件与子组件交互的唯一方式。要修改一个子组件，你需要使用新的 props 来重新渲染它。但是，在某些情况下，你需要在典型数据流之外强制修改子组件。被修改的子组件可能是一个 React 组件的实例，也可能是一个 DOM 元素。对于这两种情况，React 都提供了解决办法，指 Ref 。
+ 以上来自 React 官方文档。
+Ref 使用场景  下面是几个适合使用 refs 的情况：
+ 管理焦点，文本选择或媒体播放。 触发强制动画。 集成第三方 DOM 库。
+避免使用 refs 来做任何可以通过声明式实现来完成的事情。
+举个例子，避免在 Dialog 组件里暴露 open() 和 close() 方法，最好传递 isOpen 属性。   ref 使用方法 见 React 官方文档。...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-09-20 20:50:03 +0800 CST'>September 20, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 浅析ref" href="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90ref/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>浅析useMemo
     </h2>
   </header>
@@ -288,20 +307,6 @@ const React = window.React//CDN引入的React会挂载在全局变量上 const R
   </section>
   <footer class="entry-footer"><span title='2022-08-23 21:59:24 +0800 CST'>August 23, 2022</span></footer>
   <a class="entry-link" aria-label="post link to 引入React" href="https://kuangdangli.github.io/post/react/%E5%BC%95%E5%85%A5react/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Vue Reactivity
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>浅析Vue数据响应式 Vue.js 一个核心思想是数据驱动。所谓数据驱动，是指视图是由数据驱动生成的，开发者对视图的修改，不会直接操作 DOM，而是通过修改数据。Vue利用Object.defineProperty将data对象的property改造成getter、setter，实现对data的监听和代理，在内部它们让 Vue 能够追踪依赖，在 property 被访问和修改时通知变更。
-下面通过代码来简单还原一下Vue数据响应。
-let myData = {n:0} let data = proxy({ data:myData }) function proxy({data}){  let value = data.n  Object.defineProperty(data, &#39;n&#39;, {  get(){  return value  },  set(newValue){  if(newValue&lt;0)return  value = newValue  }//使用get、set定义伪属性n，覆盖掉对象上原始n。此后，myData对象上的n属性值的查看、修改都会经过自定义的函数，通过函数可以屏蔽掉需求外的操纵。这就达成了对data的监听。  })   const obj = {}  Object.defineProperty(obj, &#39;n&#39;, {  get(){  return data.n  },  set(value){  if(value&lt;0)return  data....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-08-07 21:47:06 +0800 CST'>August 7, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Vue Reactivity" href="https://kuangdangli.github.io/post/vue-reactivity/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
