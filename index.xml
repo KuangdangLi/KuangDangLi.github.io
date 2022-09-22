@@ -6,7 +6,22 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Sep 2022 20:50:03 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Sep 2022 17:04:26 +0800</lastBuildDate><atom:link href="https://kuangdangli.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浅析useImperativeHandle</title>
+      <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90useimperativehandle/</link>
+      <pubDate>Thu, 22 Sep 2022 17:04:26 +0800</pubDate>
+      
+      <guid>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90useimperativehandle/</guid>
+      <description>用途 useImperativeHandle 允许开发者自定义暴露给父组件的 ref 属性，主要是一些子组件中的自定义方法。
+使用 useImperativeHandle(ref, createHandle, [deps]) useImperativeHandle 接收三个参数，其中前两个参数是必需的，第三个参数为可选项。需要与 forwardRef 一起使用。
+第一个参数为父组件生成的需要自定义的 ref 引用。
+第二个参数是一个函数，其返回值会被添加到 ref.current 上。
+第三个参数为可选项，是第二个参数需要用到的依赖变量。
+父组件通过 ref.current.xxx 来访问子组件暴露的属性。
+例子 function App() {  const buttonRef = React.useRef(null)  return (  &amp;lt;div&amp;gt;  &amp;lt;Child ref={buttonRef}&amp;gt;&amp;lt;/Child&amp;gt;  &amp;lt;button onClick={()=&amp;gt;buttonRef.current.addN()}&amp;gt;+1&amp;lt;/button&amp;gt;  &amp;lt;/div&amp;gt;  ) }  const Child = React.forwardRef((props,ref)=&amp;gt;{  const [n,setN] = React.useState(0)  const addN = ()=&amp;gt;{  setN(n+1)  }  React.useImperativeHandle(ref,()=&amp;gt;({addN}))  return (  &amp;lt;div&amp;gt;  {n}  &amp;lt;/div&amp;gt;  ) }) </description>
+    </item>
+    
     <item>
       <title>浅析ref</title>
       <link>https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90ref/</link>

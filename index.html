@@ -127,6 +127,24 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2>浅析useImperativeHandle
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>用途 useImperativeHandle 允许开发者自定义暴露给父组件的 ref 属性，主要是一些子组件中的自定义方法。
+使用 useImperativeHandle(ref, createHandle, [deps]) useImperativeHandle 接收三个参数，其中前两个参数是必需的，第三个参数为可选项。需要与 forwardRef 一起使用。
+第一个参数为父组件生成的需要自定义的 ref 引用。
+第二个参数是一个函数，其返回值会被添加到 ref.current 上。
+第三个参数为可选项，是第二个参数需要用到的依赖变量。
+父组件通过 ref.current.xxx 来访问子组件暴露的属性。
+例子 function App() {  const buttonRef = React.useRef(null)  return (  &lt;div&gt;  &lt;Child ref={buttonRef}&gt;&lt;/Child&gt;  &lt;button onClick={()=&gt;buttonRef.current.addN()}&gt;&#43;1&lt;/button&gt;  &lt;/div&gt;  ) }  const Child = React.forwardRef((props,ref)=&gt;{  const [n,setN] = React.useState(0)  const addN = ()=&gt;{  setN(n&#43;1)  }  React.useImperativeHandle(ref,()=&gt;({addN}))  return (  &lt;div&gt;  {n}  &lt;/div&gt;  ) }) </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-09-22 17:04:26 +0800 CST'>September 22, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 浅析useImperativeHandle" href="https://kuangdangli.github.io/post/%E6%B5%85%E6%9E%90useimperativehandle/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>浅析ref
     </h2>
   </header>
@@ -291,22 +309,6 @@ const React = window.React//CDN引入的React会挂载在全局变量上 const R
   </section>
   <footer class="entry-footer"><span title='2022-08-25 10:55:47 +0800 CST'>August 25, 2022</span></footer>
   <a class="entry-link" aria-label="post link to 初识React" href="https://kuangdangli.github.io/post/react/%E5%88%9D%E8%AF%86react/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>引入React
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>React是什么 React（也称为 React.js 或 ReactJS）是一个免费的开放源代码前端 JavaScript工具库，用于基于 UI 组件构建用户界面。它由 Meta（前身为 Facebook）和一个由个人开发者和公司组成的社群维护。
-如何引入React  从CDN引入React 从类似BootCDN的网站获取到React、ReactDOM这两个库的链接，使用HTML的script标签将其引入到项目中。  &lt;script src=&#34;https://cdn.bootcdn.net/ajax/libs/react/18.2.0/umd/react.production.min.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;https://cdn.bootcdn.net/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js&#34;&gt;&lt;/script&gt; //注意两个库引入的顺序 一般存在cjs和umd两个版本。cjs全称CommonJS，是Node.js支持的模块规范。umd是同一模块定义，兼容各种模块规范(含浏览器)。理论上优先使用umd，同时支持Node.js和浏览器。
- 通过webpack引入React
-  使用create-react-app create-react-app，在React中起到的作用和Vue@cli在Vue中作用差不多，方便开发者快速创建项目。下面是使用create-react-app的步骤
-  yarn global add create-react-app//全局安装create-react-app create-react-app xxx//在当前目录下创建名为xxx的React项目 cd xxx yarn start//进入项目，开启预览 </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-08-23 21:59:24 +0800 CST'>August 23, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to 引入React" href="https://kuangdangli.github.io/post/react/%E5%BC%95%E5%85%A5react/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

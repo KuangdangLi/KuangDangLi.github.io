@@ -131,6 +131,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>引入React
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>React是什么 React（也称为 React.js 或 ReactJS）是一个免费的开放源代码前端 JavaScript工具库，用于基于 UI 组件构建用户界面。它由 Meta（前身为 Facebook）和一个由个人开发者和公司组成的社群维护。
+如何引入React  从CDN引入React 从类似BootCDN的网站获取到React、ReactDOM这两个库的链接，使用HTML的script标签将其引入到项目中。  &lt;script src=&#34;https://cdn.bootcdn.net/ajax/libs/react/18.2.0/umd/react.production.min.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;https://cdn.bootcdn.net/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js&#34;&gt;&lt;/script&gt; //注意两个库引入的顺序 一般存在cjs和umd两个版本。cjs全称CommonJS，是Node.js支持的模块规范。umd是同一模块定义，兼容各种模块规范(含浏览器)。理论上优先使用umd，同时支持Node.js和浏览器。
+ 通过webpack引入React
+  使用create-react-app create-react-app，在React中起到的作用和Vue@cli在Vue中作用差不多，方便开发者快速创建项目。下面是使用create-react-app的步骤
+  yarn global add create-react-app//全局安装create-react-app create-react-app xxx//在当前目录下创建名为xxx的React项目 cd xxx yarn start//进入项目，开启预览 </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-08-23 21:59:24 +0800 CST'>August 23, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 引入React" href="https://kuangdangli.github.io/post/react/%E5%BC%95%E5%85%A5react/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Vue Reactivity
     </h2>
   </header>
@@ -276,24 +292,6 @@ jQuery的操作都会返回一个jQuery对象，以便进行下一步操作。�
   </section>
   <footer class="entry-footer"><span title='2022-06-14 16:31:12 +0800 CST'>June 14, 2022</span></footer>
   <a class="entry-link" aria-label="post link to JQuery Basic Function" href="https://kuangdangli.github.io/post/jquery-basic-function/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Js函数执行时机
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>首先明确函数通过函数名加()来调用执行，函数声明不会调用执行函数。先声明后执行，在不同的时间函数可能面临着不同的环境与变量，其执行效果也不同。
-例子 let a = 1 function fn(){  console.log(a) } 未调用函数，无结果
-let a = 1 function fn(){  console.log(a) } fn() 声明变量并赋值；声明函数；随后调用函数，打印出a的值1.
-let a = 1 function fn(){  console.log(a) } a=2 fn() 声明变量并赋值；声明函数；修改变量值；随后调用函数，打印出a的值为2.
-let a = 1 function fn(){  console.log(a) } fn() a=2 声明变量并赋值；声明函数；随后调用，打印出a的值1；修改a的值。
-let a = 1 function fn(){  setTimeout(()=&gt;{  console.log(a)  },0) } fn() a = 2 声明变量并赋值；声明函数；随后调用，函数中嵌套的函数setTimeout要求打印的操作在队列中的任务完成后再执行；修改a的值；队列任务完成，打印a的值。
-let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){  setTimeout(()=&gt;{  console....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-05-01 21:01:18 +0800 CST'>May 1, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Js函数执行时机" href="https://kuangdangli.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
